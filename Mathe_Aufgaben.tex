@@ -1,0 +1,453 @@
+% !TEX program = pdflatex
+\documentclass[12pt,twoside,openright,parskip=half,colorlinks=true]{scrbook}
+\raggedbottom
+
+% =========================================================
+% Sprache, Fonts, Mathe
+% =========================================================
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{newpxtext,newpxmath}
+\usepackage[scaled=.92]{helvet}
+\usepackage{microtype}
+\usepackage{csquotes}
+
+\let\Bbbk\relax
+\usepackage{amsmath,amssymb,mathtools}
+\let\openbox\relax
+\usepackage{amsthm}
+
+% =========================================================
+% Layout, Header/Footer, Listen
+% =========================================================
+\usepackage[a4paper,margin=2.5cm,includeheadfoot]{geometry}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[headsepline,footsepline]{scrlayer-scrpage}
+
+\clearpairofpagestyles
+\ihead{\leftmark}
+\ohead{\rightmark}
+\ifoot{Otto-Hahn-Gymnasium Göttingen}
+\ofoot{\pagemark}
+
+% =========================================================
+% Farben
+% =========================================================
+\usepackage{xcolor}
+\definecolor{LinkBlue}{HTML}{1F4E79}
+\definecolor{AbiGray}{gray}{0.96}
+
+% =========================================================
+% Überschriftenstil
+% =========================================================
+\setkomafont{chapter}{\Huge\bfseries\color{LinkBlue}}
+\setkomafont{section}{\Large\bfseries\color{LinkBlue}}
+\setkomafont{subsection}{\large\bfseries\color{LinkBlue}}
+
+\RedeclareSectionCommand[beforeskip=14pt plus 2pt, afterskip=10pt]{chapter}
+\RedeclareSectionCommand[beforeskip=10pt, afterskip=6pt]{section}
+\RedeclareSectionCommand[beforeskip=8pt, afterskip=4pt]{subsection}
+
+% =========================================================
+% TOC
+% =========================================================
+\usepackage{tocbasic}
+\addtokomafont{chapterentry}{\color{LinkBlue}\bfseries}
+\setcounter{tocdepth}{2}
+
+% =========================================================
+% Hyperref + cleveref
+% =========================================================
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks = true,
+	linkcolor  = LinkBlue,
+	urlcolor   = LinkBlue,
+	citecolor  = LinkBlue
+}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+% =========================================================
+% Kompakte Listen (global)
+% =========================================================
+\setlist{topsep=4pt,itemsep=6pt,parsep=0pt} % itemsep etwas größer, weil jetzt Block + Link
+
+% =========================================================
+% Kurzaufgaben: Spalten
+% =========================================================
+\usepackage{multicol}
+
+% =========================================================
+% Abituraufgaben: grauer Hintergrund, ohne Rahmen
+% =========================================================
+\usepackage{framed}
+\definecolor{shadecolor}{gray}{0.96}
+
+% =========================================================
+% Aufgaben / Lösungen: Zähler + Navigation
+% =========================================================
+\newcounter{exo}
+\renewcommand{\theexo}{\arabic{exo}}
+
+% Für eindeutige Hyperref-Repräsentation
+\newcounter{exoglobal}
+\providecommand*{\theHexo}{\arabic{exoglobal}}
+
+% Link-Kommandos
+\newcommand{\zumloesung}[2]{%
+	\hyperref[loes:#1:#2]{\textcolor{LinkBlue}{→ Zur Lösung}}%
+}
+\newcommand{\zurausgabe}[2]{%
+	\hyperref[aufg:#1:#2]{\textcolor{LinkBlue}{← Zur Aufgabe}}%
+}
+
+% =========================================================
+% Neue Aufgaben-/Lösungsbefehle
+% =========================================================
+
+% Kurzaufgabe: \kurzaufgabe[spalten]{ID}{Aufgabentext}{Teilaufgaben als \item}
+\newcommand{\kurzaufgabe}[4][2]{%
+	\refstepcounter{exo}%
+	\refstepcounter{exoglobal}%
+	\item \label{aufg:#2:\theexo}%
+	#3% Aufgabentext
+	\ifx&#4&% Wenn keine Teilaufgaben (Parameter 4 leer)
+		% Keine Teilaufgaben
+	\else
+		\par\noindent
+		\begin{multicols}{#1}
+		\begin{enumerate}[label=\alph*)]
+			#4% Teilaufgaben
+		\end{enumerate}
+		\end{multicols}
+	\fi
+	\par\noindent\hfill\zumloesung{#2}{\theexo}%
+}
+
+% Komplexaufgabe: \komplexaufgabe{ID}{Aufgabentext}{Teilaufgaben als \item}
+\newcommand{\komplexaufgabe}[3]{%
+	\refstepcounter{exo}%
+	\refstepcounter{exoglobal}%
+	\item \label{aufg:#1:\theexo}%
+	#2% Aufgabentext
+	\ifx&#3&% Wenn keine Teilaufgaben
+		% Keine Teilaufgaben
+	\else
+		\par\noindent
+		\begin{enumerate}[label=\alph*)]
+			#3% Teilaufgaben
+		\end{enumerate}
+	\fi
+	\par\noindent\hfill\zumloesung{#1}{\theexo}%
+}
+
+% Abituraufgabe: \abituraufgabe{ID}{Aufgabentext}{Teilaufgaben als \item}
+\newcommand{\abituraufgabe}[3]{%
+	\refstepcounter{exo}%
+	\refstepcounter{exoglobal}%
+	\item \label{aufg:#1:\theexo}%
+	#2% Aufgabentext
+	\ifx&#3&% Wenn keine Teilaufgaben
+		% Keine Teilaufgaben
+	\else
+		\par\noindent
+		\begin{enumerate}[label=\alph*)]
+			#3% Teilaufgaben
+		\end{enumerate}
+	\fi
+	\par\noindent\hfill\zumloesung{#1}{\theexo}%
+}
+
+% Kurzlösung: \kurzloesung[spalten]{ID}{Lösungstext}{Teillösungen als \item}
+\newcommand{\kurzloesung}[4][2]{%
+	\refstepcounter{exo}%
+	\refstepcounter{exoglobal}%
+	\item \label{loes:#2:\theexo}%
+	#3% Lösungstext
+	\ifx&#4&% Wenn keine Teillösungen (Parameter 4 leer)
+		% Keine Teillösungen
+	\else
+		\par\noindent
+		\begin{multicols}{#1}%
+		\begin{enumerate}[label=\alph*)]%
+			#4% Teillösungen
+		\end{enumerate}%
+		\end{multicols}%
+	\fi
+	\par\noindent\hfill\zurausgabe{#2}{\theexo}%
+}
+
+% Komplexlösung: \komplexloesung{ID}{Lösungstext}{Teillösungen als \item}
+\newcommand{\komplexloesung}[3]{%
+	\refstepcounter{exo}%
+	\refstepcounter{exoglobal}%
+	\item \label{loes:#1:\theexo}%
+	#2% Lösungstext
+	\ifx&#3&% Wenn keine Teillösungen
+		% Keine Teillösungen
+	\else
+		\par\noindent
+		\begin{enumerate}[label=\alph*)]
+			#3% Teillösungen
+		\end{enumerate}
+	\fi
+	\par\noindent\hfill\zurausgabe{#1}{\theexo}%
+}
+
+% Abiturlösung: \abiturloesung{ID}{Lösungstext}{Teillösungen als \item}
+\newcommand{\abiturloesung}[3]{%
+	\refstepcounter{exo}%
+	\refstepcounter{exoglobal}%
+	\item \label{loes:#1:\theexo}%
+	#2% Lösungstext
+	\ifx&#3&% Wenn keine Teillösungen
+		% Keine Teillösungen
+	\else
+		\par\noindent
+		\begin{enumerate}[label=\alph*)]
+			#3% Teillösungen
+		\end{enumerate}
+	\fi
+	\par\noindent\hfill\zurausgabe{#1}{\theexo}%
+}
+
+% =========================================================
+% Umgebungen für Aufgaben/Lösungen (nur enumerate-Wrapper)
+% =========================================================
+
+% Kurzaufgaben-Umgebung
+\newenvironment{kurzaufgaben}[1]{%
+	\setcounter{exo}{0}%
+	\begin{enumerate}[label=\arabic*., leftmargin=*, itemsep=10pt]%
+}{%
+	\end{enumerate}%
+}
+
+% Komplexaufgaben-Umgebung  
+\newenvironment{komplexaufgaben}[1]{%
+	\setcounter{exo}{0}%
+	\begin{enumerate}[label=\arabic*., leftmargin=*, itemsep=12pt]%
+}{%
+	\end{enumerate}%
+}
+
+% Abituraufgaben-Umgebung (mit grauem Hintergrund)
+\newenvironment{abituraufgaben}[1]{%
+	\setcounter{exo}{0}%
+	\begin{shaded}%
+	\begin{enumerate}[label=\arabic*., leftmargin=*, itemsep=12pt]%
+}{%
+	\end{enumerate}%
+	\end{shaded}%
+}
+
+% Kurzlösungen-Umgebung
+\newenvironment{kurzloesungen}[1]{%
+	\setcounter{exo}{0}%
+	\begin{enumerate}[label=\arabic*., leftmargin=*, itemsep=10pt]%
+}{%
+	\end{enumerate}%
+}
+
+% Komplexlösungen-Umgebung
+\newenvironment{komplexloesungen}[1]{%
+	\setcounter{exo}{0}%
+	\begin{enumerate}[label=\arabic*., leftmargin=*, itemsep=12pt]%
+}{%
+	\end{enumerate}%
+}
+
+% Abiturlösungen-Umgebung (mit grauem Hintergrund)
+\newenvironment{abiturloesungen}[1]{%
+	\setcounter{exo}{0}%
+	\begin{shaded}%
+	\begin{enumerate}[label=\arabic*., leftmargin=*, itemsep=12pt]%
+}{%
+	\end{enumerate}%
+	\end{shaded}%
+}
+
+% =========================================================
+% Wrapper: Aufgaben-/Lösungs-Sektionen (TOC)
+% =========================================================
+\newenvironment{aufgabensektion}[1]{%
+	\section*{Aufgaben zu \ref{#1}\ \nameref{#1}}%
+	\phantomsection%
+	\addcontentsline{toc}{section}{Aufgaben zu \ref{#1}\ \nameref{#1}}%
+}{}
+
+\newenvironment{aufgabensubsektion}[1]{%
+	\subsection*{Aufgaben zu \ref{#1}\ \nameref{#1}}%
+	\phantomsection%
+	\addcontentsline{toc}{subsection}{Aufgaben zu \ref{#1}\ \nameref{#1}}%
+}{}
+
+\newenvironment{loesungssektion}[1]{%
+	\section*{Lösungen zu \ref{#1}\ \nameref{#1}}%
+	\phantomsection%
+	\addcontentsline{toc}{section}{Lösungen zu \ref{#1}\ \nameref{#1}}%
+}{}
+
+\newenvironment{loesungsubsektion}[1]{%
+	\subsection*{Lösungen zu \ref{#1}\ \nameref{#1}}%
+	\phantomsection%
+	\addcontentsline{toc}{subsection}{Lösungen zu \ref{#1}\ \nameref{#1}}%
+}{}
+
+% =========================================================
+% Titelseite (Logo optional)
+% =========================================================
+\usepackage{graphicx}
+\newcommand{\optionallogo}{%
+	\IfFileExists{ohg_logo.png}{\includegraphics[width=0.45\textwidth]{ohg_logo.png}}{}%
+}
+
+\titlehead{\centering\optionallogo}
+\subject{Übungsskript zum niedersächsischen Abitur im Fach}
+\title{Mathematik}
+\author{Martin Polle\\Otto-Hahn-Gymnasium, Göttingen}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	\tableofcontents
+	
+	\chapter*{Aufgaben Analysis}
+	\addcontentsline{toc}{chapter}{Aufgaben Analysis}
+	\renewcommand{\thesection}{A\arabic{section}}
+	\setcounter{section}{0}
+	% ---------------------------------------------------------
+	% Sektion / Subsektion (Beispiel)
+	% ---------------------------------------------------------
+	\section{Exponential- und Logarithmusfunktionen}
+	\label{sec:exp-log}
+	
+	\subsection{Ableitung, Extrema und Wendepunkte}
+	\label{sec:explogfktAblExWP}
+	
+	\begin{kurzaufgaben}{sec:explogfktAblExWP}
+		
+			\kurzaufgabe[3]{aufgA1.1.1}{Bestimmen Sie die Lösungen der Exponentialgleichungen. }{
+				\item \(e^{2x+1}-1=1\)
+				\item \(3e^{x}=e^{-x}\)
+				\item \(4e^{x}=e^{2x}\)
+				\item \(e^{x+1}=e^{-x}\)
+				\item \(5e^{2x}=3e^{3x}\)
+				\item \(2e^{-0.5x}=7e^{-2x}\)
+				\item \(4e^{x}+2=6e^{-x}\)
+				\item \(2e^{x}-2=12e^{-x}\)
+			}
+
+			\kurzaufgabe[1]{aufgA1.1.2}{Bestimmen Sie die Schnittpunkte der Funktionsgraphen von $f$ und $g$. }{
+				\item \(f(x)=2.5\cdot e^{x}\), $g(x)=e^{2\cdot x}$
+				\item \(f(x)=x\cdot e^{x+1}\), $g(x)=x$
+			}
+			
+			\kurzaufgabe[3]{aufgA1.1.3}{Bestimmen Sie die Ableitungsfunktion von\(f\). }{
+			\item \(f(x)=2\cdot e^{0.5x}\)
+			\item \(f(x)=x-e^{x^3}\)
+			\item \(f(x)=\left( 1-x\right)\cdot e^{x} \)
+			\item \(f(x)=x^2\cdot e^{-x}\)
+			\item \(f(x)=\sin x\cdot e^{-x}\)
+			\item \(f(x)=\frac{1}{e^{\sqrt{x}}}\)
+			\item \(f(x)=\frac{1-x}{e^{x}}\)
+			\item \(f(x)=\left( x^3+3x^2\right)\cdot e^{-x} \)
+			\item \(f(x)=\frac{e^{x}}{x^5+1}\)
+			\item \(f(x)=\frac{e^{2x}}{\sqrt{x}}\)
+			\item \(f(x)=( 3-e^{-x^2})^2 \)
+			\item \(f(x)=\frac{1+e^{x}}{1-e^{x}}\)
+					}
+			
+		\kurzaufgabe[3]{aufgA1.1.4}{Bestimmen Sie die unbestimmten Integrale. }{
+			\item \(\int3e^{-4x} \,\mathrm{d}x\)
+			\item \(\int e^{ax+b} \,\mathrm{d}x\)
+			\item \(\int (x-e^{0.5x+1})\,\mathrm{d}x\)
+			\item \(\int (-x\cdot e^{1-x})\,\mathrm{d}x\)
+			\item \(\int 4x\cdot e^{-x^2}\,\mathrm{d}x\)
+			\item \(\int \sin x\cdot e^{x}\,\mathrm{d}x\)
+			\item \(\int (x^2+3x)\cdot e^{x}\,\mathrm{d}x\)
+			\item \(\int \frac{e^{3x}+1}{e^{2x}}\,\mathrm{d}x\)
+			\item \(\int (3-e^{-x})^2\,\mathrm{d}x\)
+			\item \(\int e^{\sin x}\cdot \cos x\,\mathrm{d}x\)
+			\item \(\int \frac{e^{2x}}{(e^{2x+1})^2}\,\mathrm{d}x\)
+			\item \(\int e^{\sqrt{x}}\,\mathrm{d}x\)
+			
+			
+		}
+		
+		
+		
+		\kurzaufgabe[3]{aufgA1.1.5}{Untersuchen Sie die Funktion \(f\) auf Extremstellen.}{
+			\item \(f(x)=\left( 2-x\right)\cdot e^{1+x}\)
+			\item \(f(x)=2e^{x}+e^{-x}\)
+			\item \(f(x)=x\cdot e^{-0.5\cdot x^2}\)
+		}
+		
+		\kurzaufgabe[3]{aufgA1.1.6}{Untersuchen Sie \(f\) auf Wendepunkte.}{
+			\item \(f(x)=(x+1)\,e^{x}\)
+			\item \(f(x)=(2x+1)\,e^{2x+1}\)
+			\item \(f(x)=\bigl(e^{x}-e^{-x}\bigr)\cdot 5x^{2}\)
+		}
+		
+	\end{kurzaufgaben}
+	
+\chapter*{Aufgaben Stochastik}
+\addcontentsline{toc}{chapter}{Aufgaben Stochastik}
+\renewcommand{\thesection}{S\arabic{section}}
+\setcounter{section}{0}
+	
+\chapter*{Aufgaben Analytische Geometrie}
+\addcontentsline{toc}{chapter}{Aufgaben Analytische Geometrie}
+\renewcommand{\thesection}{G\arabic{section}}
+\setcounter{section}{0}
+	
+	\chapter*{Lösungen Analysis}
+	\addcontentsline{toc}{chapter}{Lösungen Analysis}
+	\renewcommand{\thesection}{A\arabic{section}}
+	\setcounter{section}{0}
+	
+	\section{Exponential- und Logarithmusfunktionen}
+	
+	\subsection{Ableitung, Extrema und Wendepunkte}
+	
+	\begin{kurzloesungen}{sec:explogfktAblExWP}
+		\kurzloesung[3]{aufgA1.1.1}{Lösung der Exponentialgleichungen}{
+			\item $\frac{\ln2-1}{2}\approx-0.153$
+			\item $-\ln(\sqrt{3})\approx-0.549$
+			\item $\ln(4)\approx1.386$
+			\item $-\frac{1}{2}$
+			\item $\ln(\frac{5}{3})\approx0.511$
+			\item $\frac{2}{3}\ln(7)\approx1.297$
+			\item $0$
+			\item $\ln(3)$
+		}
+
+		\kurzloesung{aufgA1.1.5}{Extremstellen bestimmen durch \(f'(x)=0\):}{
+			\item \(f'(x)=(1-x)\cdot e^{1+x}\), \(f'(x)=0\) für \(x=1\). \(f''(1)=-e^2<0\) \(\Rightarrow\) Maximum bei \(x=1\), \(f(1)=e^2\)
+			\item \(f'(x)=2e^{x}-e^{-x}\), \(f'(x)=0\) für \(2e^{x}=e^{-x}\) \(\Rightarrow e^{2x}=\frac{1}{2}\) \(\Rightarrow x=-\frac{1}{2}\ln 2\). \(f''(x)=2e^{x}+e^{-x}>0\) \(\Rightarrow\) Minimum bei \(x\approx -0{,}347\), \(f(x)\approx 2{,}38\)
+			\item \(f'(x)=(1-x^2)\cdot e^{-0.5x^2}\), \(f'(x)=0\) für \(x=\pm 1\). \(f''(1)<0\), \(f''(-1)<0\) \(\Rightarrow\) Maxima bei \(x=\pm 1\), \(f(\pm 1)=e^{-0.5}\approx 0{,}606\)
+		}
+		
+		\kurzloesung{aufgA1.1.6}{Wendepunkte bestimmen durch \(f''(x)=0\):}{
+			\item \(f'(x)=(x+2)\,e^{x}\), \(f''(x)=(x+3)\,e^{x}\), \(f''(x)=0\) für \(x=-3\). Wendepunkt bei \((-3, -2e^{-3})\approx (-3, -0{,}1)\)
+			\item \(f'(x)=2(2x+2)\,e^{2x+1}\), \(f''(x)=4(2x+3)\,e^{2x+1}\), \(f''(x)=0\) für \(x=-\frac{3}{2}\). Wendepunkt bei \((-\frac{3}{2}, -2e^{-2})\approx (-1{,}5, -0{,}27)\)
+			\item \(f'(x)=(e^{x}+e^{-x})\cdot 10x + (e^{x}-e^{-x})\cdot 5x^2\), \(f''(x)=0\) für \(x=0\) und weitere Lösungen. Wendepunkt bei \((0, 0)\)
+		}
+		
+	\end{kurzloesungen}
+	
+	\chapter*{Lösungen Stochastik}
+	\addcontentsline{toc}{chapter}{Lösungen Stochastik}
+	\renewcommand{\thesection}{S\arabic{section}}
+	\setcounter{section}{0}
+	
+	\chapter*{Lösungen Analytische Geometrie}
+	\addcontentsline{toc}{chapter}{Lösungen Analytische Geometrie}
+	\renewcommand{\thesection}{G\arabic{section}}
+	\setcounter{section}{0}
+	
+\end{document}
