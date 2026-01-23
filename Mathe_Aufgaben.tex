@@ -43,20 +43,20 @@
 % =========================================================
 % Überschriftenstil
 % =========================================================
-\setkomafont{chapter}{\Huge\bfseries\color{LinkBlue}}
-\setkomafont{section}{\Large\bfseries\color{LinkBlue}}
-\setkomafont{subsection}{\large\bfseries\color{LinkBlue}}
+\setkomafont{part}{\Huge\bfseries\color{LinkBlue}}
+\setkomafont{chapter}{\Large\bfseries\color{LinkBlue}}
+\setkomafont{section}{\large\bfseries\color{LinkBlue}}
 
-\RedeclareSectionCommand[beforeskip=14pt plus 2pt, afterskip=10pt]{chapter}
-\RedeclareSectionCommand[beforeskip=10pt, afterskip=6pt]{section}
-\RedeclareSectionCommand[beforeskip=8pt, afterskip=4pt]{subsection}
+\RedeclareSectionCommand[beforeskip=14pt plus 2pt, afterskip=10pt]{part}
+\RedeclareSectionCommand[beforeskip=10pt, afterskip=6pt]{chapter}
+\RedeclareSectionCommand[beforeskip=8pt, afterskip=4pt]{section}
 
 % =========================================================
 % TOC
 % =========================================================
 \usepackage{tocbasic}
-\addtokomafont{chapterentry}{\color{LinkBlue}\bfseries}
-\setcounter{tocdepth}{2}
+\addtokomafont{partentry}{\color{LinkBlue}\bfseries}
+\setcounter{tocdepth}{3}
 
 % =========================================================
 % Hyperref + cleveref
@@ -316,17 +316,21 @@
 	\maketitle
 	\tableofcontents
 	
-	\chapter*{Aufgaben Analysis}
-	\addcontentsline{toc}{chapter}{Aufgaben Analysis}
-	\renewcommand{\thesection}{A\arabic{section}}
-	\setcounter{section}{0}
+	\part{Aufgaben Analysis}
+	\renewcommand{\thechapter}{A\arabic{chapter}}
+	\setcounter{chapter}{0}
 	% ---------------------------------------------------------
 	% Sektion / Subsektion (Beispiel)
 	% ---------------------------------------------------------
-	\section{Exponential- und Logarithmusfunktionen}
+	\chapter{Grundlagen und Wiederholung}
+	\chapter{Funktionen und Funktionsklassen}
+	\chapter{Differentialrechnung - Teil1}
+	\chapter{Integralrechnung- Teil 1}
+	\chapter{Kurvendiskussion - Teil 1}
+	\chapter{Exponential- und Logarithmusfunktionen}
 	\label{sec:exp-log}
 	
-	\subsection{Ableitung, Extrema und Wendepunkte}
+	\subsection{Grundlegende Aufgabentypen}
 	\label{sec:explogfktAblExWP}
 	
 	\begin{kurzaufgaben}{sec:explogfktAblExWP}
@@ -346,8 +350,45 @@
 				\item \(f(x)=2.5\cdot e^{x}\), $g(x)=e^{2\cdot x}$
 				\item \(f(x)=x\cdot e^{x+1}\), $g(x)=x$
 			}
+
+			\komplexaufgabe{aufgA1.1.3}{Die Funktion $f(x)=axe^{bx}$ hat im Punkt $P(2|e^{-2})$ ihren 
+			Funktionswert als Steigung. Bestimmen Sie $a$ und $b$.} {}
+
+			\komplexaufgabe{aufgA1.1.4}{Wie muss $a$ gewählt werden, damit die Graphen von 
+			$f(x)=e^x$ und $g(x)=ax^3$ sich \textit{berühren}? Berechnen Sie auch den Berührungspunkt.}{}	
+
+			\komplexaufgabe{aufgA1.1.5}{Wie sind $a$ und $b$ zu wählen, damit sich die Graphen von $f(x)=e^x$ und $g(x)=e^{ax+b}$
+			 bei $x=1$ \textit{senkrecht} schneiden?} {}
+
+			\komplexaufgabe{aufgA1.1.6}{Wie sind $a$ und $b$ zu wählen, damit sich die Graphen von $f(x)=e^x$ und $g(x)=e^{ax+b}$
+			 bei $x=1$ \textit{senkrecht} schneiden?} {}
+
+			\komplexaufgabe{aufgA1.1.6}{Gegeben sei die Funktion $f(x)=(2x+3)\cdot e^{-x}$. Ermitteln Sie,  unter welchem Winkel $\alpha$
+			die Tangente an den Graphen an der Stelle $x=-1$ die $x$-Achse schneidet.} {}
+
+			\komplexaufgabe{aufgA1.1.6}{Gegeben seien die Funktionen $f(x)=e^x$ und $g(x)=e^{-x+2}$.Ermitteln Sie
+			 unter welchem Winkel $\gamma$ sich die Graphen von $f$ und $g$ schneiden.} {}
+
+			\komplexaufgabe{aufgA1}{Ermitteln Sie, welche Ursprungsgerade $g$ ist Tangente an den Graphen von 
+			$f(x)=e^{0.5x}$.}{} 
+
+			\komplexaufgabe{aufgA1}{Ermitteln Sie die Gleichung der Tangente an den Graphen der Funktion $f(x)=e^{-x}$
+			die parallel zur Sehne durch die beiden Punkte $P(-1|e)$ und $Q(1|\frac{1}{e})$ des graphen von $f$ ist.}{}
+
+			\komplexaufgabe{aufgA1}{Die Graphen von $f(x)=e^x$ und $g(x)=e^{0.5x}$ besitzen nur an einer Stelle $x$ den gleichen
+			Anstieg. Ermitteln Sie diese Stelle und geben Sie die Tangente von $f$ und die Normale von $g$ an dieser Stelle an.}{}
 			
-			\kurzaufgabe[3]{aufgA1.1.3}{Bestimmen Sie die Ableitungsfunktion von\(f\). }{
+			\komplexaufgabe{aufgA1}{Gegeben sind die Funktionen $f(x)=4-x$ und $g(x)= 4\cdot e^{-x}$. Ermitteln Sie die Stelle
+			des Intervalls $\left[0,2\right]$ an der die Differenz der Funktionswerte maximal wird.}{}
+
+			\komplexaufgabe{aufgA1}{Gegeben seien die Funktionen $f(x)=e^{-x}$ und $g(x)=2\cdot e^{0.5x}$. Die Gerade $y=k,k>0$ schneidet die 
+			Graphen der Funktionen $f$ und $g$. Diese Schnittpunkte markieren die oberen Eckpunkte eines achsenparallen Rechtecks. 
+			Bestimmen Sie den Wert für $k$, so dass der Flächeninhalt des Rechtecks maximal wird.
+			}{}
+
+			\
+			
+			\kurzaufgabe[3]{aufgA1.1.7}{Bestimmen Sie die Ableitungsfunktion von\(f\). }{
 			\item \(f(x)=2\cdot e^{0.5x}\)
 			\item \(f(x)=x-e^{x^3}\)
 			\item \(f(x)=\left( 1-x\right)\cdot e^{x} \)
@@ -362,7 +403,7 @@
 			\item \(f(x)=\frac{1+e^{x}}{1-e^{x}}\)
 					}
 			
-		\kurzaufgabe[3]{aufgA1.1.4}{Bestimmen Sie die unbestimmten Integrale. }{
+		\kurzaufgabe[3]{aufgA1.1.8}{Bestimmen Sie die unbestimmten Integrale. }{
 			\item \(\int3e^{-4x} \,\mathrm{d}x\)
 			\item \(\int e^{ax+b} \,\mathrm{d}x\)
 			\item \(\int (x-e^{0.5x+1})\,\mathrm{d}x\)
@@ -381,13 +422,13 @@
 		
 		
 		
-		\kurzaufgabe[3]{aufgA1.1.5}{Untersuchen Sie die Funktion \(f\) auf Extremstellen.}{
+		\kurzaufgabe[3]{aufgA1.1.9}{Untersuchen Sie die Funktion \(f\) auf Extremstellen.}{
 			\item \(f(x)=\left( 2-x\right)\cdot e^{1+x}\)
 			\item \(f(x)=2e^{x}+e^{-x}\)
 			\item \(f(x)=x\cdot e^{-0.5\cdot x^2}\)
 		}
 		
-		\kurzaufgabe[3]{aufgA1.1.6}{Untersuchen Sie \(f\) auf Wendepunkte.}{
+		\kurzaufgabe[3]{aufgA1.1.10}{Untersuchen Sie \(f\) auf Wendepunkte.}{
 			\item \(f(x)=(x+1)\,e^{x}\)
 			\item \(f(x)=(2x+1)\,e^{2x+1}\)
 			\item \(f(x)=\bigl(e^{x}-e^{-x}\bigr)\cdot 5x^{2}\)
@@ -395,24 +436,21 @@
 		
 	\end{kurzaufgaben}
 	
-\chapter*{Aufgaben Stochastik}
-\addcontentsline{toc}{chapter}{Aufgaben Stochastik}
-\renewcommand{\thesection}{S\arabic{section}}
-\setcounter{section}{0}
+\part{Aufgaben Stochastik}
+\renewcommand{\thechapter}{S\arabic{chapter}}
+\setcounter{chapter}{0}
 	
-\chapter*{Aufgaben Analytische Geometrie}
-\addcontentsline{toc}{chapter}{Aufgaben Analytische Geometrie}
-\renewcommand{\thesection}{G\arabic{section}}
-\setcounter{section}{0}
+\part{Aufgaben Analytische Geometrie}
+\renewcommand{\thechapter}{G\arabic{chapter}}
+\setcounter{chapter}{0}
 	
-	\chapter*{Lösungen Analysis}
-	\addcontentsline{toc}{chapter}{Lösungen Analysis}
-	\renewcommand{\thesection}{A\arabic{section}}
-	\setcounter{section}{0}
+	\part{Lösungen Analysis}
+	\renewcommand{\thechapter}{A\arabic{chapter}}
+	\setcounter{chapter}{0}
 	
-	\section{Exponential- und Logarithmusfunktionen}
+	\chapter{Grundlegende Aufgabentypen}
 	
-	\subsection{Ableitung, Extrema und Wendepunkte}
+	\section{Ableitung, Extrema und Wendepunkte}
 	
 	\begin{kurzloesungen}{sec:explogfktAblExWP}
 		\kurzloesung[3]{aufgA1.1.1}{Lösung der Exponentialgleichungen}{
@@ -426,13 +464,17 @@
 			\item $\ln(3)$
 		}
 
-		\kurzloesung{aufgA1.1.5}{Extremstellen bestimmen durch \(f'(x)=0\):}{
+		\kurzloesung{aufgA1.1.5}{Orthogonale Schnittpunkte bestimmen:}{
+			\item Bedingung: $f'(1) \cdot g'(1) = -1$, wobei $f(x) = e^x$ und $g(x) = e^{ax+b}$. Es folgt: $e \cdot ae = -1$, also $a = -\frac{1}{e^2}$. Mit $g(1) = f(1) = e$ erhält man $e^{a+b} = e$, also $b = 1 + \frac{1}{e^2}$.
+		}
+
+		\kurzloesung{aufgA1.1.8}{Extremstellen bestimmen durch \(f'(x)=0\):}{
 			\item \(f'(x)=(1-x)\cdot e^{1+x}\), \(f'(x)=0\) für \(x=1\). \(f''(1)=-e^2<0\) \(\Rightarrow\) Maximum bei \(x=1\), \(f(1)=e^2\)
 			\item \(f'(x)=2e^{x}-e^{-x}\), \(f'(x)=0\) für \(2e^{x}=e^{-x}\) \(\Rightarrow e^{2x}=\frac{1}{2}\) \(\Rightarrow x=-\frac{1}{2}\ln 2\). \(f''(x)=2e^{x}+e^{-x}>0\) \(\Rightarrow\) Minimum bei \(x\approx -0{,}347\), \(f(x)\approx 2{,}38\)
 			\item \(f'(x)=(1-x^2)\cdot e^{-0.5x^2}\), \(f'(x)=0\) für \(x=\pm 1\). \(f''(1)<0\), \(f''(-1)<0\) \(\Rightarrow\) Maxima bei \(x=\pm 1\), \(f(\pm 1)=e^{-0.5}\approx 0{,}606\)
 		}
 		
-		\kurzloesung{aufgA1.1.6}{Wendepunkte bestimmen durch \(f''(x)=0\):}{
+		\kurzloesung{aufgA1.1.9}{Wendepunkte bestimmen durch \(f''(x)=0\):}{
 			\item \(f'(x)=(x+2)\,e^{x}\), \(f''(x)=(x+3)\,e^{x}\), \(f''(x)=0\) für \(x=-3\). Wendepunkt bei \((-3, -2e^{-3})\approx (-3, -0{,}1)\)
 			\item \(f'(x)=2(2x+2)\,e^{2x+1}\), \(f''(x)=4(2x+3)\,e^{2x+1}\), \(f''(x)=0\) für \(x=-\frac{3}{2}\). Wendepunkt bei \((-\frac{3}{2}, -2e^{-2})\approx (-1{,}5, -0{,}27)\)
 			\item \(f'(x)=(e^{x}+e^{-x})\cdot 10x + (e^{x}-e^{-x})\cdot 5x^2\), \(f''(x)=0\) für \(x=0\) und weitere Lösungen. Wendepunkt bei \((0, 0)\)
@@ -440,14 +482,12 @@
 		
 	\end{kurzloesungen}
 	
-	\chapter*{Lösungen Stochastik}
-	\addcontentsline{toc}{chapter}{Lösungen Stochastik}
-	\renewcommand{\thesection}{S\arabic{section}}
-	\setcounter{section}{0}
+\part{Lösungen Stochastik}
+	\renewcommand{\thechapter}{S\arabic{chapter}}
+	\setcounter{chapter}{0}
 	
-	\chapter*{Lösungen Analytische Geometrie}
-	\addcontentsline{toc}{chapter}{Lösungen Analytische Geometrie}
-	\renewcommand{\thesection}{G\arabic{section}}
-	\setcounter{section}{0}
+	\part{Lösungen Analytische Geometrie}
+	\renewcommand{\thechapter}{G\arabic{chapter}}
+	\setcounter{chapter}{0}
 	
 \end{document}
