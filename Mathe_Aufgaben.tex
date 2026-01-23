@@ -25,6 +25,7 @@
 \usepackage[a4paper,margin=2.5cm,includeheadfoot]{geometry}
 \usepackage{setspace}
 \usepackage{enumitem}
+\usepackage{chngcntr}
 \usepackage[headsepline,footsepline]{scrlayer-scrpage}
 
 \clearpairofpagestyles
@@ -91,6 +92,7 @@
 % =========================================================
 \newcounter{exo}
 \renewcommand{\theexo}{\arabic{exo}}
+\counterwithin*{exo}{section}
 
 % Für eindeutige Hyperref-Repräsentation
 \newcounter{exoglobal}
@@ -105,12 +107,18 @@
 }
 
 % Link-Kommandos
-\newcommand{\zumloesung}[2]{%
-	\hyperref[loes:#1:#2]{\textcolor{LinkBlue}{→ Zur Lösung}}%
+\makeatletter
+\newcommand{\zumloesung}[1]{%
+	\@ifundefined{r@loes:#1}{}{%
+		\hyperref[loes:#1]{\textcolor{LinkBlue}{→ Zur Lösung}}%
+	}%
 }
-\newcommand{\zurausgabe}[2]{%
-	\hyperref[aufg:#1:#2]{\textcolor{LinkBlue}{← Zur Aufgabe}}%
+\newcommand{\zurausgabe}[1]{%
+	\@ifundefined{r@aufg:#1}{}{%
+		\hyperref[aufg:#1]{\textcolor{LinkBlue}{← Zur Aufgabe}}%
+	}%
 }
+\makeatother
 
 % =========================================================
 % Neue Aufgaben-/Lösungsbefehle
@@ -132,7 +140,7 @@
 		\end{enumerate}
 		\end{multicols}
 	\fi
-	\par\noindent\hfill\zumloesung{\aufgabenlabel}{\theexo}%
+	\par\noindent\hfill\zumloesung{\aufgabenlabel}%
 }
 
 % Komplexaufgabe: \komplexaufgabe{Aufgabentext}{Teilaufgaben als \item}
@@ -149,7 +157,7 @@
 			#2% Teilaufgaben
 		\end{enumerate}
 	\fi
-	\par\noindent\hfill\zumloesung{\aufgabenlabel}{\theexo}%
+	\par\noindent\hfill\zumloesung{\aufgabenlabel}%
 }
 
 % Abituraufgabe: \abituraufgabe{Aufgabentext}{Teilaufgaben als \item}
@@ -166,12 +174,12 @@
 			#2% Teilaufgaben
 		\end{enumerate}
 	\fi
-	\par\noindent\hfill\zumloesung{\aufgabenlabel}{\theexo}%
+	\par\noindent\hfill\zumloesung{\aufgabenlabel}%
 }
 
 % Kurzlösung: \kurzloesung[spalten]{Lösungstext}{Teillösungen als \item}
 \newcommand{\kurzloesung}[3][2]{%
-	\refstepcounter{exo}%
+	\stepcounter{exo}%
 	\refstepcounter{exoglobal}%
 	\item \label{loes:\aufgabenlabel}%
 	#2% Lösungstext
@@ -185,12 +193,12 @@
 		\end{enumerate}%
 		\end{multicols}%
 	\fi
-	\par\noindent\hfill\zurausgabe{\aufgabenlabel}{\theexo}%
+	\par\noindent\hfill\zurausgabe{\aufgabenlabel}%
 }
 
 % Komplexlösung: \komplexloesung{Lösungstext}{Teillösungen als \item}
 \newcommand{\komplexloesung}[2]{%
-	\refstepcounter{exo}%
+	\stepcounter{exo}%
 	\refstepcounter{exoglobal}%
 	\item \label{loes:\aufgabenlabel}%
 	#1% Lösungstext
@@ -202,12 +210,12 @@
 			#2% Teillösungen
 		\end{enumerate}
 	\fi
-	\par\noindent\hfill\zurausgabe{\aufgabenlabel}{\theexo}%
+	\par\noindent\hfill\zurausgabe{\aufgabenlabel}%
 }
 
 % Abiturlösung: \abiturloesung{Lösungstext}{Teillösungen als \item}
 \newcommand{\abiturloesung}[2]{%
-	\refstepcounter{exo}%
+	\stepcounter{exo}%
 	\refstepcounter{exoglobal}%
 	\item \label{loes:\aufgabenlabel}%
 	#1% Lösungstext
@@ -219,7 +227,7 @@
 			#2% Teillösungen
 		\end{enumerate}
 	\fi
-	\par\noindent\hfill\zurausgabe{\aufgabenlabel}{\theexo}%
+	\par\noindent\hfill\zurausgabe{\aufgabenlabel}%
 }
 
 % =========================================================
@@ -228,25 +236,22 @@
 
 % Kurzaufgaben-Umgebung
 \newenvironment{kurzaufgaben}[1]{%
-	\setcounter{exo}{0}%
-	\begin{enumerate}[label=\arabic*., leftmargin=*, itemsep=10pt]%
+	\begin{enumerate}[label=\theexo., leftmargin=*, itemsep=10pt]%
 }{%
 	\end{enumerate}%
 }
 
 % Komplexaufgaben-Umgebung  
 \newenvironment{komplexaufgaben}[1]{%
-	\setcounter{exo}{0}%
-	\begin{enumerate}[label=\arabic*., leftmargin=*, itemsep=12pt]%
+	\begin{enumerate}[label=\theexo., leftmargin=*, itemsep=12pt]%
 }{%
 	\end{enumerate}%
 }
 
 % Abituraufgaben-Umgebung (mit grauem Hintergrund)
 \newenvironment{abituraufgaben}[1]{%
-	\setcounter{exo}{0}%
 	\begin{shaded}%
-	\begin{enumerate}[label=\arabic*., leftmargin=*, itemsep=12pt]%
+	\begin{enumerate}[label=\theexo., leftmargin=*, itemsep=12pt]%
 }{%
 	\end{enumerate}%
 	\end{shaded}%
@@ -254,25 +259,22 @@
 
 % Kurzlösungen-Umgebung
 \newenvironment{kurzloesungen}[1]{%
-	\setcounter{exo}{0}%
-	\begin{enumerate}[label=\arabic*., leftmargin=*, itemsep=10pt]%
+	\begin{enumerate}[label=\theexo., leftmargin=*, itemsep=10pt]%
 }{%
 	\end{enumerate}%
 }
 
 % Komplexlösungen-Umgebung
 \newenvironment{komplexloesungen}[1]{%
-	\setcounter{exo}{0}%
-	\begin{enumerate}[label=\arabic*., leftmargin=*, itemsep=12pt]%
+	\begin{enumerate}[label=\theexo., leftmargin=*, itemsep=12pt]%
 }{%
 	\end{enumerate}%
 }
 
 % Abiturlösungen-Umgebung (mit grauem Hintergrund)
 \newenvironment{abiturloesungen}[1]{%
-	\setcounter{exo}{0}%
 	\begin{shaded}%
-	\begin{enumerate}[label=\arabic*., leftmargin=*, itemsep=12pt]%
+	\begin{enumerate}[label=\theexo., leftmargin=*, itemsep=12pt]%
 }{%
 	\end{enumerate}%
 	\end{shaded}%
@@ -362,15 +364,15 @@
 				\item \(f(x)=2.5\cdot e^{x}\), $g(x)=e^{2\cdot x}$
 				\item \(f(x)=x\cdot e^{x+1}\), $g(x)=x$
 			}
+	\end{kurzaufgaben}
+
+	\begin{komplexaufgaben}{sec:explogfktAblExWP}
 
 			\komplexaufgabe{Die Funktion $f(x)=axe^{bx}$ hat im Punkt $P(2|e^{-2})$ ihren 
 			Funktionswert als Steigung. Bestimmen Sie $a$ und $b$.} {}
 
 			\komplexaufgabe{Wie muss $a$ gewählt werden, damit die Graphen von 
 			$f(x)=e^x$ und $g(x)=ax^3$ sich \textit{berühren}? Berechnen Sie auch den Berührungspunkt.}{}	
-
-			\komplexaufgabe{Wie sind $a$ und $b$ zu wählen, damit sich die Graphen von $f(x)=e^x$ und $g(x)=e^{ax+b}$
-			 bei $x=1$ \textit{senkrecht} schneiden?} {}
 
 			\komplexaufgabe{Wie sind $a$ und $b$ zu wählen, damit sich die Graphen von $f(x)=e^x$ und $g(x)=e^{ax+b}$
 			 bei $x=1$ \textit{senkrecht} schneiden?} {}
@@ -398,7 +400,9 @@
 			Bestimmen Sie den Wert für $k$, so dass der Flächeninhalt des Rechtecks maximal wird.
 			}{}
 
-			\
+	\end{komplexaufgaben}
+
+	\begin{kurzaufgaben}{sec:explogfktAblExWP}
 			
 			\kurzaufgabe[3]{Bestimmen Sie die Ableitungsfunktion von\(f\). }{
 			\item \(f(x)=2\cdot e^{0.5x}\)
@@ -447,25 +451,9 @@
 		}
 		
 	\end{kurzaufgaben}
-	
-\part{Aufgaben Stochastik}
-\renewcommand{\currentCategory}{S}
-\renewcommand{\thechapter}{S\arabic{chapter}}
-\setcounter{chapter}{0}
-	
-\part{Aufgaben Analytische Geometrie}
-\renewcommand{\currentCategory}{G}
-\renewcommand{\thechapter}{G\arabic{chapter}}
-\setcounter{chapter}{0}
-	
-	\part{Lösungen Analysis}
-	\renewcommand{\currentCategory}{A}
-	\renewcommand{\thechapter}{A\arabic{chapter}}
-	\setcounter{chapter}{0}
-	
-	\chapter{Grundlegende Aufgabentypen}
-	
-	\section{Ableitung, Extrema und Wendepunkte}
+
+	\begin{loesungssektion}{sec:explogfktAblExWP}
+	\setcounter{exo}{0}
 	
 	\begin{kurzloesungen}{sec:explogfktAblExWP}
 		\kurzloesung[3]{Lösung der Exponentialgleichungen}{
@@ -479,8 +467,79 @@
 			\item $\ln(3)$
 		}
 
-		\kurzloesung{Orthogonale Schnittpunkte bestimmen:}{
+		\kurzloesung{Schnittpunkte bestimmen:}{
+			\item $2.5e^x = e^{2x} \Rightarrow x = \ln(2.5)$, $S(\ln(2.5)\approx 0.916, 6.25)$
+			\item $xe^{x+1} = x \Rightarrow x=0$ oder $x=-1$, $S_1(0,0)$, $S_2(-1,-1)$
+		}
+
+		\komplexloesung{Bestimmen Sie $a$ und $b$ für $f(x)=axe^{bx}$ mit Steigung $f(2)=f'(2)=e^{-2}$.}{
+			\item $f(2)=2ae^{2b}=e^{-2}$, $f'(x)=ae^{bx}(1+bx)$, $f'(2)=ae^{2b}(1+2b)=e^{-2}$. Division ergibt $2(1+2b)=1 \Rightarrow b=\frac{1}{2}$, $a=\frac{1}{2e^3}$
+		}
+
+		\komplexloesung{Berührung von $f(x)=e^x$ und $g(x)=ax^3$.}{
+			\item Bedingungen: $e^x=ax^3$ und $e^x=3ax^2$. Division: $x=3$. Einsetzen: $a=\frac{e^3}{27}$. Berührungspunkt: $(3, e^3)$
+		}
+
+		\komplexloesung{Orthogonaler Schnitt bei $x=1$ für $f(x)=e^x$ und $g(x)=e^{ax+b}$.}{
 			\item Bedingung: $f'(1) \cdot g'(1) = -1$, wobei $f(x) = e^x$ und $g(x) = e^{ax+b}$. Es folgt: $e \cdot ae = -1$, also $a = -\frac{1}{e^2}$. Mit $g(1) = f(1) = e$ erhält man $e^{a+b} = e$, also $b = 1 + \frac{1}{e^2}$.
+		}
+
+		\komplexloesung{Tangentenwinkel bei $f(x)=(2x+3)e^{-x}$ an $x=-1$.}{
+			\item $f'(x)=(2-2x-3)e^{-x}=(-2x-1)e^{-x}$, $f'(-1)=e$. Winkel: $\alpha=\arctan(e)\approx 70°$ bzw. $1.22$ rad
+		}
+
+		\komplexloesung{Schnittwinkel von $f(x)=e^x$ und $g(x)=e^{-x+2}$.}{
+			\item Schnittpunkt: $x=1$. Steigungen: $f'(1)=e$, $g'(1)=-e$. Winkel: $\gamma=\arctan\left(\frac{2e}{1-e^2}\right)\approx 99.4°$ bzw. $1.74$ rad
+		}
+
+		\komplexloesung{Ursprungsgerade als Tangente an $f(x)=e^{0.5x}$.}{
+			\item Bedingungen: $e^{0.5x_0}=mx_0$ und $0.5e^{0.5x_0}=m$. Daraus: $x_0=2$, $m=\frac{e}{2}$. Gerade: $g(x)=\frac{e}{2}x$
+		}
+
+		\komplexloesung{Tangente an $f(x)=e^{-x}$ parallel zur Sehne durch $P$ und $Q$.}{
+			\item Sehnensteigung: $m_s=\frac{e^{-1}-e}{2}=\frac{1-e^2}{2e}$. $f'(x_0)=-e^{-x_0}=m_s \Rightarrow x_0=\ln\left(\frac{2e}{e^2-1}\right)\approx 0.544$. Tangente: $t(x)=\frac{1-e^2}{2e}(x-x_0)+e^{-x_0}$
+		}
+
+		\komplexloesung{Gleicher Anstieg von $f(x)=e^x$ und $g(x)=e^{0.5x}$.}{
+			\item $e^x=0.5e^{0.5x} \Rightarrow x=2\ln(2)\approx 1.386$. Tangente $f$: $t(x)=4(x-2\ln(2))+4=4x-8\ln(2)+4$. Normale $g$: $n(x)=-\frac{1}{1}(x-2\ln(2))+2=-x+2\ln(2)+2$
+		}
+
+		\komplexloesung{Maximale Differenz von $f(x)=4-x$ und $g(x)=4e^{-x}$ in $[0,2]$.}{
+			\item $h(x)=g(x)-f(x)=4e^{-x}-4+x$, $h'(x)=-4e^{-x}+1=0 \Rightarrow x=\ln(4)\approx 1.386 \in [0,2]$. Maximale Differenz bei $x=\ln(4)$
+		}
+
+		\komplexloesung{Maximaler Rechteckinhalt mit $f(x)=e^{-x}$ und $g(x)=2e^{0.5x}$.}{
+			\item Breite: $b(k)=2\ln(k/2)-(-\ln k)=3\ln k-2\ln 2$. Fläche: $A(k)=k(3\ln k-2\ln 2)$, $A'(k)=3\ln k+3-2\ln 2=0$. $k=e^{(2\ln 2-3)/3}=\frac{\sqrt[3]{4}}{e}\approx 0.582$
+		}
+
+		\kurzloesung[3]{Ableitungsfunktion bestimmen:}{
+			\item $f'(x)=e^{0.5x}$
+			\item $f'(x)=1-3x^2e^{x^3}$
+			\item $f'(x)=-xe^x$
+			\item $f'(x)=(2x-x^2)e^{-x}$
+			\item $f'(x)=(\cos x-\sin x)e^{-x}$
+			\item $f'(x)=-\frac{e^{\sqrt{x}}}{2\sqrt{x}}$
+			\item $f'(x)=-\frac{x}{e^x}$
+			\item $f'(x)=(-x^3+3x+3)e^{-x}$
+			\item $f'(x)=\frac{e^x(x^5-4x^4+1)}{(x^5+1)^2}$
+			\item $f'(x)=\frac{e^{2x}(2\sqrt{x}-0.5)}{\sqrt{x^3}}$
+			\item $f'(x)=2(3-e^{-x^2})(-2x)e^{-x^2}$
+			\item $f'(x)=\frac{2e^x}{(1-e^x)^2}$
+		}
+
+		\kurzloesung[3]{Unbestimmte Integrale:}{
+			\item $-\frac{3}{4}e^{-4x}+C$
+			\item $\frac{1}{a}e^{ax+b}+C$
+			\item $\frac{x^2}{2}-2e^{0.5x+1}+C$
+			\item $x e^{1-x}+e^{1-x}+C$
+			\item $-2e^{-x^2}+C$
+			\item $\frac{1}{2}e^x(\sin x-\cos x)+C$
+			\item $(x^2+x-2)e^x+C$
+			\item $e^x+e^{-2x}+C$
+			\item $9x-6e^{-x}-e^{-2x}+C$
+			\item $e^{\sin x}+C$
+			\item $-\frac{1}{2e^{2x+1}}+C$
+			\item $2e^{\sqrt{x}}(2\sqrt{x}-2)+C$
 		}
 
 		\kurzloesung{Extremstellen bestimmen durch \(f'(x)=0\):}{
@@ -494,17 +553,18 @@
 			\item \(f'(x)=2(2x+2)\,e^{2x+1}\), \(f''(x)=4(2x+3)\,e^{2x+1}\), \(f''(x)=0\) für \(x=-\frac{3}{2}\). Wendepunkt bei \((-\frac{3}{2}, -2e^{-2})\approx (-1{,}5, -0{,}27)\)
 			\item \(f'(x)=(e^{x}+e^{-x})\cdot 10x + (e^{x}-e^{-x})\cdot 5x^2\), \(f''(x)=0\) für \(x=0\) und weitere Lösungen. Wendepunkt bei \((0, 0)\)
 		}
-		
+
 	\end{kurzloesungen}
+	\end{loesungssektion}
+
+\part{Aufgaben Stochastik}
+\renewcommand{\currentCategory}{S}
+\renewcommand{\thechapter}{S\arabic{chapter}}
+\setcounter{chapter}{0}
 	
-\part{Lösungen Stochastik}
-	\renewcommand{\currentCategory}{S}
-	\renewcommand{\thechapter}{S\arabic{chapter}}
-	\setcounter{chapter}{0}
-	
-	\part{Lösungen Analytische Geometrie}
-	\renewcommand{\currentCategory}{G}
-	\renewcommand{\thechapter}{G\arabic{chapter}}
-	\setcounter{chapter}{0}
+\part{Aufgaben Analytische Geometrie}
+\renewcommand{\currentCategory}{G}
+\renewcommand{\thechapter}{G\arabic{chapter}}
+\setcounter{chapter}{0}
 	
 \end{document}
