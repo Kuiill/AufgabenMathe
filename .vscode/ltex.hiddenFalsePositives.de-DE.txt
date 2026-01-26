@@ -1,0 +1,1 @@
+{"rule":"WHITESPACE_RULE","sentence":"^\\QBestimme den Inhalt der abgebildeten Fläche.\\E$"}

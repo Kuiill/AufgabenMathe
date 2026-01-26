@@ -311,6 +311,10 @@
 % Titelseite (Logo optional)
 % =========================================================
 \usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.18}
 \newcommand{\optionallogo}{%
 	\IfFileExists{ohg_logo.png}{\includegraphics[width=0.45\textwidth]{ohg_logo.png}}{}%
 }
@@ -400,6 +404,7 @@
 			Bestimmen Sie den Wert für $k$, so dass der Flächeninhalt des Rechtecks maximal wird.
 			}{}
 
+			
 	\end{komplexaufgaben}
 
 	\begin{kurzaufgaben}{sec:explogfktAblExWP}
@@ -452,6 +457,113 @@
 		
 	\end{kurzaufgaben}
 
+	\begin{komplexaufgaben}{sec:explogfktAblExWP}
+	\komplexaufgabe{Bestimme Sie den Inhalt der abgebildeten Fläche.
+	\par\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[
+		axis on top,
+		width=0.75\textwidth,
+		height=0.45\textwidth,
+		axis lines=middle,
+		ylabel={$y$},
+		xlabel={$x$},
+		xmin=-1.2, xmax=2.6,
+		ymin=-0.2, ymax=1.9,
+		xtick={-1,0,1,2},
+		ytick={0,1},
+		samples=200,
+		domain=-1:2.5
+	]
+	\addplot[name path=exp, draw=none] {exp(-0.5*x)};
+	\addplot[name path=line, draw=none, domain=-1.2:0.2] {-exp(0.5)*x};
+	\path[name path=axis] (axis cs:-1.2,0) -- (axis cs:2.6,0);
+	\addplot[fill=blue!10, draw=none] fill between[of=exp and line, soft clip={domain=-1:0}];
+	\addplot[fill=blue!10, draw=none] fill between[of=exp and axis, soft clip={domain=0:2}];
+	\addplot[thick] {exp(-0.5*x)} node[pos=0.6,yshift=2mm, above] {$e^{-0.5x}$};
+	\addplot[thick, domain=-1:0.2] {-exp(0.5)*x};
+	\draw[dotted,thick,black!70] (axis cs:-1,0) -- (axis cs:-1,{exp(0.5)});
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	}{}	
+
+	\komplexaufgabe{Berechnen Sie den Inhalt der abgebildeten Fläche. 
+	Bestimmen Sie hierzu zunächst die Funktionsgleichungen der Parabel $f$ und der 
+	Funktion vom Typ $g(x)=ae^{bx}$.
+	\par\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}
+		[
+		width=0.75\textwidth,
+		height=0.45\textwidth,
+		axis lines=middle,
+		ylabel={$y$},
+		xlabel={$x$},
+		xmin=-0.5, xmax=4.6,
+		ymin=-0.2, ymax=3,
+		xtick={1,2,3},
+		ytick={1},
+		samples=200,
+		domain=-1:2.5
+	]
+	\addplot[thick,name path=exp, domain=-0.2:4.2] {2.5*exp(-0.30543*x)} node[pos=0.95,yshift=1mm, above] {$g$};
+	\addplot[thick,name path=quadratic, domain=-0.2:4.2] {0.5*x*x-2*x+2.5} node[pos=0.95,yshift=-1mm, below] {$f$};
+	\path[name path=axis] (axis cs:-1.2,0) -- (axis cs:2.6,0);
+	\addplot[fill=blue!10, draw=none] fill between[of=exp and quadratic, soft clip={domain=0:3}];
+	\draw[dotted,thick,black!70] (axis cs:0,1) -- (axis cs:3,1);
+	\draw[dotted,thick,black!70] (axis cs:1,1) -- (axis cs:1,0);
+	\draw[dotted,thick,black!70] (axis cs:3,1) -- (axis cs:3,0);
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	}{}	
+
+	\komplexaufgabe{Gegeben seien die Exponentialfunktionen $f(x)=e^{0.5x}$ und $g(x)=2\cdot e^{-x}.$ Die Graphen 
+	von $f$ und $g$ begrenzen über dem Intervall $I$ eine Fläche $A$ (siehe Abbildung). Über das Intervall ist 
+	nur bekannt, dass es die Länge 2 hat. Die Lage der Intervallenden $x_1$ und $x_2$ ist nicht vorgegeben. 
+	Bestimmen Sie die Enden so, dass der Inhalt von A maximal wird.
+	\par\begin{center}
+	\begin{tikzpicture}
+	\pgfmathsetmacro{\xs}{2/3*ln(2)}
+	\pgfmathsetmacro{\xone}{-0.5}
+	\pgfmathsetmacro{\xtwo}{1.5}
+	\begin{axis}[
+		axis on top,
+		width=0.75\textwidth,
+		height=0.45\textwidth,
+		axis lines=middle,
+		clip=false,
+		ylabel={$y$},
+		xlabel={$x$},
+		xmin=-1.2, xmax=2.6,
+		ymin=-0.8, ymax=3.5,
+		xtick={-1,0,1,2},
+		ytick={1,2,3},
+		samples=200,
+		domain=-1:2.5
+	]
+	\addplot[thick,name path=f, domain=-1:2.5] {exp(0.5*x)} node[pos=0.9, above] {$f$};
+	\addplot[thick,name path=g, domain=-0.6:2.2] {2*exp(-x)} node[pos=0.15,yshift=1mm, above] {$g$};
+	\path[name path=axis] (axis cs:-1.2,0) -- (axis cs:2.6,0);
+	\addplot[fill=blue!10, draw=none] fill between[of=f and axis, soft clip={domain=\xone:\xs}];
+	\addplot[fill=blue!10, draw=none] fill between[of=g and axis, soft clip={domain=\xs:\xtwo}];
+	\draw[dotted,thick,black!70] (axis cs:\xone,0) -- (axis cs:\xone,{exp(0.5*\xone)});
+	\draw[dotted,thick,black!70] (axis cs:\xtwo,0) -- (axis cs:\xtwo,{2*exp(-\xtwo)});
+	\draw[dashed,black!70] (axis cs:\xs,0) -- (axis cs:\xs,{exp(0.5*\xs)});
+	\node[below] at (axis cs:\xone,0) {$x_1$};
+	\node[below] at (axis cs:\xtwo,0) {$x_2$};
+	\draw[<->,thick] (axis cs:\xone,-1) -- (axis cs:\xtwo,-1) node[midway, fill=white, inner sep=1pt] {$2$};
+	\fill (axis cs:\xs,{exp(0.5*\xs)}) circle (1.2pt);
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	
+	}{}
+	\end{komplexaufgaben}
+
+
+
 	\begin{loesungssektion}{sec:explogfktAblExWP}
 	\setcounter{exo}{0}
 	
@@ -472,45 +584,25 @@
 			\item $xe^{x+1} = x \Rightarrow x=0$ oder $x=-1$, $S_1(0,0)$, $S_2(-1,-1)$
 		}
 
-		\komplexloesung{Bestimmen Sie $a$ und $b$ für $f(x)=axe^{bx}$ mit Steigung $f(2)=f'(2)=e^{-2}$.}{
-			\item $f(2)=2ae^{2b}=e^{-2}$, $f'(x)=ae^{bx}(1+bx)$, $f'(2)=ae^{2b}(1+2b)=e^{-2}$. Division ergibt $2(1+2b)=1 \Rightarrow b=\frac{1}{2}$, $a=\frac{1}{2e^3}$
-		}
+		\komplexloesung{$f(2)=2ae^{2b}=e^{-2}$, $f'(x)=ae^{bx}(1+bx)$, $f'(2)=ae^{2b}(1+2b)=e^{-2}$. Division ergibt $2(1+2b)=1 \Rightarrow b=\frac{1}{2}$, $a=\frac{1}{2e^3}$}{}
 
-		\komplexloesung{Berührung von $f(x)=e^x$ und $g(x)=ax^3$.}{
-			\item Bedingungen: $e^x=ax^3$ und $e^x=3ax^2$. Division: $x=3$. Einsetzen: $a=\frac{e^3}{27}$. Berührungspunkt: $(3, e^3)$
-		}
+		\komplexloesung{Bedingungen: $e^x=ax^3$ und $e^x=3ax^2$. Division: $x=3$. Einsetzen: $a=\frac{e^3}{27}$. Berührungspunkt: $(3, e^3)$}{}
 
-		\komplexloesung{Orthogonaler Schnitt bei $x=1$ für $f(x)=e^x$ und $g(x)=e^{ax+b}$.}{
-			\item Bedingung: $f'(1) \cdot g'(1) = -1$, wobei $f(x) = e^x$ und $g(x) = e^{ax+b}$. Es folgt: $e \cdot ae = -1$, also $a = -\frac{1}{e^2}$. Mit $g(1) = f(1) = e$ erhält man $e^{a+b} = e$, also $b = 1 + \frac{1}{e^2}$.
-		}
+		\komplexloesung{Bedingung: $f'(1) \cdot g'(1) = -1$, wobei $f(x) = e^x$ und $g(x) = e^{ax+b}$. Es folgt: $e \cdot ae = -1$, also $a = -\frac{1}{e^2}$. Mit $g(1) = f(1) = e$ erhält man $e^{a+b} = e$, also $b = 1 + \frac{1}{e^2}$.}{}
 
-		\komplexloesung{Tangentenwinkel bei $f(x)=(2x+3)e^{-x}$ an $x=-1$.}{
-			\item $f'(x)=(2-2x-3)e^{-x}=(-2x-1)e^{-x}$, $f'(-1)=e$. Winkel: $\alpha=\arctan(e)\approx 70°$ bzw. $1.22$ rad
-		}
+		\komplexloesung{$f'(x)=(2-2x-3)e^{-x}=(-2x-1)e^{-x}$, $f'(-1)=e$. Winkel: $\alpha=\arctan(e)\approx 70^\circ$ bzw. $1.22$ rad}{}
 
-		\komplexloesung{Schnittwinkel von $f(x)=e^x$ und $g(x)=e^{-x+2}$.}{
-			\item Schnittpunkt: $x=1$. Steigungen: $f'(1)=e$, $g'(1)=-e$. Winkel: $\gamma=\arctan\left(\frac{2e}{1-e^2}\right)\approx 99.4°$ bzw. $1.74$ rad
-		}
+		\komplexloesung{Schnittpunkt: $x=1$. Steigungen: $f'(1)=e$, $g'(1)=-e$. Winkel: $\gamma=\arctan\left(\frac{2e}{1-e^2}\right)\approx 99.4^\circ$ bzw. $1.74$ rad}{}
 
-		\komplexloesung{Ursprungsgerade als Tangente an $f(x)=e^{0.5x}$.}{
-			\item Bedingungen: $e^{0.5x_0}=mx_0$ und $0.5e^{0.5x_0}=m$. Daraus: $x_0=2$, $m=\frac{e}{2}$. Gerade: $g(x)=\frac{e}{2}x$
-		}
+		\komplexloesung{Bedingungen: $e^{0.5x_0}=mx_0$ und $0.5e^{0.5x_0}=m$. Daraus: $x_0=2$, $m=\frac{e}{2}$. Gerade: $g(x)=\frac{e}{2}x$}{}
 
-		\komplexloesung{Tangente an $f(x)=e^{-x}$ parallel zur Sehne durch $P$ und $Q$.}{
-			\item Sehnensteigung: $m_s=\frac{e^{-1}-e}{2}=\frac{1-e^2}{2e}$. $f'(x_0)=-e^{-x_0}=m_s \Rightarrow x_0=\ln\left(\frac{2e}{e^2-1}\right)\approx 0.544$. Tangente: $t(x)=\frac{1-e^2}{2e}(x-x_0)+e^{-x_0}$
-		}
+		\komplexloesung{Sehnensteigung: $m_s=\frac{e^{-1}-e}{2}=\frac{1-e^2}{2e}$. $f'(x_0)=-e^{-x_0}=m_s \Rightarrow x_0=\ln\left(\frac{2e}{e^2-1}\right)\approx 0.544$. Tangente: $t(x)=\frac{1-e^2}{2e}(x-x_0)+e^{-x_0}$}{}
 
-		\komplexloesung{Gleicher Anstieg von $f(x)=e^x$ und $g(x)=e^{0.5x}$.}{
-			\item $e^x=0.5e^{0.5x} \Rightarrow x=2\ln(2)\approx 1.386$. Tangente $f$: $t(x)=4(x-2\ln(2))+4=4x-8\ln(2)+4$. Normale $g$: $n(x)=-\frac{1}{1}(x-2\ln(2))+2=-x+2\ln(2)+2$
-		}
+		\komplexloesung{$e^x=0.5e^{0.5x} \Rightarrow x=2\ln(2)\approx 1.386$. Tangente $f$: $t(x)=4(x-2\ln(2))+4=4x-8\ln(2)+4$. Normale $g$: $n(x)=-\frac{1}{1}(x-2\ln(2))+2=-x+2\ln(2)+2$}{}
 
-		\komplexloesung{Maximale Differenz von $f(x)=4-x$ und $g(x)=4e^{-x}$ in $[0,2]$.}{
-			\item $h(x)=g(x)-f(x)=4e^{-x}-4+x$, $h'(x)=-4e^{-x}+1=0 \Rightarrow x=\ln(4)\approx 1.386 \in [0,2]$. Maximale Differenz bei $x=\ln(4)$
-		}
+		\komplexloesung{$h(x)=g(x)-f(x)=4e^{-x}-4+x$, $h'(x)=-4e^{-x}+1=0 \Rightarrow x=\ln(4)\approx 1.386 \in [0,2]$. Maximale Differenz bei $x=\ln(4)$}{}
 
-		\komplexloesung{Maximaler Rechteckinhalt mit $f(x)=e^{-x}$ und $g(x)=2e^{0.5x}$.}{
-			\item Breite: $b(k)=2\ln(k/2)-(-\ln k)=3\ln k-2\ln 2$. Fläche: $A(k)=k(3\ln k-2\ln 2)$, $A'(k)=3\ln k+3-2\ln 2=0$. $k=e^{(2\ln 2-3)/3}=\frac{\sqrt[3]{4}}{e}\approx 0.582$
-		}
+		\komplexloesung{Breite: $b(k)=2\ln(k/2)-(-\ln k)=3\ln k-2\ln 2$. Fläche: $A(k)=k(3\ln k-2\ln 2)$, $A'(k)=3\ln k+3-2\ln 2=0$. $k=e^{(2\ln 2-3)/3}=\frac{\sqrt[3]{4}}{e}\approx 0.582$}{}
 
 		\kurzloesung[3]{Ableitungsfunktion bestimmen:}{
 			\item $f'(x)=e^{0.5x}$
@@ -555,6 +647,16 @@
 		}
 
 	\end{kurzloesungen}
+
+	\begin{komplexloesungen}{sec:explogfktAblExWP}
+	\komplexloesung{$A=\int_{-1}^{2} (e^{-0.5x})\,\mathrm{d}x-\int_{-1}^{0} -\sqrt{e}\cdot x\,\mathrm{d}x\approx1.74$}{}
+
+	\komplexloesung{$f(x)=\frac{1}{2}x^2-2x+2.5$, $g(x)=2.5e^{\frac{1}{3}\ln 0.4\cdot x}$, $A=\int_{0}^{3} (g(x)-f(x))\,\mathrm{d}x\approx 1.91$}{}
+
+	\komplexloesung{Schnittpunkt $x_s=\ln \sqrt[3]{4} $, Hauptbedingung $A=\int_{x_1}^{x_s} e^{0.5x} \mathrm{d}x+\int_{x_s}^{x_2}2 e^{-x}\mathrm{d}x$, Nebenbedingung: $x_1+x_2=2$, $A_{max}\approx1.84$}{}
+	\end{komplexloesungen}
+
+
 	\end{loesungssektion}
 
 \part{Aufgaben Stochastik}
