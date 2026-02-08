@@ -92,7 +92,7 @@
 % =========================================================
 \newcounter{exo}
 \renewcommand{\theexo}{\arabic{exo}}
-\counterwithin*{exo}{section}
+\counterwithin*{exo}{subsection}
 
 % Für eindeutige Hyperref-Repräsentation
 \newcounter{exoglobal}
@@ -101,9 +101,9 @@
 % Kategorie für automatische Labels (A=Analysis, S=Stochastik, G=Geometrie)
 \newcommand{\currentCategory}{A}
 
-% Automatische Label-Generierung: Kategorie.Kapitel.Sektion.Aufgabe
+% Automatische Label-Generierung: Kategorie.Kapitel.Sektion.Subsektion.Aufgabe
 \newcommand{\aufgabenlabel}{%
-	\currentCategory\arabic{chapter}.\arabic{section}.\theexo%
+	\currentCategory\arabic{chapter}.\arabic{section}.\arabic{subsection}.\theexo%
 }
 
 % Link-Kommandos
@@ -344,16 +344,17 @@
 	\chapter{Kurvendiskussion - Teil 1}
 	\chapter{Extremalrechnung, Rekonstruktion und Trassierung}
 	\chapter{Differentialrechnung - Teil 2}
-	\chapter{Integralrechnung - Teil 2}
+	\chapter{Integralrechnung - Teil 2}	
 	\chapter{Kurvendiskussion - Teil 2}
 	\section{Exponential und Logarithmusfunktionen}
 	\label{sec:exp-log}
-	\subsection{Grundlegende Aufgabentypen}
-	\label{sec:explogfktAblExWP}
+	\subsection{Grundlegende Aufgabentypen Exponentialfunktionen} 
+	\label{sec:grundlegendAufgExp}
 	
-	\begin{kurzaufgaben}{sec:explogfktAblExWP}
+	
+	\begin{kurzaufgaben}{sec:grundlegendAufgExp}
 		
-			\kurzaufgabe[3]{Bestimmen Sie die Lösungen der Exponentialgleichungen. }{
+			\kurzaufgabe[3]{Bestimmen Sie die Lösungen der Exponentialgleichungen.}{
 				\item \(e^{2x+1}-1=1\)
 				\item \(3e^{x}=e^{-x}\)
 				\item \(4e^{x}=e^{2x}\)
@@ -364,13 +365,13 @@
 				\item \(2e^{x}-2=12e^{-x}\)
 			}
 
-			\kurzaufgabe[1]{Bestimmen Sie die Schnittpunkte der Funktionsgraphen von $f$ und $g$. }{
+			\kurzaufgabe[2]{Bestimmen Sie die Schnittpunkte der Funktionsgraphen von $f$ und $g$. }{
 				\item \(f(x)=2.5\cdot e^{x}\), $g(x)=e^{2\cdot x}$
 				\item \(f(x)=x\cdot e^{x+1}\), $g(x)=x$
 			}
 	\end{kurzaufgaben}
 
-	\begin{komplexaufgaben}{sec:explogfktAblExWP}
+	\begin{komplexaufgaben}{sec:grundlegendAufgExp}
 
 			\komplexaufgabe{Die Funktion $f(x)=axe^{bx}$ hat im Punkt $P(2|e^{-2})$ ihren 
 			Funktionswert als Steigung. Bestimmen Sie $a$ und $b$.} {}
@@ -407,7 +408,7 @@
 			
 	\end{komplexaufgaben}
 
-	\begin{kurzaufgaben}{sec:explogfktAblExWP}
+	\begin{kurzaufgaben}{sec:grundlegendAufgExp}
 			
 			\kurzaufgabe[3]{Bestimmen Sie die Ableitungsfunktion von\(f\). }{
 			\item \(f(x)=2\cdot e^{0.5x}\)
@@ -457,7 +458,7 @@
 		
 	\end{kurzaufgaben}
 
-	\begin{komplexaufgaben}{sec:explogfktAblExWP}
+	\begin{komplexaufgaben}{sec:grundlegendAufgExp}
 	\komplexaufgabe{Bestimme Sie den Inhalt der abgebildeten Fläche.
 	\par\begin{center}
 	\begin{tikzpicture}
@@ -503,7 +504,7 @@
 		xmin=-0.5, xmax=4.6,
 		ymin=-0.2, ymax=3,
 		xtick={1,2,3},
-		ytick={1},
+		ytick={1,2.5},
 		samples=200,
 		domain=-1:2.5
 	]
@@ -562,12 +563,45 @@
 	}{}
 	\end{komplexaufgaben}
 
+	\subsection{Grundlegende Aufgabentypen Logarithmusfunktionen} 
+	\label{sec:grundlegendAufgLog}
+	
+	\begin{kurzaufgaben}{sec:grundlegendAufgLog}
+		\kurzaufgabe[3]{Bestimmen Sie die Ableitungsfunktion $f'$}{
+			\item \(f(x)=\ln(x^2-2x)\)
+			\item \(f(x)=\ln(\ln x)\)
+			\item \(f(x)=\ln(e^x+e^{-x})\)
+			\item \(f(x)=\frac{1}{\ln x}\)
+			\item \(f(x)=\sqrt{\ln x}\)
+			\item \(f(x)=\sqrt{x} \cdot \ln x\)
+		}
+		\kurzaufgabe[2]{Berechnen Sie die unbestimmten Integrale}{
+			\item \(\int \ln(3x+2)\,\mathrm{d}x\)
+			\item \(\int \frac{\ln(5x-1)}{5x-1}\,\mathrm{d}x\)
+			\item \(\int \frac{1}{(2x+1)\,\ln(2x+1)}\,\mathrm{d}x\)
+			\item \(\int \frac{\ln(2x-3)}{2x-3}\,\mathrm{d}x\)
+		}	
+	\end{kurzaufgaben}
 
+	\subsection{Kurvendiskussion Exponentialfunktionen} 
+	\label{sec:kurvenDissExp}
 
-	\begin{loesungssektion}{sec:explogfktAblExWP}
+	\begin{kurzaufgaben}{sec:kurvenDissExp}
+		\kurzaufgabe[2]{Platzhalteraufgabe zur Kurvendiskussion von Exponentialfunktionen.}{}
+	\end{kurzaufgaben}
+	
+	\subsection{Kurvendiskussion Logarithmusfunktionen} 
+	\label{sec:kurvenDissLog}
+
+	\begin{kurzaufgaben}{sec:kurvenDissLog}
+		\kurzaufgabe[2]{Platzhalteraufgabe zur Kurvendiskussion von Logarithmusfunktionen.}{}
+	\end{kurzaufgaben}
+
+	\begin{loesungssektion}{sec:grundlegendAufgExp}
+	\setcounter{subsection}{1}
 	\setcounter{exo}{0}
 	
-	\begin{kurzloesungen}{sec:explogfktAblExWP}
+	\begin{kurzloesungen}{sec:grundlegendAufgExp}
 		\kurzloesung[3]{Lösung der Exponentialgleichungen}{
 			\item $\frac{\ln2-1}{2}\approx-0.153$
 			\item $-\ln(\sqrt{3})\approx-0.549$
@@ -648,16 +682,48 @@
 
 	\end{kurzloesungen}
 
-	\begin{komplexloesungen}{sec:explogfktAblExWP}
+	\begin{komplexloesungen}{sec:grundlegendAufgExp}
 	\komplexloesung{$A=\int_{-1}^{2} (e^{-0.5x})\,\mathrm{d}x-\int_{-1}^{0} -\sqrt{e}\cdot x\,\mathrm{d}x\approx1.74$}{}
 
-	\komplexloesung{$f(x)=\frac{1}{2}x^2-2x+2.5$, $g(x)=2.5e^{\frac{1}{3}\ln 0.4\cdot x}$, $A=\int_{0}^{3} (g(x)-f(x))\,\mathrm{d}x\approx 1.91$}{}
+	\komplexloesung{$f(x)=\frac{1}{2}x^2-2x+2.5$, $g(x)=2.5e^{\frac{1}{3}\ln 4\cdot x}$, $A=\int_{0}^{3} (g(x)-f(x))\,\mathrm{d}x\approx 1.91$}{}
 
 	\komplexloesung{Schnittpunkt $x_s=\ln \sqrt[3]{4} $, Hauptbedingung $A=\int_{x_1}^{x_s} e^{0.5x} \mathrm{d}x+\int_{x_s}^{x_2}2 e^{-x}\mathrm{d}x$, Nebenbedingung: $x_1+x_2=2$, $A_{max}\approx1.84$}{}
 	\end{komplexloesungen}
 
 
-	\end{loesungssektion}
+\end{loesungssektion}
+
+\begin{loesungssektion}{sec:grundlegendAufgLog}
+	\setcounter{subsection}{2}
+	\setcounter{exo}{0}
+	\begin{kurzloesungen}{sec:grundlegendAufgLog}
+		\kurzloesung[2]{Platzhalterloesung zu den grundlegenden Aufgabentypen Logarithmusfunktionen.}{}
+	\end{kurzloesungen}
+\end{loesungssektion}
+
+
+	
+	
+
+
+\begin{loesungssektion}{sec:kurvenDissExp}
+	\setcounter{subsection}{3}
+	\setcounter{exo}{0}
+	\begin{kurzloesungen}{sec:kurvenDissExp}
+		\kurzloesung[2]{Platzhalterloesung zur Kurvendiskussion von Exponentialfunktionen.}{}
+	\end{kurzloesungen}
+\end{loesungssektion}
+
+
+\begin{loesungssektion}{sec:kurvenDissLog}
+	\setcounter{subsection}{4}
+	\setcounter{exo}{0}
+	\begin{kurzloesungen}{sec:kurvenDissLog}
+		\kurzloesung[2]{Platzhalterloesung zur Kurvendiskussion von Logarithmusfunktionen.}{}
+	\end{kurzloesungen}
+	
+\end{loesungssektion}
+
 
 \part{Aufgaben Stochastik}
 \renewcommand{\currentCategory}{S}
