@@ -593,9 +593,22 @@
 	\subsection{Kurvendiskussion Logarithmusfunktionen} 
 	\label{sec:kurvenDissLog}
 
-	\begin{kurzaufgaben}{sec:kurvenDissLog}
-		\kurzaufgabe[2]{Platzhalteraufgabe zur Kurvendiskussion von Logarithmusfunktionen.}{}
-	\end{kurzaufgaben}
+	\begin{komplexaufgaben}{sec:kurvenDissLog}		
+
+		\komplexaufgabe{Gegeben ist die Kurvenschar $f_a(x)=x\cdot (a-\ln x), a>0,x>0.$}{
+			\item Bestimmen Sie die Ableitungen $f_a'$ und $f_a''$.
+			\item Untersuchen Sie $f_a$ auf Nullstellen. 
+			\item Bestimmen Sie den Extrempunkt von $f_a$. Zeigen Sie, dass $f_a$ keine Wendestellen besitzt.
+			\item Untersuchen Sie, wie sich die Funktion $f_1$ für $x\longrightarrow \infty$ bzw. $x\longrightarrow 0$ verhält.
+			\item Skizzieren Sie den Graphen von $f_1$ und $f_2$ für $0<x\leq8$.
+			\item Bestimmen Sie eine Stammfunktion von $f_a$.
+			\item Berechnen Sie den Inhalt der Fläche, die im ersten Quadranten vom Graphen von $f_1$, der $x$-Achse und der Geraden 
+			durch den Hochpunkt von $f_1$ umschlossen wird.
+			\item Geben Sie den Inhalt der Fläche an, die im ersten Quadranten vom Graphen von $f_a$ und den Koordinatenachsen begrenzt wird
+			in Abhängigkeit von $a$ an.
+		}
+	
+	\end{komplexaufgaben}
 
 	\begin{loesungssektion}{sec:grundlegendAufgExp}
 	\setcounter{subsection}{1}
@@ -718,10 +731,59 @@
 \begin{loesungssektion}{sec:kurvenDissLog}
 	\setcounter{subsection}{4}
 	\setcounter{exo}{0}
-	\begin{kurzloesungen}{sec:kurvenDissLog}
-		\kurzloesung[2]{Platzhalterloesung zur Kurvendiskussion von Logarithmusfunktionen.}{}
-	\end{kurzloesungen}
 	
+	\begin{komplexloesungen}{sec:kurvenDissLog}
+		
+		\komplexloesung{}{
+			\item $f_a'(x)=a-\ln x -1$, $f_a''(x)=-\frac{1}{x}$ 
+			 \item Nullstellen: $x= e^a$
+			 \item Extrema $H(e^{a-1,e^{a-1}})$, keine Wendestellen, da $f_a''(x)\neq 0$ für alle $x>0$
+			 \item Für $x\to\infty$: $f_1(x)\to -\infty$, für $x\to 0$: $f_1(x)\to 0$ (Testwerte) 
+			 \item \begin{minipage}[t]{\linewidth}
+			 \vspace{0pt}
+			 \centering
+			 \begin{tikzpicture}
+			 \begin{axis}[
+			 	width=0.78\textwidth,
+			 	height=0.78\textwidth,
+			 	axis lines=middle,
+			 	xlabel={$x$},
+			 	ylabel={$y$},
+			 	xmin=0, xmax=8.2,
+			 	ymin=-9.5, ymax=3.2,
+			 	domain=0.05:8,
+			 	samples=300,
+			 	grid=both,
+			 	grid style={gray!20},
+			 	minor grid style={gray!10},
+			 	legend style={at={(0.98,0.02)},anchor=south east,fill=white,draw=none},
+			 	xtick={1,2.7182818,7.3890561,8},
+			 	xticklabels={$1$,$e$,$e^2$,$8$}
+			 ]
+			 	\addplot[very thick, blue!70!black] {x*(1-ln(x))};
+			 	\addlegendentry{$f_1(x)=x(1-\ln x)$}
+			 	\addplot[very thick, red!75!black] {x*(2-ln(x))};
+			 	\addlegendentry{$f_2(x)=x(2-\ln x)$}
+			 	\addplot[only marks, mark=*, mark size=1.8pt, blue!70!black] coordinates {(1,1)};
+			 	\addplot[only marks, mark=*, mark size=1.8pt, red!75!black] coordinates {(2.7182818,2.7182818)};
+			 \end{axis}
+			 \end{tikzpicture}
+			 \end{minipage}
+			 \item $F_a(x)=\frac{x^2}{2}(a-\ln x +\frac{1}{2}) +C$
+			 \item $A=\int_0^{e} f_1(x)\,\mathrm{d}x =F(e)-F(1)=\frac{1}{4}e^2-\frac{3}{4} \approx 1.1$
+			 \item \[
+			 \begin{aligned}
+			 A(a)&=\lim_{t\to 0}\int_t^{e^a} x(a-\ln x)\,\mathrm{d}x \\
+			 &=\lim_{t\to 0}\left[\frac{ax^2}{2}+\frac{x^2}{4}-\frac{x^2}{2}\ln x\right]_{t}^{e^a} \\
+			 &=\frac{1}{4}e^{2a}-\lim_{t\to 0}\left(\frac{at^2}{2}+\frac{t^2}{4}-\frac{t^2}{2}\ln t\right) \\
+			 &=\frac{1}{4}e^{2a}
+			 \end{aligned}
+			 \]		
+ 		}
+
+		
+		
+	\end{komplexloesungen}
 \end{loesungssektion}
 
 
