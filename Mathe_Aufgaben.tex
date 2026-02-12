@@ -57,6 +57,7 @@
 % TOC
 % =========================================================
 \usepackage{tocbasic}
+\DeclareTOCStyleEntry[numwidth=2.5em]{tocline}{chapter}
 \addtokomafont{partentry}{\color{LinkBlue}\bfseries}
 \setcounter{tocdepth}{3}
 
@@ -640,6 +641,263 @@
 			\item Bestimmen Sie eine Stammfunktion von $f_a$.
 		}
 	\end{komplexaufgaben}
+
+	\subsection{Enrichment: Der Integrallogarithmus als Modell der Primzahlverteilung}
+
+Die Primzahlzählfunktion
+\[
+\pi(x):=\#\{\,p\le x \mid p \text{ prim}\,\}
+\]
+beschreibt eine der zentralen Fragen der Zahlentheorie:
+Wie verteilen sich Primzahlen unter den natürlichen Zahlen?
+
+Experimentelle Daten zeigen:
+Primzahlen werden seltener, je größer $x$ wird.
+Der Primzahlsatz präzisiert dieses Phänomen asymptotisch:
+
+\[
+\pi(x)\sim \frac{x}{\ln x}
+\qquad (x\to\infty).
+\]
+
+Das bedeutet
+\[
+\lim_{x\to\infty}\frac{\pi(x)}{x/\ln x}=1.
+\]
+
+\medskip
+
+Die Formel $\frac{x}{\ln x}$ ist jedoch nicht aus dem Nichts entstanden.
+Sie lässt sich heuristisch verstehen.
+
+Betrachten wir eine große Zahl $t$.
+Empirisch scheint zu gelten:
+
+\begin{quote}
+Die ``Dichte'' der Primzahlen in der Nähe von $t$ ist ungefähr $\frac{1}{\ln t}$.
+\end{quote}
+
+Interpretiert man dies probabilistisch,
+so bedeutet es:
+Die Wahrscheinlichkeit, dass eine Zahl nahe $t$ prim ist,
+ist etwa $\frac{1}{\ln t}$.
+
+Wenn man diese lokale Dichte über das gesamte Intervall $[2,x]$
+aufsummiert, erhält man als Modell:
+
+\[
+\sum_{n=2}^{x}\frac{1}{\ln n}.
+\]
+
+Solche Summen lassen sich für große Bereiche durch Integrale
+approximieren. Dies führt auf die Funktion
+
+\[
+\operatorname{Li}(x):=\int_2^x\frac{dt}{\ln t}.
+\]
+
+Der Integrallogarithmus ist somit keine künstliche Konstruktion,
+sondern entsteht direkt aus der Dichteidee.
+
+Tatsächlich gilt:
+
+\[
+\pi(x)\sim \operatorname{Li}(x).
+\]
+
+Die Funktion $\operatorname{Li}(x)$ liefert also eine feinere
+Beschreibung der Primzahlverteilung als $\frac{x}{\ln x}$.
+
+\bigskip
+
+\subsection*{Asymptotische Analyse von $\operatorname{Li}(x)$}
+
+Um zu verstehen, warum $\operatorname{Li}(x)$ genauer ist als
+$\frac{x}{\ln x}$, analysieren wir das Integral genauer.
+
+Wir betrachten
+
+\[
+\operatorname{Li}(x)=\int_2^x\frac{dt}{\ln t}.
+\]
+
+Da $\ln t$ streng wächst, ist
+\[
+\frac{1}{\ln t}
+\]
+für kleine $t$ deutlich größer als für große $t$.
+Die Näherung $\frac{x}{\ln x}$ ignoriert diese Variation
+und ersetzt $\frac{1}{\ln t}$ durch den konstanten Wert
+$\frac{1}{\ln x}$.
+Dies führt zwangsläufig zu einer systematischen Verzerrung.
+
+\medskip
+
+Wir untersuchen daher das Integral mittels partieller Integration.
+
+Setze
+\[
+u(t)=\frac{1}{\ln t},
+\qquad dv=dt.
+\]
+
+Dann gilt
+\[
+v=t,
+\qquad
+u'(t)=-\frac{1}{t(\ln t)^2}.
+\]
+
+Mit
+\[
+\int u\,dv = uv-\int v\,du
+\]
+folgt:
+
+\[
+\operatorname{Li}(x)
+=
+\Bigl[\frac{t}{\ln t}\Bigr]_2^x
++
+\int_2^x\frac{dt}{(\ln t)^2}.
+\]
+
+Damit erhalten wir:
+
+\[
+\operatorname{Li}(x)
+=
+\frac{x}{\ln x}
+-
+\frac{2}{\ln 2}
++
+\int_2^x\frac{dt}{(\ln t)^2}.
+\]
+
+Der letzte Term ist positiv.
+Damit erkennt man bereits,
+dass $\operatorname{Li}(x)$ nicht einfach nur $\frac{x}{\ln x}$
+ist, sondern einen zusätzlichen Korrekturterm besitzt.
+
+Wendet man dasselbe Verfahren erneut auf
+\[
+\int_2^x\frac{dt}{(\ln t)^2}
+\]
+an, erhält man weitere Terme vom Typ
+
+\[
+\frac{x}{\ln^2 x},\qquad
+\frac{2x}{\ln^3 x},\qquad \dots
+\]
+
+Es entsteht eine asymptotische Entwicklung:
+
+\[
+\operatorname{Li}(x)
+=
+\frac{x}{\ln x}
++
+\frac{x}{\ln^2 x}
++
+\frac{2x}{\ln^3 x}
++
+\mathcal{O}\!\left(\frac{x}{\ln^4 x}\right).
+\]
+
+Diese Reihe erklärt die höhere Genauigkeit von
+$\operatorname{Li}(x)$ im Vergleich zu $\frac{x}{\ln x}$.
+
+\bigskip
+
+\subsection*{Aufgaben}
+
+\paragraph{Aufgabe A: Numerischer Vergleich der Modelle}
+
+Berechnen Sie für
+\[
+x=10^3,\;10^4,\;10^5
+\]
+
+\begin{enumerate}
+\item den exakten Wert von $\pi(x)$,
+\item die Näherung $\frac{x}{\ln x}$,
+\item eine numerische Approximation von $\operatorname{Li}(x)$,
+\item die absoluten und relativen Fehler beider Näherungen.
+\end{enumerate}
+
+\textbf{Analytischer Hinweis:}
+
+Für die numerische Integration können Sie die Trapezregel verwenden.
+Untersuchen Sie außerdem, wie sich das Ergebnis ändert,
+wenn Sie die Schrittweite verkleinern.
+Beurteilen Sie die Stabilität Ihrer Approximation.
+
+Reflektieren Sie anschließend:
+Welche Terme der asymptotischen Entwicklung
+scheinen für diese Größenordnung bereits relevant zu sein?
+
+\bigskip
+
+\paragraph{Aufgabe B: Struktur des Korrekturterms}
+
+Führen Sie die partielle Integration vollständig selbstständig durch
+und leiten Sie
+
+\[
+\operatorname{Li}(x)
+=
+\frac{x}{\ln x}
+-
+\frac{2}{\ln 2}
++
+\int_2^x\frac{dt}{(\ln t)^2}
+\]
+her.
+
+Zeigen Sie anschließend:
+
+\[
+\operatorname{Li}(x) - \frac{x}{\ln x}
+=
+\int_2^x\frac{dt}{(\ln t)^2}
+-
+\frac{2}{\ln 2}.
+\]
+
+Diskutieren Sie das Vorzeichen dieses Ausdrucks
+für große $x$.
+
+\textbf{Vertiefung:}
+
+Versuchen Sie, durch erneute partielle Integration
+den nächsten Term $\frac{x}{\ln^2 x}$ explizit zu isolieren.
+
+\bigskip
+
+\paragraph{Aufgabe C: Das Vorzeichenproblem}
+
+Definieren Sie
+
+\[
+D(x)=\operatorname{Li}(x)-\pi(x).
+\]
+
+\begin{enumerate}
+\item Bestimmen Sie $D(x)$ für die in Aufgabe A gewählten Werte.
+\item Formulieren Sie eine Vermutung über das Vorzeichenverhalten.
+\item Informieren Sie sich über die Aussage:
+\emph{$D(x)$ wechselt unendlich oft das Vorzeichen.}
+Erläutern Sie, warum diese Aussage trotz
+$\pi(x)\sim\operatorname{Li}(x)$
+nicht widersprüchlich ist.
+\end{enumerate}
+
+\textbf{Analytischer Zusatz:}
+
+Begründen Sie heuristisch,
+warum $D(x)=o(x)$ gilt,
+obwohl das Vorzeichen nicht stabil bleibt.
+
 
 	\begin{loesungssektion}{sec:grundlegendAufgExp}
 	\setcounter{subsection}{1}
