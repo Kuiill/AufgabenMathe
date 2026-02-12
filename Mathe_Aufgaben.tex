@@ -47,6 +47,7 @@
 \setkomafont{part}{\Huge\bfseries\color{LinkBlue}}
 \setkomafont{chapter}{\Large\bfseries\color{LinkBlue}}
 \setkomafont{section}{\large\bfseries\color{LinkBlue}}
+\setkomafont{subsection}{\large\bfseries\color{LinkBlue}}
 
 \RedeclareSectionCommand[beforeskip=14pt plus 2pt, afterskip=10pt]{part}
 \RedeclareSectionCommand[beforeskip=10pt, afterskip=6pt]{chapter}
@@ -284,27 +285,27 @@
 % Wrapper: Aufgaben-/Lösungs-Sektionen (TOC)
 % =========================================================
 \newenvironment{aufgabensektion}[1]{%
-	\section*{Aufgaben zu \ref{#1}\ \nameref{#1}}%
+	\section*{Aufgaben zu \ref*{#1}\ \nameref*{#1}}%
 	\phantomsection%
-	\addcontentsline{toc}{section}{Aufgaben zu \ref{#1}\ \nameref{#1}}%
+	\addcontentsline{toc}{section}{Aufgaben zu \ref*{#1}\ \nameref*{#1}}%
 }{}
 
 \newenvironment{aufgabensubsektion}[1]{%
-	\subsection*{Aufgaben zu \ref{#1}\ \nameref{#1}}%
+	\subsection*{Aufgaben zu \ref*{#1}\ \nameref*{#1}}%
 	\phantomsection%
-	\addcontentsline{toc}{subsection}{Aufgaben zu \ref{#1}\ \nameref{#1}}%
+	\addcontentsline{toc}{subsection}{Aufgaben zu \ref*{#1}\ \nameref*{#1}}%
 }{}
 
 \newenvironment{loesungssektion}[1]{%
-	\section*{Lösungen zu \ref{#1}\ \nameref{#1}}%
+	\section*{Lösungen zu \ref*{#1}\ \nameref*{#1}}%
 	\phantomsection%
-	\addcontentsline{toc}{section}{Lösungen zu \ref{#1}\ \nameref{#1}}%
+	\addcontentsline{toc}{section}{Lösungen zu \ref*{#1}\ \nameref*{#1}}%
 }{}
 
 \newenvironment{loesungsubsektion}[1]{%
-	\subsection*{Lösungen zu \ref{#1}\ \nameref{#1}}%
+	\subsection*{Lösungen zu \ref*{#1}\ \nameref*{#1}}%
 	\phantomsection%
-	\addcontentsline{toc}{subsection}{Lösungen zu \ref{#1}\ \nameref{#1}}%
+	\addcontentsline{toc}{subsection}{Lösungen zu \ref*{#1}\ \nameref*{#1}}%
 }{}
 
 % =========================================================
@@ -346,7 +347,7 @@
 	\chapter{Differentialrechnung - Teil 2}
 	\chapter{Integralrechnung - Teil 2}	
 	\chapter{Kurvendiskussion - Teil 2}
-	\section{Exponential und Logarithmusfunktionen}
+	\section{Exponential- und Logarithmusfunktionen}
 	\label{sec:exp-log}
 	\subsection{Grundlegende Aufgabentypen Exponentialfunktionen} 
 	\label{sec:grundlegendAufgExp}
@@ -602,12 +603,42 @@
 			\item Untersuchen Sie, wie sich die Funktion $f_1$ für $x\longrightarrow \infty$ bzw. $x\longrightarrow 0$ verhält.
 			\item Skizzieren Sie den Graphen von $f_1$ und $f_2$ für $0<x\leq8$.
 			\item Bestimmen Sie eine Stammfunktion von $f_a$.
-			\item Berechnen Sie den Inhalt der Fläche, die im ersten Quadranten vom Graphen von $f_1$, der $x$-Achse und der Geraden 
-			durch den Hochpunkt von $f_1$ umschlossen wird.
+			\item Berechnen Sie den Inhalt der Fläche, die im ersten Quadranten vom Graphen von $f_1$, der $x$-Achse und der zur $x$-Achse senkrechten 
+			Geraden durch den Hochpunkt von $f_1$ umschlossen wird.
 			\item Geben Sie den Inhalt der Fläche an, die im ersten Quadranten vom Graphen von $f_a$ und den Koordinatenachsen begrenzt wird
 			in Abhängigkeit von $a$ an.
 		}
-	
+		\komplexaufgabe{Gegeben ist die Kurvenschar $f_a(x)=a^2\cdot x^2 - a\cdot \ln x ,a>0,x>0.$}{
+			\item Bestimmen Sie die Ableitungen $f_a'$ und $f_a''$.
+			\item Untersuchen Sie $f_a$ auf Extrema und Wendepunkte.
+			\item Skizzieren Sie die Graphen von $f_1$ und $f_2$.
+			\item Zeigen Sie. dass der Graph von $f_1$ keine Nullstellen hat. Argumentieren Sie mit den bisher erhaltenen Vorergebnissen.
+			\item Bestimmen Sie denjenigen Wert von $a$, für den der Extrempunkt auf der $x-$Achse liegt. 
+		}
+
+		\komplexaufgabe{Gegeben ist die Kurvenschar $f_a(x)=x^2-a\cdot\ln x,a>0,x>0.$}{
+			\item Bestimmen Sie die Ableitungen $f_a'$ und $f_a''$.
+			\item Zeigen Sie, dass $f_a$ Extremalpunkte, aber keine Wendepunkte besitzt.
+			\item Skizzieren Sie die Graphen von $f_1$ und $f_3$.
+			\item Für welchen Wert von $a$ liegt der Tiefpunkt von $f_a$ auf der $x-$Achse?
+			\item Untersuchen Sie aufgrund des Ergebnisses von d) die Anzahl der Nullstellen von $f_a$ in Abhängigkeit von $a$.
+			\item Bestimmen Sie eine Stammfunktion von $f_a$.
+			\item Untersuchen Sie die Kurvenschar $f_a(x)=x^2-a\cdot \ln x$ für $a<0.$ Wie ändert sich das Erscheinungsbild der Schar (Skizze) 
+			für nunmehr negative Parameterwerte $a$?
+
+
+		}
+		\komplexaufgabe{Gegeben ist die Kurvenschar $f_a(x)=\left(\ln(ax)\right)^2-a,a>0,x>0.$}{
+			\item Bestimmen Sie die Ablietungen $f_a'$ und $f_a''$.
+			\item Untersuchen Sie $f_a$ auf Nullstellen und Extrema.
+			\item Zeigen Sie, dass alle Funktionen der Schar bei $x_w=\frac{e}{a}$ eine Wendestelle besitzen.
+			\item Skizieren Sie die Graphen von $f_1$ und $f_2$.
+			\item Wie verhält sich der Graph von $f_a$ für $x\to\infty$ bzw. $x\to 0$?
+			\item Für welchen Wert von $a$ schneidet die Wendetangente die $y-$Achse im Punkt $P(0|-4)$?
+			\item Bestimmen Sie die Gleichung der Ortskurve der Extremalpunkte von $f_a$.
+			\item Bestimmen Sie die Gleichung der Ortskurve der Wendpunkte von $f_a$.
+			\item Bestimmen Sie eine Stammfunktion von $f_a$.
+		}
 	\end{komplexaufgaben}
 
 	\begin{loesungssektion}{sec:grundlegendAufgExp}
@@ -769,7 +800,7 @@
 			 \end{axis}
 			 \end{tikzpicture}
 			 \end{minipage}
-			 \item $F_a(x)=\frac{x^2}{2}(a-\ln x +\frac{1}{2}) +C$
+			 \item $F_a(x)=\frac{x^2}{2}(a-\ln x +\frac{1}{2})$
 			 \item $A=\int_0^{e} f_1(x)\,\mathrm{d}x =F(e)-F(1)=\frac{1}{4}e^2-\frac{3}{4} \approx 1.1$
 			 \item \[
 			 \begin{aligned}
@@ -780,8 +811,90 @@
 			 \end{aligned}
 			 \]		
  		}
-
-		
+	\komplexloesung{}{
+		\item $f_a'(x)=2a^2x-\frac{a}{x},f_a''(x)=2a^2+\frac{a}{x^2}$
+		\item $T(\frac{1}{\sqrt{2a}}|\frac{a}{2}\left(1+\ln(2a)\right))$, keine Wendepunkte
+		\item siehe Abbildung
+		\item $f_1(x)\geq \frac{1}{2}(1+\ln 2)\approx 0.85>0$
+		\item $\frac{a}{2}\left(1+\ln(2a)\right)=0\Longrightarrow a=\frac{1}{2e}$
+	}
+	\komplexloesung{}{
+		\item $f_a'(x)=2x-\frac{a}{x}, f_a''(x)=2+\frac{a}{x^2}$
+		\item $T(\sqrt{\frac{a}{2}}|\frac{a}{2}\left(1-\ln \left(\frac{a}{2}\right)\right)),f_a''(x)\neq 0 \Longrightarrow$ keine Wendepunkte
+		\item \begin{minipage}[t]{\linewidth}
+				\vspace{0pt}
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						width=0.78\textwidth,
+						height=0.52\textwidth,
+						axis lines=middle,
+						xlabel={$x$},
+						ylabel={$y$},
+						xmin=0, xmax=3.2,
+						ymin=-3.5, ymax=10.2,
+						domain=0.05:3.2,
+						samples=300,
+						grid=both,
+						grid style={gray!20},
+						minor grid style={gray!10},
+						legend style={at={(0.2,0.98)},anchor=north west,fill=white,draw=none}
+					]
+						\addplot[very thick, blue!70!black] {x^2 - ln(x)};
+						\addlegendentry{$f_1(x)=x^2-\ln x$}
+						\addplot[very thick, red!75!black] {x^2 - 3*ln(x)};
+						\addlegendentry{$f_3(x)=x^2-3\ln x$}
+						\addplot[very thick, green!50!black] {x^2 + ln(x)};
+						\addlegendentry{$f_{-1}(x)=x^2+\ln x$}
+						\addplot[only marks, mark=*, mark size=1.8pt, black] coordinates {(1,1)};
+					\end{axis}
+				\end{tikzpicture}
+			\end{minipage}
+		\item $\frac{a}{2}\left(1-\ln\left(\frac{a}{2}\right)\right)=0, a=2e$
+		\item $\frac{a}{2}\left(1-\ln\left(\frac{a}{2}\right)\right)<0\Longrightarrow$ 2 Nullstellen, also für $1<\ln\left(\frac{a}{2}\right)$ 2 Nullstellen für $a>2e$,
+		$\frac{a}{2}\left(1-\ln\left(\frac{a}{2}\right)\right)=0\Longrightarrow$ eine Nullstelle für $a=2e$, 
+		$\frac{a}{2}\left(1-\ln\left(\frac{a}{2}\right)\right)>0\Longrightarrow$ keine Nullstellen für $a<2e$
+		\item $F_a(x)=\frac{1}{3}x^3-ax\ln x +ax$
+		\item Wendepunkte: $W\left(\sqrt{\frac{-a}{2}}\;\middle|\;-\frac{a}{2}\left(1+\ln \left(\frac{-a}{2}\right)\right)\right)$ keine Extrema, alle Graphen gehen durch $P(1|1)$. 
+		Für $a_1<a_2$ gilt: $f_{a_1}<f_{a_2}$ für $x<1$,$f_{a_1}>f_{a_2}$ für $x>1$. Wegen $\lim_{x\to 0}f_a(x)=-\infty<0$ und $f_a(1)=1>0$ muss für $a<0$ eine Nullstelle existieren.
+	}
+	\komplexloesung{}{
+		\item $f_a'(x)=2\ln (ax)\cdot\frac{1}{x}, f_a''(x)=\frac{2}{x^2}\left(1-\ln (ax)\right), f_a'''(x)=-\frac{6}{x^3}+\frac{4}{x^3}\ln (ax)$
+		\item Nullstellen: $x_{1/2}=\frac{1}{a}e^{\pm\sqrt{a}}$, Extrema: $T\left(\frac{1}{a}|-a\right)$
+		\item Wendepunkte: $1-\ln(ax)=0\Longrightarrow x=\frac{e}{a}, W\left(\frac{e}{a}|1-a\right)$
+		\item \begin{minipage}[t]{\linewidth}
+				\vspace{0pt}
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						width=0.78\textwidth,
+						height=0.52\textwidth,
+						axis lines=middle,
+						xlabel={$x$},
+						ylabel={$y$},
+						xmin=0, xmax=5.2,
+						ymin=-2.6, ymax=9.2,
+						domain=0.05:5.2,
+						samples=350,
+						grid=both,
+						grid style={gray!20},
+						minor grid style={gray!10},
+						legend style={at={(0.6,0.6)},anchor=south east,fill=white,draw=none}
+					]
+						\addplot[very thick, blue!70!black] {(ln(x))^2 - 1};
+						\addlegendentry{$f_1(x)=(\ln x)^2-1$}
+						\addplot[very thick, red!75!black] {(ln(2*x))^2 - 2};
+						\addlegendentry{$f_2(x)=(\ln(2x))^2-2$}
+					\end{axis}
+				\end{tikzpicture}
+			\end{minipage}
+		\item $\lim_{x\to 0}f_a(x)=\infty, \lim_{x\to \infty}f_a(x)=\infty$
+		\item $t(x)=\frac{2a}{e}x-1-a,a=3$
+		\item Ortskurve der Extrema: $y(x)=-\frac{1}{x}$
+		\item Ortskurve der Wendepunkte: $y(x)=1-\frac{e}{x}$
+		\item Mit Hilfe der linearen Substitution überlegt man sich dass gilt: \newline $\int f(a\cdot x) \mathrm{d}x \overset{t=a\cdot x}{=} \frac{1}{a}\int f(t) \mathrm{d}t $
+		Daher transformiert sich: $\int \ln x \ln x\mathrm{d}x$ zu $\frac{1}{a}\int \ln t \ln t\mathrm{d}t$ was durch partielle Integration gelöst werden kann. Es ergibt sich: $F_a(x)=x\left(\ln^2(ax)-2\ln ax+2-a\right)$ 
+	}	
 		
 	\end{komplexloesungen}
 \end{loesungssektion}
