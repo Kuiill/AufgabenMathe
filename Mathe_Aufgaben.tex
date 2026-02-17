@@ -1162,7 +1162,74 @@ obwohl das Vorzeichen nicht stabil bleibt.
 \renewcommand{\currentCategory}{S}
 \renewcommand{\thechapter}{S\arabic{chapter}}
 \setcounter{chapter}{0}
-	
+
+\chapter{Grundlagen der Stochastik}
+
+\section{Kombinatorik}
+	\label{sec:kombinatorik}
+
+\begin{komplexaufgaben}{sec:kombinatorik}
+		
+		\komplexaufgabe{
+			Bearbeiten Sie die folgenden Aufgaben in mehreren Phasen:
+			\begin{enumerate}[label=\Alph*)]
+				\item Lösen Sie zunächst alle Teilaufgaben a) bis r).
+				\item Sortieren Sie diese Aufgaben nach Aufgabentypen.
+				\item Geben Sie Gesichtspunkte an, nach denen Sie Ihre Einteilung vorgenommen haben.
+				\item Versuchen Sie die jeweilige kombinatorische Problemstellung und Ihren Lösungsweg allgemein zu formulieren.
+				\item Lesen Sie nun Abschnitt 2.1 (Kombinatorik: Systematisches Abzählen) im Lehrtext und vergleichen Sie:
+				\begin{itemize}
+					\item Stimmen Ihre Kategorien mit den vier Grundfällen überein?
+					\item Wie passen Ihre Aufgaben in die 2×2-Tabelle (mit/ohne Zurücklegen, mit/ohne Reihenfolge)?
+					\item Welche Formeln können Sie auf Ihre Aufgaben anwenden?
+				\end{itemize}
+				\item Überprüfen Sie Ihre Lösungen aus Teilaufgabe A mit den Formeln aus dem Lehrtext.
+			\end{enumerate}
+		}{
+			\item Wieviele sechsstellige Zahlen -- gebildet aus den Ziffern 1,...,9 -- gibt es?
+			
+			\item Von den 20 Schülern einer Klasse sollen 10 in die Parallelklasse überwechseln. Wieviele Möglichkeiten gibt es?
+			
+			\item Acht Athleten kämpfen um drei Medaillen. Wie viele Möglichkeiten für die Preisverteilung gibt es?
+			
+			\item Auf wieviele Arten kann man 5 Personen auf 8 Einzelzimmer verteilen?
+			
+			\item Herr M. will seine 5 Kinder für ein Gruppenphoto in einer Reihe anordnen. Wieviele Möglichkeiten hat er?
+			
+			\item Wieviele verschiedene Tippreihen gibt es bei der Elferwette im Fußballtoto (11 Tipps: jeweils gewonnen, verloren oder unentschieden)?
+			
+			\item In einem Raum gibt es 8 Lampen, die unabhängig ein- und ausgeschaltet werden können. Wieviele Möglichkeiten gibt es, so dass genau 5 Lampen brennen?
+			
+			\item Einem Skatspiel werden drei Karten mit Zurücklegen entnommen. Wieviele Möglichkeiten gibt es?
+			
+			\item Wieviele Möglichkeiten gibt es, 8 gleiche Gegenstände auf 12 Fächer zu verteilen?
+			
+			\item In einem Hotel sind noch 5 Zimmer frei. Jedes der Zimmer ist ein Dreibett-Zimmer. Am Abend kommen noch drei Gäste. Wie viele Möglichkeiten hat der Hotelier, die Gäste auf die Zimmer zu verteilen? Es wird dabei zugelassen, dass in einem Zimmer evt. 2 oder auch 3 Gäste schlafen.
+			
+			}
+		
+	\end{komplexaufgaben}
+
+\begin{loesungssektion}{sec:kombinatorik}
+	\setcounter{exo}{0}
+
+	\begin{komplexloesungen}{sec:kombinatorik}
+	\komplexloesung{}{
+		\item $9^6 = 531\,441$
+		\item $\binom{20}{10} = 184\,756$
+		\item $\frac{8!}{(8-3)!} = 8 \cdot 7 \cdot 6 = 336$
+		\item $\frac{8!}{(8-5)!} = 8 \cdot 7 \cdot 6 \cdot 5 \cdot 4 = 6\,720$
+		\item $5! = 120$
+		\item $3^{11} = 177\,147$
+		\item $\binom{8}{5} = 56$
+		\item $32^3 = 32\,768$
+		\item $\binom{19}{11} = 75\,582$
+		\item $5^3 = 125$
+	}
+	\end{komplexloesungen}
+
+\end{loesungssektion}
+
 \part{Aufgaben Analytische Geometrie}
 \renewcommand{\currentCategory}{G}
 \renewcommand{\thechapter}{G\arabic{chapter}}
