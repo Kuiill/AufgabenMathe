@@ -1173,7 +1173,7 @@ obwohl das Vorzeichen nicht stabil bleibt.
 		\komplexaufgabe{
 			Bearbeiten Sie die folgenden Aufgaben in mehreren Phasen:
 			\begin{enumerate}[label=\Alph*)]
-				\item Lösen Sie zunächst alle Teilaufgaben a) bis r).
+				\item Lösen Sie zunächst alle Teilaufgaben a) bis j).
 				\item Sortieren Sie diese Aufgaben nach Aufgabentypen.
 				\item Geben Sie Gesichtspunkte an, nach denen Sie Ihre Einteilung vorgenommen haben.
 				\item Versuchen Sie die jeweilige kombinatorische Problemstellung und Ihren Lösungsweg allgemein zu formulieren.
@@ -1205,9 +1205,58 @@ obwohl das Vorzeichen nicht stabil bleibt.
 			\item Wieviele Möglichkeiten gibt es, 8 gleiche Gegenstände auf 12 Fächer zu verteilen?
 			
 			\item In einem Hotel sind noch 5 Zimmer frei. Jedes der Zimmer ist ein Dreibett-Zimmer. Am Abend kommen noch drei Gäste. Wie viele Möglichkeiten hat der Hotelier, die Gäste auf die Zimmer zu verteilen? Es wird dabei zugelassen, dass in einem Zimmer evt. 2 oder auch 3 Gäste schlafen.
-			
+
 			}
-		
+
+	\komplexaufgabe{Trapper Fuzzi muss auf dem Weg nach Alaska drei Flüsse überqueren.
+		Am ersten Fluss gibt es 7 Furten, am zweiten 5 und am dritten 3 Furten.
+		Am ersten Fluss sind 6, am zweiten 4 und am dritten 2 der Furten passierbar.
+		Fuzzi entscheidet sich vor dem Abmarsch für eine Route.
+		Sollte man darauf wetten, dass er durchkommt?}{}
+
+	\komplexaufgabe{Eine Dualzahl hat nur Nullen und Einsen als Ziffern.
+		Computer arbeiten mit 8-stelligen, 16-stelligen oder 32-stelligen Dualzahlen.
+		Wie viele verschiedene Zahlen kann man für jede dieser Stellenanzahlen bilden?}{}
+
+	\komplexaufgabe{Wie viele 7-stellige Zahlen ohne Ziffernwiederholung lassen sich aus den Ziffern 1 bis 9 bilden?}{}
+
+	\komplexaufgabe{Lösen Sie die folgenden Wahrscheinlichkeitsaufgaben.}{
+		\item Aus einer Urne mit 15 weißen und 5 roten Kugeln werden 8 Kugeln ohne Zurücklegen gezogen.
+			Mit welcher Wahrscheinlichkeit sind unter den gezogenen Kugeln genau 3 rote Kugeln?
+			Mit welcher Wahrscheinlichkeit sind mindestens 4 rote dabei?
+		\item In einer Lieferung von 100 Transistoren sind 10 defekt.
+			Mit welcher Wahrscheinlichkeit werden bei Entnahme einer Stichprobe von 5 Transistoren
+			genau 2 (mindestens 3) defekte Transistoren entdeckt?
+	}
+
+	\komplexaufgabe{Auf einem Rummelplatz wird ein Minilotto \glqq{}4 aus 16\grqq{} angeboten.
+		Der Spieleinsatz beträgt pro Tipp $1\,€$.
+		Die Auszahlungsquoten lauten $10\,€$ bei 3 Richtigen und $1000\,€$ bei 4 Richtigen.
+		Mit welchem mittleren Gewinn kann der Veranstalter pro Tipp rechnen?}{}
+
+	\komplexaufgabe{In einer Urne befinden sich 5 rote, 3 weiße und 6 schwarze Kugeln.
+		3 Kugeln werden ohne Zurücklegen gezogen.
+		Mit welcher Wahrscheinlichkeit sind sie alle verschiedenfarbig
+		(alle rot, alle gleichfarbig)?}{}
+
+	\komplexaufgabe{In einer Sendung von 80 Batterien befinden sich 10 defekte.
+		Mit welcher Wahrscheinlichkeit enthält eine Stichprobe von 5 Batterien
+		genau eine (genau 3, höchstens 4, mindestens eine) defekte Batterie?}{}
+
+	\komplexaufgabe{Unter den 100 Losen einer Lotterie befinden sich 2 Hauptgewinne,
+		8 einfache Gewinne und 20 Trostpreise.}{
+		\item Mit welcher Wahrscheinlichkeit befinden sich unter 5 gezogenen Losen
+			genau ein Hauptgewinn und sonst nur Nieten (überhaupt kein Gewinn)?
+		\item Mit welcher Wahrscheinlichkeit befinden sich unter 10 gezogenen Losen genau
+			2 einfache Gewinne, 3 Trostpreise und sonst nur Nieten
+			(1 Hauptgewinn, 2 einfache Gewinne und sonst nur Nieten)?
+			Anleitung: Teilen Sie die Lose in 3 geeignet gewählte Gruppen.
+	}
+
+	\komplexaufgabe{Bei einer Silvester-Party stößt um Mitternacht jeder der 7 Party-Gäste
+		mit dem Sektglas mit jedem Gast an.
+		Wie oft klingen dabei die Gläser?}{}
+
 	\end{komplexaufgaben}
 
 \begin{loesungssektion}{sec:kombinatorik}
@@ -1222,10 +1271,62 @@ obwohl das Vorzeichen nicht stabil bleibt.
 		\item $5! = 120$
 		\item $3^{11} = 177\,147$
 		\item $\binom{8}{5} = 56$
-		\item $32^3 = 32\,768$
+		\item $\binom{34}{3} = 5\,984$
 		\item $\binom{19}{11} = 75\,582$
 		\item $5^3 = 125$
 	}
+
+	\komplexloesung{$P(\text{Fuzzi kommt durch}) = \dfrac{6}{7} \cdot \dfrac{4}{5} \cdot \dfrac{2}{3}
+		= \dfrac{48}{105} \approx 45{,}71\,\%$. Da $P < 50\,\%$, sollte man \emph{nicht} wetten.}{}
+
+	\komplexloesung{$2^{8} = 256$, \quad $2^{16} = 65\,536$, \quad $2^{32} = 4\,294\,967\,296$}{}
+
+	\komplexloesung{$\binom{9}{7} = 36$ Sieben-er-Auswahlen $\;\times\; 7! = 5\,040$ Anordnungen
+		$= 181\,440$}{}
+
+	\komplexloesung{}{
+		\item $P(\text{genau 3 rote}) = \dfrac{\binom{5}{3}\binom{15}{5}}{\binom{20}{8}}
+				\approx 23{,}84\,\%$;
+			\quad $P(\text{mind.\,4 rote}) = P(\text{4r}) + P(\text{5r})
+				\approx 5{,}42\,\% + 0{,}36\,\% = 5{,}78\,\%$
+		\item $P(\text{genau 2 defekt}) = \dfrac{\binom{10}{2}\binom{90}{3}}{\binom{100}{5}}
+				\approx 7{,}02\,\%$;
+			\quad $P(\text{mind.\,3 defekt}) \approx 0{,}64\,\%+0{,}03\,\%+0{,}0003\,\% \approx 0{,}66\,\%$
+	}
+
+	\komplexloesung{$P(\text{3 Richtige}) \approx 0{,}0264$, \;
+		$P(\text{4 Richtige}) \approx 0{,}000549$.\\
+		Mittlerer Gewinn des Veranstalters: $G \approx 1 - 0{,}0264 \cdot 10 - 0{,}000549 \cdot 1000
+		= 0{,}187\,\text{DM}$}{}
+
+	\komplexloesung{$P(\text{alle verschiedenfarbig}) =
+		\dfrac{\binom{5}{1}\binom{3}{1}\binom{6}{1}}{\binom{14}{3}} = \dfrac{90}{364} \approx 14\,\%$;
+		\quad $P(\text{alle gleichfarbig}) = \dfrac{10+1+20}{364} = \dfrac{31}{364} \approx 8{,}5\,\%$}{}
+
+	\komplexloesung{}{
+		\item $P(\text{genau 1 defekt}) = \dfrac{\binom{10}{1}\binom{70}{4}}{\binom{80}{5}}
+				\approx 0{,}3814$
+		\item $P(\text{genau 3 defekt}) = \dfrac{\binom{10}{3}\binom{70}{2}}{\binom{80}{5}}
+				\approx 0{,}0121$
+		\item $P(\text{höchstens 4 defekt}) = 1 - \dfrac{\binom{10}{5}\binom{70}{0}}{\binom{80}{5}}
+				\approx 0{,}9999895$
+		\item $P(\text{mindestens 1 defekt}) = 1 - \dfrac{\binom{10}{0}\binom{70}{5}}{\binom{80}{5}}
+				\approx 0{,}4965$
+	}
+
+	\komplexloesung{}{
+		\item $P(\text{1 HG, 4 Nieten}) = \dfrac{\binom{2}{1}\binom{70}{4}}{\binom{100}{5}}
+				\approx 0{,}0244$;\quad
+			$P(\text{kein Gewinn}) = \dfrac{\binom{70}{5}}{\binom{100}{5}} \approx 0{,}1608$
+		\item $P(\text{2 EG, 3 TP, 5 N}) = \dfrac{\binom{8}{2}\binom{20}{3}\binom{70}{5}}{\binom{100}{10}}
+				\approx 0{,}0223$;\quad
+			$P(\text{1 HG, 2 EG, 7 N}) = \dfrac{\binom{2}{1}\binom{8}{2}\binom{70}{7}}{\binom{100}{10}}
+				\approx 0{,}0039$
+	}
+
+	\komplexloesung{Person 1 stößt mit den Gästen 2,\,\ldots,\,7 an; Person 2 mit 3,\,\ldots,\,7 usw.\\
+		$6+5+4+3+2+1 = 21$ (bzw.\ $\binom{7}{2} = 21$)}{}
+
 	\end{komplexloesungen}
 
 \end{loesungssektion}
