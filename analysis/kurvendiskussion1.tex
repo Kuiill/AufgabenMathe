@@ -1,0 +1,134 @@
+\documentclass[../Mathe_Aufgaben.tex]{subfiles}
+\begin{document}
+	\chapter{Differentialrechnung - Teil 1}
+	\chapter{Integralrechnung- Teil 1}
+	\chapter{Kurvendiskussion - Teil 1}
+
+	\section{Kurvendiskussion und Funktionsscharen}
+	\label{sec:aufg-kurve1}
+
+	\begin{komplexaufgaben}{sec:aufg-kurve1}
+		\komplexaufgabe{Führen Sie eine Kurvendiskussion der Funktion $f$ durch und zeichnen Sie den Graphen im angegebenen Intervall.}{
+			\item $f(x)=x^{2}-8x+15$ \quad für \quad $2 \le x \le 6$.
+			\item $f(x)=x^{3}-3x$ \quad für \quad $-2 \le x \le 2$.
+			\item $f(x)=x^{4}-6x^{2}+5$ \quad für \quad $-2{.}5 \le x \le 2{.}5$.
+		}
+
+		\komplexaufgabe{Gegeben ist $f(x)=x^{3}-3x^{2}-x+3$.}{
+			\item Zeigen Sie die Punktsymmetrie zum Punkt $P(1|0)$, indem Sie die Identität
+			      $f(1-x) = -\,f(1+x)$ für alle $x \in \mathbb{R}$ nachweisen.
+			\item Bestimmen Sie die Nullstellen von $f$ sowie den Schnittpunkt mit der $y$-Achse.
+			\item Bestimmen Sie die Ableitungen $f'(x)$, $f''(x)$ und $f^{(3)}(x)$.
+			\item Untersuchen Sie $f$ auf Hoch- und Tiefpunkte (Lage und Funktionswerte).
+			\item Bestimmen Sie einen Wendepunkt (Lage und Funktionswert).
+			\item Zeichnen Sie den Graphen von $f$ für $-1 \le x \le 3{.}5$.
+			\item Bestimmen Sie den Anstieg $f'(x)$ in den Schnittpunkten mit der $x$-Achse und berechnen Sie dort den Schnittwinkel mit der $x$-Achse.
+			\item Welcher Anstieg liegt im Wendepunkt vor? Bestimmen Sie die Gleichung der Wendetangente.
+		}
+
+		\komplexaufgabe{Die Funktion sei gegeben durch $f(x) = a x^2 + b x.$ Sie besitzt einen Tiefpunkt bei $T(1{.}5 \mid -4{.}5).$ Bestimmen Sie, wie \(a\) und \(b\) zu wählen sind.}{}
+
+		\komplexaufgabe{Gegeben sei die Funktion $f(x) = x^4 - 1{.}5\,a\,x^2.$}{
+			\item Ermitteln Sie, welche Bedingung \(a\) erfüllen muss, damit die Funktion zwei Wendepunkte besitzt.
+			\item Bestimmen Sie \(a\) konkret, wenn die Funktion in diesen Wendepunkten den Wert \(-5\) annehmen soll.
+			\item Überprüfen Sie, ob diese Funktion einen Sattelpunkt besitzen kann.
+		}
+
+		\komplexaufgabe{Gegeben sei die Funktion mit dem reellen Parameter \(a\):
+		\[f(x) = (a + 1)x + \frac{1}{x}.\]
+		Untersuchen Sie, für welche Werte des Parameters \(a\)}{
+			\item zwei Extremalstellen,
+			\item genau eine Extremalstelle oder
+			\item keine Extremalstelle
+		}
+
+		\komplexaufgabe{Ermitteln Sie, für welche reellen, positiven Werte des Parameters \(a\) die Funktion
+		\[f(x) = x^3 + a x^2 + a x - a^2\]
+		einen Sattelpunkt besitzt.}{}
+
+		\komplexaufgabe{}{
+			\item Untersuchen Sie, welche Kurve der Schar \(f_a(x)=x^2-ax\) an der Stelle \(x=3\) die Steigung \(1\) hat.
+			\item Untersuchen Sie, ob es eine Kurve der Schar \(f_a\) gibt, die genau eine Nullstelle besitzt.
+		}
+
+		\komplexaufgabe{Gegeben sei die Kurvenschar \(f_a(x)=x^3-3ax^2\) mit \(a\in\mathbb{R}\) und \(a>0\).}{
+			\item Führen Sie eine Kurvendiskussion der Schar \(f_a\) durch (Nullstellen, Extrema und Wendepunkte). Skizzieren Sie anschließend die Funktionsgraphen für \(a=1\), \(a=0.6\) und \(a=1.2\).
+			\item Untersuchen Sie, welche Kurve der Schar \(f_a\) eine Wendetangente besitzt, die durch den Punkt $P(0|8)$ geht.
+		}
+
+		\komplexaufgabe{Gegeben sei die Kurvenschar \(f_a(x)=x-a^{2}x^{3}\) mit \(a>0\).
+		Untersuchen Sie, auf welcher Kurve alle Extrema der Funktionsschar liegen.}{}
+
+		\komplexaufgabe{Gegeben sei die Kurvenschar \(f_a(x)=1.5\,x^{4}-a\,x^{2}\) mit \(a>0\).}{
+			\item Bestimmen Sie die Ortskurve der Tiefpunkte.
+			\item Bestimmen Sie die Ortskurve der Wendepunkte.
+		}
+
+		\komplexaufgabe{Gegeben sei die Kurvenschar \(f_a(x)=x^{4}-a\,x^{2}+a\) mit \(a\in\mathbb{R}\) und \(a\ge 0\). Betrachten Sie die Minima der Schargraphen.}{
+			\item Welche Kurve der Schar \(f_a\) hat dort den größten Funktionswert?
+			\item Welche Kurven der Schar \(f_a\) besitzen mehrere Tangenten mit der Steigung \(8\)?
+		}
+	\end{komplexaufgaben}
+
+	\begin{loesungssektion}{sec:aufg-kurve1}
+		\setcounter{exo}{0}
+		\begin{komplexloesungen}{sec:aufg-kurve1}
+			\komplexloesung{}{
+				\item Nullstellen bei \(x=3\) und \(x=5\); Tiefpunkt \(T(4\mid -1)\); keine Wendepunkte.
+				\item Nullstellen bei \(x=0\) und \(x=\pm\sqrt{3}\); Hochpunkt \((-1\mid 2)\), Tiefpunkt \((1\mid -2)\); Wendepunkt \((0\mid 0)\); punktsymmetrisch zum Ursprung.
+				\item Nullstellen bei \(x=\pm 1\) und \(x=\pm 2{.}24\); Hochpunkt \((0\mid 5)\); Tiefpunkte \((\pm 1{.}73\mid -4)\); Wendepunkte \((-1\mid 0)\) und \((1\mid 0)\); achsensymmetrisch zur \(y\)-Achse.
+			}
+
+			\komplexloesung{}{
+				\item $f(1-x)=(1-x)^{3}-3(1-x)^{2}-(1-x)+3 = -x^{3}+4x$\newline
+				$-f(1+x)=-\bigl((1+x)^{3}-3(1+x)^{2}-(1+x)+3\bigr) = -x^{3}+4x$ \quad $\checkmark$
+				\item $\mathcal{N}_f=\{-1,\,1,\,3\}$;\quad $S=(0\mid 3)$
+				\item $f'(x)=3x^{2}-6x-1$;\quad $f''(x)=6x-6$;\quad $f^{(3)}(x)=6$
+				\item $x=1\pm \frac{2}{3}\sqrt{3}$;\quad $H\bigl(-0{.}155\mid 3{.}08\bigr)$;\quad $T\bigl(2{.}155\mid -3{.}08\bigr)$
+				\item $f''(x)=0 \Rightarrow x=1$;\quad $W=(1\mid 0)$
+				\item (Skizze)
+				\item $f'(-1)=8$, $f'(1)=-4$, $f'(3)=8$; Schnittwinkel mit $x$-Achse: $\arctan(8)\approx83^\circ$, $\arctan(4)\approx76^\circ$
+				\item Wendetangente: $y_t(x)=-4x-4$
+			}
+
+			\komplexloesung{$f'(x)=2ax+b=0 \Rightarrow x_E=1{.}5$; $f(1{.}5)=-4{.}5$. Damit: $a=2$, $b=-6$.}{}
+
+			\komplexloesung{}{
+				\item Wendepunkte: $f''(x)=12x^2-3a=0 \Rightarrow x^2=\frac{a}{4}$; zwei Wendepunkte für $a>0$.
+				\item $f(x_W)=-5$: $\left(\frac{\sqrt{a}}{2}\right)^4-1{.}5a\cdot\frac{a}{4}=-5 \Rightarrow a=4$.
+				\item Sattelpunkt: $f'(x)=4x^3-3ax=x(4x^2-3a)=0$; da $a>0$: kein Sattelpunkt (kein doppeltes Extremum).
+			}
+
+			\komplexloesung{$f'(x)=(a+1)-\frac{1}{x^2}=0 \Rightarrow x^2=\frac{1}{a+1}$.}{
+				\item Zwei Extremalstellen für $a+1>0$, d.\,h. $a>-1$.
+				\item $a+1=0$, d.\,h. $a=-1$: keine Extremstelle (Definitionslücke).
+				\item $a+1<0$, d.\,h. $a<-1$: keine reelle Lösung, keine Extremstelle.
+			}
+
+			\komplexloesung{$f'(x)=3x^2+2ax+a=0$; Diskriminante $D=4a^2-12a=4a(a-3)=0 \Rightarrow a=0$ oder $a=3$. Sattelpunkt für $a=0$ oder $a=3$ (Vorzeichenwechselkriterium prüfen): $a=3$.}{}
+
+			\komplexloesung{}{
+				\item $f_a'(x)=2x-a \overset{!}{=} 1$ bei $x=3$: $6-a=1 \Rightarrow a=5$.
+				\item $f_a(x)=x^2-ax=x(x-a)=0 \Rightarrow x=0$ oder $x=a$. Genau eine Nullstelle für $a=0$.
+			}
+
+			\komplexloesung{$f_a'(x)=3x^2-6ax=3x(x-2a)$; Nullstellen $x=0$ (lokales Max.) und $x=2a$ (lokales Min.). Wendepunkt: $f_a''(x)=6x-6a=0 \Rightarrow x=a$; $W=(a\mid f_a(a))=(a\mid -2a^3)$. Wendetangente durch $P(0|8)$: $f_a'(a)=-3a^2$; Gerade $y=-3a^2(x-a)-2a^3$; bei $x=0$: $3a^3-2a^3=8 \Rightarrow a^3=8 \Rightarrow a=2$.}{
+				\item (Kurvendiskussion und Skizzen wie beschrieben)
+				\item $a=2$
+			}
+
+			\komplexloesung{$f_a'(x)=1-3a^2x^2=0 \Rightarrow x=\pm\frac{1}{a\sqrt{3}}$; $y_E=f_a(x_E)=\frac{2}{3a\sqrt{3}}$. Ortskurve: $x\cdot y=\frac{2}{3\sqrt{3}}\cdot\frac{1}{a^2}\cdot a\sqrt{3}=\ldots$; es gilt $y=\frac{2}{3x}$ (Hyperbel).}{}
+
+			\komplexloesung{$f_a'(x)=6x^3-2ax=2x(3x^2-a)=0$; Tiefpunkte bei $x^2=\frac{a}{3}$: $T=\bigl(\pm\sqrt{\frac{a}{3}}\mid -\frac{3}{4}\frac{a^2}{3}\bigr)$. Ortskurve der Tiefpunkte: $y=-\frac{3}{4}x^4$ (für $x=\pm\sqrt{a/3}$). Wendepunkte analog.}{
+				\item Ortskurve der Tiefpunkte: $y=-\frac{3}{4}x^4$.
+				\item Wendepunkte: $f_a''(x)=18x^2-2a=0 \Rightarrow x^2=\frac{a}{9}$; Ortskurve: $y=-\frac{1}{3}x^4+a\cdot\frac{a}{9}=\ldots$
+			}
+
+			\komplexloesung{$f_a'(x)=4x^3-2ax=2x(2x^2-a)=0$; Minima bei $x^2=\frac{a}{2}$ (für $a>0$): $y_{\min}=\frac{a^2}{4}-\frac{a^2}{2}+a=-\frac{a^2}{4}+a$. Maximaler Minimalwert: $\frac{d}{da}\bigl(-\frac{a^2}{4}+a\bigr)=-\frac{a}{2}+1=0 \Rightarrow a=2$; $y_{\max}=0$.}{
+				\item $a=2$ liefert den größten Minimalwert $0$.
+				\item Tangenten mit Steigung 8: $f_a'(x)=8$; je nach $a$ mehrere Lösungen.
+			}
+		\end{komplexloesungen}
+	\end{loesungssektion}
+
+\end{document}

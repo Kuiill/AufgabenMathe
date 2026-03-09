@@ -1,0 +1,330 @@
+\raggedbottom
+
+% =========================================================
+% Sprache, Fonts, Mathe
+% =========================================================
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{newpxtext,newpxmath}
+\usepackage[scaled=.92]{helvet}
+\usepackage{microtype}
+\usepackage{csquotes}
+
+\let\Bbbk\relax
+\usepackage{amsmath,amssymb,mathtools}
+\let\openbox\relax
+\usepackage{amsthm}
+
+% =========================================================
+% Layout, Header/Footer, Listen
+% =========================================================
+\usepackage[a4paper,margin=2.5cm,includeheadfoot]{geometry}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{chngcntr}
+\usepackage[headsepline,footsepline]{scrlayer-scrpage}
+
+\clearpairofpagestyles
+\ihead{\leftmark}
+\ohead{\rightmark}
+\ifoot{Otto-Hahn-Gymnasium Göttingen}
+\ofoot{\pagemark}
+
+% =========================================================
+% Farben
+% =========================================================
+\usepackage{xcolor}
+\definecolor{LinkBlue}{HTML}{1F4E79}
+\definecolor{AbiGray}{gray}{0.96}
+
+% =========================================================
+% Überschriftenstil
+% =========================================================
+\setkomafont{part}{\Huge\bfseries\color{LinkBlue}}
+\setkomafont{chapter}{\Large\bfseries\color{LinkBlue}}
+\setkomafont{section}{\large\bfseries\color{LinkBlue}}
+\setkomafont{subsection}{\large\bfseries\color{LinkBlue}}
+
+\RedeclareSectionCommand[beforeskip=14pt plus 2pt, afterskip=10pt]{part}
+\RedeclareSectionCommand[beforeskip=10pt, afterskip=6pt]{chapter}
+\RedeclareSectionCommand[beforeskip=8pt, afterskip=4pt]{section}
+
+% =========================================================
+% TOC
+% =========================================================
+\usepackage{tocbasic}
+\DeclareTOCStyleEntry[numwidth=2.5em]{tocline}{chapter}
+\DeclareTOCStyleEntry[numwidth=3.5em]{tocline}{section}
+\addtokomafont{partentry}{\color{LinkBlue}\bfseries}
+\setcounter{tocdepth}{3}
+
+% =========================================================
+% Hyperref + cleveref
+% =========================================================
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks = true,
+	linkcolor  = LinkBlue,
+	urlcolor   = LinkBlue,
+	citecolor  = LinkBlue
+}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+% =========================================================
+% Kompakte Listen (global)
+% =========================================================
+\setlist{topsep=4pt,itemsep=6pt,parsep=0pt} % itemsep etwas größer, weil jetzt Block + Link
+
+% =========================================================
+% Kurzaufgaben: Spalten
+% =========================================================
+\usepackage{multicol}
+
+% =========================================================
+% Abituraufgaben: grauer Hintergrund, ohne Rahmen
+% =========================================================
+\usepackage{framed}
+\definecolor{shadecolor}{gray}{0.96}
+
+% =========================================================
+% Aufgaben / Lösungen: Zähler + Navigation
+% =========================================================
+\newcounter{exo}
+\renewcommand{\theexo}{\arabic{exo}}
+\counterwithin*{exo}{subsection}
+
+% Für eindeutige Hyperref-Repräsentation
+\newcounter{exoglobal}
+\providecommand*{\theHexo}{\arabic{exoglobal}}
+
+% Kategorie für automatische Labels (A=Analysis, S=Stochastik, G=Geometrie)
+\newcommand{\currentCategory}{A}
+
+% Automatische Label-Generierung: Kategorie.Kapitel.Sektion.Subsektion.Aufgabe
+\newcommand{\aufgabenlabel}{%
+	\currentCategory\arabic{chapter}.\arabic{section}.\arabic{subsection}.\theexo%
+}
+
+% Link-Kommandos
+\makeatletter
+\newcommand{\zumloesung}[1]{%
+	\@ifundefined{r@loes:#1}{}{%
+		\hyperref[loes:#1]{\textcolor{LinkBlue}{→ Zur Lösung}}%
+	}%
+}
+\newcommand{\zurausgabe}[1]{%
+	\@ifundefined{r@aufg:#1}{}{%
+		\hyperref[aufg:#1]{\textcolor{LinkBlue}{← Zur Aufgabe}}%
+	}%
+}
+\makeatother
+
+% =========================================================
+% Neue Aufgaben-/Lösungsbefehle
+% =========================================================
+
+% Kurzaufgabe: \kurzaufgabe[spalten]{Aufgabentext}{Teilaufgaben als \item}
+\newcommand{\kurzaufgabe}[3][2]{%
+	\refstepcounter{exo}%
+	\refstepcounter{exoglobal}%
+	\item \label{aufg:\aufgabenlabel}%
+	#2% Aufgabentext
+	\ifx&#3&% Wenn keine Teilaufgaben (Parameter 3 leer)
+		% Keine Teilaufgaben
+	\else
+		\par\noindent
+		\begin{multicols}{#1}
+		\begin{enumerate}[label=\alph*)]
+			#3% Teilaufgaben
+		\end{enumerate}
+		\end{multicols}
+	\fi
+	\par\noindent\hfill\zumloesung{\aufgabenlabel}%
+}
+
+% Komplexaufgabe: \komplexaufgabe{Aufgabentext}{Teilaufgaben als \item}
+\newcommand{\komplexaufgabe}[2]{%
+	\refstepcounter{exo}%
+	\refstepcounter{exoglobal}%
+	\item \label{aufg:\aufgabenlabel}%
+	#1% Aufgabentext
+	\ifx&#2&% Wenn keine Teilaufgaben
+		% Keine Teilaufgaben
+	\else
+		\par\noindent
+		\begin{enumerate}[label=\alph*)]
+			#2% Teilaufgaben
+		\end{enumerate}
+	\fi
+	\par\noindent\hfill\zumloesung{\aufgabenlabel}%
+}
+
+% Abituraufgabe: \abituraufgabe{Aufgabentext}{Teilaufgaben als \item}
+\newcommand{\abituraufgabe}[2]{%
+	\refstepcounter{exo}%
+	\refstepcounter{exoglobal}%
+	\item \label{aufg:\aufgabenlabel}%
+	#1% Aufgabentext
+	\ifx&#2&% Wenn keine Teilaufgaben
+		% Keine Teilaufgaben
+	\else
+		\par\noindent
+		\begin{enumerate}[label=\alph*)]
+			#2% Teilaufgaben
+		\end{enumerate}
+	\fi
+	\par\noindent\hfill\zumloesung{\aufgabenlabel}%
+}
+
+% Kurzlösung: \kurzloesung[spalten]{Lösungstext}{Teillösungen als \item}
+\newcommand{\kurzloesung}[3][2]{%
+	\stepcounter{exo}%
+	\refstepcounter{exoglobal}%
+	\item \label{loes:\aufgabenlabel}%
+	#2% Lösungstext
+	\ifx&#3&% Wenn keine Teillösungen (Parameter 3 leer)
+		% Keine Teillösungen
+	\else
+		\par\noindent
+		\begin{multicols}{#1}%
+		\begin{enumerate}[label=\alph*)]%
+			#3% Teillösungen
+		\end{enumerate}%
+		\end{multicols}%
+	\fi
+	\par\noindent\hfill\zurausgabe{\aufgabenlabel}%
+}
+
+% Komplexlösung: \komplexloesung{Lösungstext}{Teillösungen als \item}
+\newcommand{\komplexloesung}[2]{%
+	\stepcounter{exo}%
+	\refstepcounter{exoglobal}%
+	\item \label{loes:\aufgabenlabel}%
+	#1% Lösungstext
+	\ifx&#2&% Wenn keine Teillösungen
+		% Keine Teillösungen
+	\else
+		\par\noindent
+		\begin{enumerate}[label=\alph*)]
+			#2% Teillösungen
+		\end{enumerate}
+	\fi
+	\par\noindent\hfill\zurausgabe{\aufgabenlabel}%
+}
+
+% Abiturlösung: \abiturloesung{Lösungstext}{Teillösungen als \item}
+\newcommand{\abiturloesung}[2]{%
+	\stepcounter{exo}%
+	\refstepcounter{exoglobal}%
+	\item \label{loes:\aufgabenlabel}%
+	#1% Lösungstext
+	\ifx&#2&% Wenn keine Teillösungen
+		% Keine Teillösungen
+	\else
+		\par\noindent
+		\begin{enumerate}[label=\alph*)]
+			#2% Teillösungen
+		\end{enumerate}
+	\fi
+	\par\noindent\hfill\zurausgabe{\aufgabenlabel}%
+}
+
+% =========================================================
+% Umgebungen für Aufgaben/Lösungen (nur enumerate-Wrapper)
+% =========================================================
+
+% Kurzaufgaben-Umgebung
+\newenvironment{kurzaufgaben}[1]{%
+	\begin{enumerate}[label=\theexo., leftmargin=*, itemsep=10pt]%
+}{%
+	\end{enumerate}%
+}
+
+% Komplexaufgaben-Umgebung  
+\newenvironment{komplexaufgaben}[1]{%
+	\begin{enumerate}[label=\theexo., leftmargin=*, itemsep=12pt]%
+}{%
+	\end{enumerate}%
+}
+
+% Abituraufgaben-Umgebung (mit grauem Hintergrund)
+\newenvironment{abituraufgaben}[1]{%
+	\begin{shaded}%
+	\begin{enumerate}[label=\theexo., leftmargin=*, itemsep=12pt]%
+}{%
+	\end{enumerate}%
+	\end{shaded}%
+}
+
+% Kurzlösungen-Umgebung
+\newenvironment{kurzloesungen}[1]{%
+	\begin{enumerate}[label=\theexo., leftmargin=*, itemsep=10pt]%
+}{%
+	\end{enumerate}%
+}
+
+% Komplexlösungen-Umgebung
+\newenvironment{komplexloesungen}[1]{%
+	\begin{enumerate}[label=\theexo., leftmargin=*, itemsep=12pt]%
+}{%
+	\end{enumerate}%
+}
+
+% Abiturlösungen-Umgebung (mit grauem Hintergrund)
+\newenvironment{abiturloesungen}[1]{%
+	\begin{shaded}%
+	\begin{enumerate}[label=\theexo., leftmargin=*, itemsep=12pt]%
+}{%
+	\end{enumerate}%
+	\end{shaded}%
+}
+
+% =========================================================
+% Wrapper: Aufgaben-/Lösungs-Sektionen (TOC)
+% =========================================================
+\newenvironment{aufgabensektion}[1]{%
+	\section*{Aufgaben zu \ref*{#1}\ \nameref*{#1}}%
+	\phantomsection%
+	\addcontentsline{toc}{section}{Aufgaben zu \ref*{#1}\ \nameref*{#1}}%
+}{}
+
+\newenvironment{aufgabensubsektion}[1]{%
+	\subsection*{Aufgaben zu \ref*{#1}\ \nameref*{#1}}%
+	\phantomsection%
+	\addcontentsline{toc}{subsection}{Aufgaben zu \ref*{#1}\ \nameref*{#1}}%
+}{}
+
+\newenvironment{loesungssektion}[1]{%
+	\section*{Lösungen zu \ref*{#1}\ \nameref*{#1}}%
+	\phantomsection%
+	\addcontentsline{toc}{section}{Lösungen zu \ref*{#1}\ \nameref*{#1}}%
+}{}
+
+\newenvironment{loesungsubsektion}[1]{%
+	\subsection*{Lösungen zu \ref*{#1}\ \nameref*{#1}}%
+	\phantomsection%
+	\addcontentsline{toc}{subsection}{Lösungen zu \ref*{#1}\ \nameref*{#1}}%
+}{}
+
+% =========================================================
+% Titelseite (Logo optional)
+% =========================================================
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.18}
+\newcommand{\optionallogo}{%
+	\IfFileExists{ohg_logo.png}{\includegraphics[width=0.45\textwidth]{ohg_logo.png}}{}%
+}
+
+\titlehead{\centering\optionallogo}
+\subject{Übungsskript zum niedersächsischen Abitur im Fach}
+\title{Mathematik}
+\author{Martin Polle\\Otto-Hahn-Gymnasium, Göttingen}
+\date{\today}
+
+
+\usepackage{subfiles}

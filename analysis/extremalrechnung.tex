@@ -1,0 +1,84 @@
+\documentclass[../Mathe_Aufgaben.tex]{subfiles}
+\begin{document}
+	\chapter{Extremalrechnung, Rekonstruktion und Trassierung}
+
+	\section{Extremalaufgaben}
+	\label{sec:aufg-extrem}
+
+	\begin{komplexaufgaben}{sec:aufg-extrem}
+		\komplexaufgabe{\textbf{(angewandte Geometrie, einfach)} Ein Rechteck wird in den Halbkreis mit Radius $r = 4\,\text{cm}$ einbeschrieben, dessen Durchmesser auf der $x$-Achse liegt und dessen Mittelpunkt der Ursprung ist. Die obere Rechteckseite liegt auf dem Halbkreis mit Gleichung $y = \sqrt{16 - x^2}$. Bestimme die Seitenlängen des Rechtecks mit maximalem Flächeninhalt.}{}
+
+		\komplexaufgabe{\textbf{(angewandte Geometrie, komplexer)} Aus einem quadratischen Blech mit Seitenlänge $30\,\text{cm}$ soll eine oben offene Schachtel hergestellt werden, indem in jeder Ecke quadratische Stücke mit Seitenlänge $x$ herausgeschnitten und die Ränder hochgeklappt werden.}{
+			\item Stelle das Volumen $V(x)$ der Schachtel als Funktion von $x$ auf.
+			\item Bestimme die Wahl von $x$, die das Volumen maximiert, und berechne das maximale Volumen.
+		}
+
+		\komplexaufgabe{\textbf{(Wirtschaft, einfach)} Eine Preis-Absatz-Funktion sei gegeben durch $p(x) = 50 - 0{,}1x$ (Preis in Euro pro Stück, Menge $x$ in Stück). Es werde angenommen, dass die Kosten näherungsweise proportional zur Menge sind, also $K(x) = 10x$.}{
+			\item Bestimme den Umsatz $E(x)$.
+			\item Bestimme die Menge $x$, bei der der Umsatz maximal ist.
+		}
+
+		\komplexaufgabe{\textbf{(Wirtschaft, komplexer)} Ein Schreibwarencenter kann von den Patronen der Sorte „Tinky" pro Woche $10$ Packungen zum Preis von $1{,}50\,\text{€}$ pro Packung verkaufen. Einer Marktanalyse zufolge führt eine Preissenkung um jeweils $0{,}10\,\text{€}$ zu einer Absatzsteigerung von $5$ Packungen pro Woche.}{
+			\item Bestimme den Verkaufspreis, bei dem der wöchentliche Umsatz maximal ist.
+			\item Bestimme den Verkaufspreis, bei dem der Gewinn maximal ist, wenn der Selbstkostenpreis $0{,}80\,\text{€}$ pro Packung beträgt. Wie hoch ist dann der maximale Gewinn pro Woche?
+		}
+
+		\komplexaufgabe{\textbf{(Physik)} Zwei Boote bewegen sich rechtwinklig auf einen Punkt $S$ zu. Boot~A ist zunächst $1000\,\text{m}$ von $S$ entfernt und fährt mit $5\,\frac{\text{m}}{\text{s}}$ auf $S$ zu. Boot~B ist $700\,\text{m}$ von $S$ entfernt und nähert sich $S$ mit $10\,\frac{\text{m}}{\text{s}}$.}{
+			\item Bestimmen Sie den Zeitpunkt, zu dem die beiden Boote den kleinsten Abstand voneinander erreichen.
+			\item Berechnen Sie den Wert dieses minimalen Abstands.
+		}
+
+		\komplexaufgabe{\textbf{(reine Mathematik)} Die Graphen der Funktionen $f(x) = 3\sqrt{x} - x$ und $g(x) = x + 2$ schneiden auf der senkrechten Geraden $x = z$ eine Strecke heraus. Ermitteln Sie, für welchen Wert von $z$ die Länge dieser Strecke minimal wird.}{}
+
+		\komplexaufgabe{\textbf{(reine Mathematik)} Der Graph der Funktion $f$ besteht aus zwei „Zweigen". Ermitteln Sie jeweils, welcher Punkt desjenigen Zweiges, der \emph{nicht} durch den Ursprung geht, den kleinsten Abstand zum Ursprung besitzt.}{
+			\item $f(x) = \dfrac{2}{x^2}$
+			\item $f(x) = \dfrac{x}{x - 1}$
+			\item $f(x) = \dfrac{8}{x}$
+		}
+
+		\komplexaufgabe{\textbf{(Geometrie)} Ermitteln Sie, welches Rechteck bei gegebener Diagonalenlänge $D$ die größte Fläche besitzt.}{}
+	\end{komplexaufgaben}
+
+	\begin{loesungssektion}{sec:aufg-extrem}
+		\setcounter{exo}{0}
+		\begin{komplexloesungen}{sec:aufg-extrem}
+			\komplexloesung{$A(x) = 2x\sqrt{16-x^2}$, $0<x<4$.
+			$A'(x)=\frac{32-4x^2}{\sqrt{16-x^2}}=0 \Rightarrow x=2\sqrt{2}$, $y=2\sqrt{2}$.
+			Das Rechteck ist ein Quadrat mit Seitenlänge $2\sqrt{2}\,\text{cm}$ und $A_{\max}=8\,\text{cm}^2$.}{}
+
+			\komplexloesung{$V(x)=x(30-2x)^2$, $0<x<15$.
+			$V'(x)=(30-2x)(30-6x)=0 \Rightarrow x=5$.
+			$V_{\max}=2000\,\text{cm}^3$.}{
+				\item $V(x)=x(30-2x)^2$
+				\item $x=5\,\text{cm}$, $V_{\max}=2000\,\text{cm}^3$
+			}
+
+			\komplexloesung{$E(x)=50x-0{,}1x^2$. $E'(x)=50-0{,}2x=0 \Rightarrow x=250$; $E_{\max}=6250\,\text{€}$.}{
+				\item $E(x)=50x-0{,}1x^2$
+				\item $x=250$ Stück; $E_{\max}=6250\,\text{€}$
+			}
+
+			\komplexloesung{Preis-Absatz-Funktion: $p(q)=-0{,}02q+1{,}70$.}{
+				\item Umsatz: $U(q)=-0{,}02q^2+1{,}70q$; Max. bei $q=42{,}5$; optimaler Preis $0{,}85\,\text{€}$.
+				\item Gewinn: $G(q)=-0{,}02q^2+0{,}90q$; Max. bei $q=22{,}5$; optimaler Preis $1{,}25\,\text{€}$; $G_{\max}\approx10{,}13\,\text{€}$.
+			}
+
+			\komplexloesung{$d^2(t)=125t^2-24000t+1490000$.
+			$(d^2)'(t)=0 \Rightarrow t=96\,\text{s}$; $d_{\min}=130\sqrt{20}\approx581\,\text{m}$.}{
+				\item $t=96\,\text{s}$
+				\item $d_{\min}\approx581\,\text{m}$
+			}
+
+			\komplexloesung{$d(t)=-2t^2+3t-2<0$ immer (Diskriminante $<0$). Minimum von $|d(t)|$ beim Scheitel: $t_S=\frac{3}{4}$, $z=\frac{9}{16}$. Minimale Länge: $\frac{7}{8}$.}{}
+
+			\komplexloesung{}{
+				\item $f(x)=\frac{2}{x^2}$: Punkt $(\sqrt{2},\,1)$, Abstand $\sqrt{3}$.
+				\item $f(x)=\frac{x}{x-1}$, Zweig $x>1$: Punkt $(2,\,2)$, Abstand $2\sqrt{2}$.
+				\item $f(x)=\frac{8}{x}$, Zweig $x>0$: Punkt $(2\sqrt{2},\,2\sqrt{2})$, Abstand $4$.
+			}
+
+			\komplexloesung{$a^2+b^2=D^2$; $A(a)=a\sqrt{D^2-a^2}$; $A'(a)=\frac{D^2-2a^2}{\sqrt{D^2-a^2}}=0 \Rightarrow a=b=\frac{D}{\sqrt{2}}$. Das optimale Rechteck ist das Quadrat mit Seitenlänge $\frac{D}{\sqrt{2}}$.}{}
+		\end{komplexloesungen}
+	\end{loesungssektion}
+
+\end{document}

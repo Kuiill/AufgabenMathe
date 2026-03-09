@@ -1,0 +1,734 @@
+\documentclass[../Mathe_Aufgaben.tex]{subfiles}
+\begin{document}
+\chapter{Grundlagen der Stochastik}
+
+\section{Kombinatorik}
+	\label{sec:kombinatorik}
+
+\begin{komplexaufgaben}{sec:kombinatorik}
+		
+		\komplexaufgabe{
+			Bearbeiten Sie die folgenden Aufgaben in mehreren Phasen:
+			\begin{enumerate}[label=\Alph*)]
+				\item Lösen Sie zunächst alle Teilaufgaben a) bis j).
+				\item Sortieren Sie diese Aufgaben nach Aufgabentypen.
+				\item Geben Sie Gesichtspunkte an, nach denen Sie Ihre Einteilung vorgenommen haben.
+				\item Versuchen Sie die jeweilige kombinatorische Problemstellung und Ihren Lösungsweg allgemein zu formulieren.
+				\item Lesen Sie nun Abschnitt 2.1 (Kombinatorik: Systematisches Abzählen) im Lehrtext und vergleichen Sie:
+				\begin{itemize}
+					\item Stimmen Ihre Kategorien mit den vier Grundfällen überein?
+					\item Wie passen Ihre Aufgaben in die 2×2-Tabelle (mit/ohne Zurücklegen, mit/ohne Reihenfolge)?
+					\item Welche Formeln können Sie auf Ihre Aufgaben anwenden?
+				\end{itemize}
+				\item Überprüfen Sie Ihre Lösungen aus Teilaufgabe A mit den Formeln aus dem Lehrtext.
+			\end{enumerate}
+		}{
+			\item Wieviele sechsstellige Zahlen -- gebildet aus den Ziffern 1,...,9 -- gibt es?
+			
+			\item Von den 20 Schülern einer Klasse sollen 10 in die Parallelklasse überwechseln. Wieviele Möglichkeiten gibt es?
+			
+			\item Acht Athleten kämpfen um drei Medaillen. Wie viele Möglichkeiten für die Preisverteilung gibt es?
+			
+			\item Auf wieviele Arten kann man 5 Personen auf 8 Einzelzimmer verteilen?
+			
+			\item Herr M. will seine 5 Kinder für ein Gruppenphoto in einer Reihe anordnen. Wieviele Möglichkeiten hat er?
+			
+			\item Wieviele verschiedene Tippreihen gibt es bei der Elferwette im Fußballtoto (11 Tipps: jeweils gewonnen, verloren oder unentschieden)?
+			
+			\item In einem Raum gibt es 8 Lampen, die unabhängig ein- und ausgeschaltet werden können. Wieviele Möglichkeiten gibt es, so dass genau 5 Lampen brennen?
+			
+			\item Einem Skatspiel werden drei Karten mit Zurücklegen entnommen. Wieviele Möglichkeiten gibt es?
+			
+			\item Wieviele Möglichkeiten gibt es, 8 gleiche Gegenstände auf 12 Fächer zu verteilen?
+			
+			\item In einem Hotel sind noch 5 Zimmer frei. Jedes der Zimmer ist ein Dreibett-Zimmer. Am Abend kommen noch drei Gäste. Wie viele Möglichkeiten hat der Hotelier, die Gäste auf die Zimmer zu verteilen? Es wird dabei zugelassen, dass in einem Zimmer evt. 2 oder auch 3 Gäste schlafen.
+
+			}
+
+	\komplexaufgabe{Trapper Fuzzi muss auf dem Weg nach Alaska drei Flüsse überqueren.
+		Am ersten Fluss gibt es 7 Furten, am zweiten 5 und am dritten 3 Furten.
+		Am ersten Fluss sind 6, am zweiten 4 und am dritten 2 der Furten passierbar.
+		Fuzzi entscheidet sich vor dem Abmarsch für eine Route.
+		Sollte man darauf wetten, dass er durchkommt?}{}
+
+	\komplexaufgabe{Eine Dualzahl hat nur Nullen und Einsen als Ziffern.
+		Computer arbeiten mit 8-stelligen, 16-stelligen oder 32-stelligen Dualzahlen.
+		Wie viele verschiedene Zahlen kann man für jede dieser Stellenanzahlen bilden?}{}
+
+	\komplexaufgabe{Wie viele 7-stellige Zahlen ohne Ziffernwiederholung lassen sich aus den Ziffern 1 bis 9 bilden?}{}
+
+	\komplexaufgabe{Lösen Sie die folgenden Wahrscheinlichkeitsaufgaben.}{
+		\item Aus einer Urne mit 15 weißen und 5 roten Kugeln werden 8 Kugeln ohne Zurücklegen gezogen.
+			Mit welcher Wahrscheinlichkeit sind unter den gezogenen Kugeln genau 3 rote Kugeln?
+			Mit welcher Wahrscheinlichkeit sind mindestens 4 rote dabei?
+		\item In einer Lieferung von 100 Transistoren sind 10 defekt.
+			Mit welcher Wahrscheinlichkeit werden bei Entnahme einer Stichprobe von 5 Transistoren
+			genau 2 (mindestens 3) defekte Transistoren entdeckt?
+	}
+
+	\komplexaufgabe{Auf einem Rummelplatz wird ein Minilotto \glqq{}4 aus 16\grqq{} angeboten.
+		Der Spieleinsatz beträgt pro Tipp $1\,\text{€}$.
+		Die Auszahlungsquoten lauten $10\,\text{€}$ bei 3 Richtigen und $1000\,\text{€}$ bei 4 Richtigen.
+		Mit welchem mittleren Gewinn kann der Veranstalter pro Tipp rechnen?}{}
+
+	\komplexaufgabe{In einer Urne befinden sich 5 rote, 3 weiße und 6 schwarze Kugeln.
+		3 Kugeln werden ohne Zurücklegen gezogen.
+		Mit welcher Wahrscheinlichkeit sind sie alle verschiedenfarbig
+		(alle rot, alle gleichfarbig)?}{}
+
+	\komplexaufgabe{In einer Sendung von 80 Batterien befinden sich 10 defekte.
+		Mit welcher Wahrscheinlichkeit enthält eine Stichprobe von 5 Batterien
+		genau eine (genau 3, höchstens 4, mindestens eine) defekte Batterie?}{}
+
+	\komplexaufgabe{Unter den 100 Losen einer Lotterie befinden sich 2 Hauptgewinne,
+		8 einfache Gewinne und 20 Trostpreise.}{
+		\item Mit welcher Wahrscheinlichkeit befinden sich unter 5 gezogenen Losen
+			genau ein Hauptgewinn und sonst nur Nieten (überhaupt kein Gewinn)?
+		\item Mit welcher Wahrscheinlichkeit befinden sich unter 10 gezogenen Losen genau
+			2 einfache Gewinne, 3 Trostpreise und sonst nur Nieten
+			(1 Hauptgewinn, 2 einfache Gewinne und sonst nur Nieten)?
+			Anleitung: Teilen Sie die Lose in 3 geeignet gewählte Gruppen.
+	}
+
+	\komplexaufgabe{Bei einer Silvester-Party stößt um Mitternacht jeder der 7 Party-Gäste
+		mit dem Sektglas mit jedem Gast an.
+		Wie oft klingen dabei die Gläser?}{}
+
+	\end{komplexaufgaben}
+
+\section{Von konkreten Problemen zur Wahrscheinlichkeitstheorie}
+\label{sec:historischeProblem}
+
+\begin{komplexaufgaben}{sec:historischeProblem}
+		
+		\komplexaufgabe{
+			\textbf{Das Problem des Chevalier de Méré}
+			
+			Der französische Adlige Chevalier de Méré stellte 1654 folgende beiden Wetten vor:
+			
+			\textbf{Wette A:} „Ich werfe einen Würfel 4-mal. Ich wette, dass mindestens eine 6 fällt."
+			
+			\textbf{Wette B:} „Ich werfe zwei Würfel 24-mal. Ich wette, dass mindestens eine Doppel-6 (beide Würfel zeigen 6) fällt."
+			
+			De Méré glaubte intuitiv, beide Wetten seien gleich gut, verlor aber auf Dauer bei Wette B.
+			
+			\textbf{Arbeitsaufträge:}
+		}{
+			\item \textbf{Intuition:} Welche Wette würden Sie eingehen? Begründen Sie Ihre Intuition, \emph{ohne zu rechnen}.
+			
+			\item \textbf{Modellierung:} Beschreiben Sie für beide Wetten:
+			\begin{itemize}
+				\item Was ist die Ergebnismenge $\Omega$ (d.h. die Liste aller möglichen Ausgänge des Experiments)?
+				\item Was ist das gesuchte Ereignis $A$ (d.h. welche Ausgänge erfüllen die Bedingung der Wette)?
+				\item Welche Annahmen treffen Sie über die Würfe?
+			\end{itemize}
+			
+			\item \textbf{Berechnung Wette A:} 
+			\begin{itemize}
+				\item Berechnen Sie die Wahrscheinlichkeit für „keine 6 in 4 Würfen".
+				\item Berechnen Sie daraus die Wahrscheinlichkeit für „mindestens eine 6 in 4 Würfen".
+			\end{itemize}
+			
+			\item \textbf{Berechnung Wette B:}
+			\begin{itemize}
+				\item Wie groß ist die Wahrscheinlichkeit für eine Doppel-6 bei einem Wurf mit zwei Würfeln?
+				\item Berechnen Sie die Wahrscheinlichkeit für „mindestens eine Doppel-6 in 24 Würfen".
+			\end{itemize}
+			
+			\item \textbf{Vergleich:} Welche Wette ist günstiger? Wie groß ist der Unterschied? War Ihre Intuition aus a) richtig?
+			
+			\item \textbf{De Mérés Intuition:} De Méré argumentierte: „Bei einem Würfel habe ich 6 Möglichkeiten und werfe 4-mal, also $\frac{4}{6} = \frac{2}{3}$ Chance. Bei zwei Würfeln habe ich 36 Möglichkeiten und werfe 24-mal, also $\frac{24}{36} = \frac{2}{3}$ Chance." 
+			\begin{itemize}
+				\item Wo liegt der Fehler in dieser Argumentation?
+				\item Was hätte de Méré berücksichtigen müssen?
+			\end{itemize}
+			
+			\item \textbf{Historische Bedeutung:} Diese Frage führte zum Briefwechsel zwischen Pascal und Fermat (1654), der als Geburtsstunde der Wahrscheinlichkeitsrechnung gilt. Warum war dieses Problem so bedeutend?
+		}
+		
+		\komplexaufgabe{
+			\textbf{Diskrete vs. Stetige Zufallsexperimente}
+			
+			Betrachten Sie folgende Situationen:
+			\begin{enumerate}[label=(\Roman*)]
+				\item Würfeln mit einem fairen Würfel
+				\item Wartezeit an einer Ampel (0 bis 60 Sekunden)
+				\item Anzahl der Anrufe in einer Telefonzentrale pro Stunde
+				\item Punkt zufällig in einem Quadrat wählen
+				\item Anzahl defekter Glühbirnen in einer Packung mit 10 Stück
+				\item Lebensdauer einer Glühbirne (in Stunden)
+				\item Temperatur um 12 Uhr mittags (gemessen in °C)
+			\end{enumerate}
+			
+			\textbf{Arbeitsaufträge:}
+		}{
+			\item \textbf{Kategorisierung:} Ordnen Sie die Situationen (I)-(VII) in folgende Kategorien ein und begründen Sie:
+			\begin{itemize}
+				\item Diskret oder stetig?
+				\item Falls diskret: endlich oder unendlich viele Ausgänge?
+			\end{itemize}
+			
+			\item \textbf{Ergebnismengen:} Geben Sie für jede Situation die Ergebnismenge $\Omega$ an, d.h. beschreiben Sie, welche Werte der Zufall annehmen kann.
+			
+			\item \textbf{Gleichwahrscheinlichkeit:} Bei welchen Situationen ist ein Laplace-Modell (alle Ausgänge gleich wahrscheinlich) sinnvoll? Begründen Sie.
+			
+			\item \textbf{Gemeinsame Fragen:} Formulieren Sie für drei der Situationen jeweils eine sinnvolle Frage der Form „Mit welcher Wahrscheinlichkeit...?" 
+			\begin{itemize}
+				\item Was haben diese Fragen gemeinsam?
+				\item Was unterscheidet sie?
+			\end{itemize}
+			
+			\item \textbf{Mathematische Herausforderung:} 
+			\begin{itemize}
+				\item Welche der Situationen können Sie mit Ihrem bisherigen Wissen (Kombinatorik, Laplace) bearbeiten?
+				\item Bei welchen stoßen Sie an Grenzen? Warum?
+			\end{itemize}
+			
+			\item \textbf{Bedarf an Verallgemeinerung:} Warum braucht man eine einheitliche mathematische Theorie, die alle diese verschiedenen Situationen behandeln kann?
+		}
+		
+		\komplexaufgabe{
+			\textbf{Das Buffonsche Nadelproblem (Experiment und Theorie)}
+			
+			Auf einem Blatt Papier sind parallele Linien im Abstand $d$ gezeichnet. Eine Nadel der Länge $\ell < d$ wird zufällig auf das Blatt geworfen.
+			
+			\textbf{Arbeitsaufträge:}
+		}{
+			\item \textbf{Experiment:} Führen Sie das Experiment durch (oder simulieren Sie es):
+			\begin{itemize}
+				\item Zeichnen Sie parallele Linien im Abstand $d = 3$ cm.
+				\item Verwenden Sie eine „Nadel" (z.B. Zahnstocher) der Länge $\ell = 2$ cm.
+				\item Werfen Sie die Nadel 50-mal und notieren Sie, wie oft sie eine Linie schneidet.
+				\item Schätzen Sie: $P(\text{Nadel schneidet Linie}) \approx \frac{\text{Anzahl Treffer}}{50}$
+			\end{itemize}
+			
+			\item \textbf{Modellierung:} Um die Position und Ausrichtung der Nadel zu beschreiben, brauchen wir:
+			\begin{itemize}
+				\item Den Abstand $x$ des Nadelmittelpunkts zur nächsten Linie (mit $0 \le x \le \frac{d}{2}$)
+				\item Den Winkel $\alpha$ der Nadel zu den Linien (mit $0 \le \alpha \le \frac{\pi}{2}$)
+			\end{itemize}
+			Skizzieren Sie die Situation und erklären Sie, warum diese beiden Größen ausreichen.
+			
+			\item \textbf{Schnittbedingung:} Die Nadel schneidet eine Linie, wenn:
+			\[
+			x \le \frac{\ell}{2} \sin(\alpha)
+			\]
+			\begin{itemize}
+				\item Machen Sie sich dies geometrisch klar (Skizze!).
+				\item Für welche Winkel $\alpha$ ist ein Schnitt unmöglich? Warum?
+			\end{itemize}
+			
+			\item \textbf{Theoretische Wahrscheinlichkeit:} Die Wahrscheinlichkeit berechnet sich als Flächenverhältnis im $(x, \alpha)$-Rechteck $[0, \frac{d}{2}] \times [0, \frac{\pi}{2}]$:
+			\[
+			P(\text{Schnitt}) = \frac{\text{Fläche unter der Kurve } x = \frac{\ell}{2}\sin(\alpha)}{\text{Fläche des Rechtecks}} = \frac{\int_0^{\pi/2} \frac{\ell}{2}\sin(\alpha)\,d\alpha}{\frac{d}{2} \cdot \frac{\pi}{2}}
+			\]
+			Berechnen Sie dieses Integral und zeigen Sie:
+			\[
+			P(\text{Schnitt}) = \frac{2\ell}{\pi d}
+			\]
+			
+			\item \textbf{Überraschung:} Für $\ell = d$ gilt: $P(\text{Schnitt}) = \frac{2}{\pi}$. 
+			\begin{itemize}
+				\item Vergleichen Sie dies mit Ihrem experimentellen Ergebnis aus a).
+				\item Man kann also $\pi$ durch Nadelwerfen schätzen! Wie?
+			\end{itemize}
+			
+			\item \textbf{Unterschied zu Würfeln:} 
+			\begin{itemize}
+				\item Wie unterscheidet sich dieses Problem vom Würfeln?
+				\item Warum funktioniert hier „Abzählen" nicht?
+				\item Welche neue mathematische Methode war nötig (geometrisch/analytisch)?
+			\end{itemize}
+		}
+		
+		\komplexaufgabe{
+			\textbf{Reflexion: Verschiedene Modelle, gemeinsame Struktur}
+
+			Sie haben nun verschiedene Arten von Wahrscheinlichkeitsproblemen kennengelernt:
+			\begin{itemize}
+				\item Diskret mit endlich vielen Ausgängen (Würfel, Münze)
+				\item Diskret mit unendlich vielen Ausgängen (Anzahl Anrufe)
+				\item Stetig/geometrisch (Buffon, Wartezeiten)
+			\end{itemize}
+
+			\textbf{Arbeitsaufträge:}
+		}{
+			\item \textbf{Gemeinsamkeiten:} Was haben alle diese Situationen gemeinsam? Listen Sie mathematische Eigenschaften auf, die in allen Fällen gelten sollten (z.B. „Wahrscheinlichkeiten liegen zwischen 0 und 1").
+
+			\item \textbf{Unterschiede:} Erstellen Sie eine Tabelle, die für jede der drei Kategorien (diskret-endlich, diskret-unendlich, stetig) auflistet:
+			\begin{itemize}
+				\item Typisches Beispiel
+				\item Wie bestimmt man Wahrscheinlichkeiten? (Abzählen, Integral, ...)
+				\item Welche mathematischen Werkzeuge braucht man?
+			\end{itemize}
+
+			\item \textbf{Rechenregeln:} In allen Modellen sollte gelten:
+			\begin{itemize}
+				\item $P(A \cup B) = P(A) + P(B)$, falls $A$ und $B$ \emph{unvereinbar} sind \\
+				(d.h. beide Ereignisse können nicht gleichzeitig eintreten; $A \cup B$ bedeutet „$A$ oder $B$")
+				\item $P(A^c) = 1 - P(A)$ \quad (Gegenwahrscheinlichkeit; $A^c$ bezeichnet das Gegenereignis — alles, was nicht $A$ ist)
+			\end{itemize}
+			Wählen Sie für jede der drei Kategorien ein Beispiel und verifizieren Sie diese Regeln konkret.
+
+			\item \textbf{Bedarf an Abstraktion:}
+			\begin{itemize}
+				\item Wäre es sinnvoll, für jede Art von Problem eine eigene Theorie zu entwickeln? Warum (nicht)?
+				\item Welche Vorteile hätte ein einheitlicher, abstrakter Rahmen?
+			\end{itemize}
+
+			\item \textbf{Ausblick auf Axiome:} Im nächsten Abschnitt werden Sie die Axiome von Kolmogorov kennenlernen, die einen solchen einheitlichen Rahmen bieten.
+			\begin{itemize}
+				\item Was erwarten Sie von solchen Axiomen?
+				\item Welche Eigenschaften sollten sie Ihrer Meinung nach erfüllen?
+			\end{itemize}
+		}
+
+\end{komplexaufgaben}
+
+\subsection{Enrichment: Das Bertrand-Paradoxon: Präzision ist alles!}
+
+\begin{komplexaufgaben}{sec:historischeProblem}
+
+		\komplexaufgabe{
+			\textbf{Das Bertrand-Paradoxon: Präzision ist alles!}
+
+			Gegeben ist ein Kreis mit Radius $r$. Eine Sehne wird  \emph{zufällig}  im Kreis gewählt.
+
+			\textbf{Frage:} Mit welcher Wahrscheinlichkeit ist die Sehne länger als die Seite des einbeschriebenen gleichseitigen Dreiecks (Länge $r\sqrt{3}$)?
+
+			\textbf{Arbeitsaufträge:}
+		}{
+			\item \textbf{Methode 1 – Zufälliger Endpunkt:}
+			\begin{itemize}
+				\item Ein Punkt der Sehne ist fest, der andere wird zufällig auf dem Kreis gewählt.
+				\item Zeichnen Sie die Situation. Für welche Positionen des zweiten Punktes ist die Sehne lang genug?
+				\item Berechnen Sie die Wahrscheinlichkeit.
+			\end{itemize}
+
+			\item \textbf{Methode 2 – Zufälliger Mittelpunkt:}
+			\begin{itemize}
+				\item Der Mittelpunkt der Sehne wird zufällig im Kreis gewählt.
+				\item Zeichnen Sie die Situation. Für welche Positionen des Mittelpunkts ist die Sehne lang genug?
+				\item Berechnen Sie die Wahrscheinlichkeit (Hinweis: Vergleich von Kreisflächen).
+			\end{itemize}
+
+			\item \textbf{Methode 3 – Zufälliger Abstand zum Zentrum:}
+			\begin{itemize}
+				\item Die Richtung der Sehne ist fest (z.B. horizontal), ihr Abstand $d$ zum Mittelpunkt ist gleichverteilt in $[0, r]$.
+				\item Für welche Abstände $d$ ist die Sehne lang genug?
+				\item Berechnen Sie die Wahrscheinlichkeit.
+			\end{itemize}
+
+			\item \textbf{Vergleich der Ergebnisse:}
+			\begin{itemize}
+				\item Sie sollten drei verschiedene Wahrscheinlichkeiten erhalten haben: $\frac{1}{3}$, $\frac{1}{4}$ und $\frac{1}{2}$.
+				\item Überprüfen Sie Ihre Rechnungen. Welche Antwort ist „richtig"?
+			\end{itemize}
+
+			\item \textbf{Das Paradoxon:}
+			\begin{itemize}
+				\item Alle drei Methoden scheinen „natürlich" und „zufällig" zu sein. Warum erhalten wir unterschiedliche Ergebnisse?
+				\item Was bedeutet „zufällige Sehne" überhaupt? Ist der Begriff eindeutig?
+			\end{itemize}
+
+			\item \textbf{Lehre für die Mathematik:}
+			\begin{itemize}
+				\item Was lernen wir aus diesem Paradoxon über die Notwendigkeit präziser Definitionen?
+				\item Warum reicht es nicht zu sagen „wähle zufällig", sondern man muss spezifizieren „wie genau wird gewählt"?
+			\end{itemize}
+
+			\item \textbf{Verbindung zu Wahrscheinlichkeitsräumen:} Später werden wir sehen, dass ein vollständiges Wahrscheinlichkeitsmodell aus drei Teilen besteht: $(\Omega, \mathcal{F}, P)$ — Ergebnismenge, Menge der betrachteten Ereignisse und Wahrscheinlichkeitsvorschrift.
+			\begin{itemize}
+				\item Welcher der drei Teile war bei den drei Methoden unterschiedlich?
+				\item Warum reicht es nicht, nur die Ergebnismenge $\Omega$ (den Kreis) festzulegen? Warum muss man zusätzlich angeben, \emph{wie} zufällig gewählt wird?
+			\end{itemize}
+		}
+
+\end{komplexaufgaben}
+
+\section{Mengenoperationen und Ereignisse}
+\label{sec:mengenoperationen}
+
+\begin{komplexaufgaben}{sec:mengenoperationen}
+
+	\komplexaufgabe{
+		\textbf{Mengenoperationen am Würfelexperiment}
+
+		Beim Werfen eines fairen Würfels ist die Ergebnismenge $\Omega = \{1, 2, 3, 4, 5, 6\}$.
+		Betrachten Sie folgende Ereignisse (jeweils als Menge von Ausgängen):
+		\[
+			A = \{2, 4, 6\},\quad B = \{1, 2, 3\},\quad C = \{3, 6\}.
+		\]
+		($A$: gerade Augenzahl; $B$: Augenzahl kleiner als 4; $C$: durch 3 teilbar)
+	}{
+		\item Bestimmen Sie $A \cap B$ (alle Ausgänge, die zu \emph{beiden} Ereignissen gehören) und beschreiben Sie das Ergebnis in Worten.
+
+		\item Bestimmen Sie $A \cup C$ (alle Ausgänge, die zu \emph{mindestens einem} der Ereignisse gehören) und beschreiben Sie das Ergebnis in Worten.
+
+		\item Bestimmen Sie $B^c$ (alle Ausgänge, die \emph{nicht} zu $B$ gehören) und beschreiben Sie das Ergebnis in Worten.
+
+		\item Bestimmen Sie die Differenz $A \setminus B = \{x \in \Omega \mid x \in A \text{ und } x \notin B\}$.
+
+		\item Überprüfen Sie das erste De Morgansche Gesetz: Berechnen Sie $(A \cup B)^c$ und $A^c \cap B^c$ und vergleichen Sie die Ergebnisse.
+
+		\item Sind die Ereignisse $A$ und $C$ unvereinbar (d.h.\ gilt $A \cap C = \emptyset$)? Begründen Sie.
+	}
+
+	\komplexaufgabe{
+		\textbf{Ereignisse als Mengen beim dreimaligen Münzwurf}
+
+		Ein fairer Münze wird dreimal geworfen. Mögliche Ausgänge notieren wir als Folge von
+		K (Kopf) und Z (Zahl):
+		\[
+			\Omega = \{\mathrm{KKK},\,\mathrm{KKZ},\,\mathrm{KZK},\,\mathrm{KZZ},\,\mathrm{ZKK},\,\mathrm{ZKZ},\,\mathrm{ZZK},\,\mathrm{ZZZ}\}.
+		\]
+	}{
+		\item Listen Sie die Elemente der folgenden Ereignisse auf:
+		\begin{itemize}
+			\item $A$ = „mindestens zweimal Kopf"
+			\item $B$ = „das erste Ergebnis ist Kopf"
+			\item $C$ = „alle drei Ergebnisse sind gleich"
+		\end{itemize}
+
+		\item Bestimmen Sie $A \cap B$ und beschreiben Sie dieses Ereignis in Worten.
+
+		\item Bestimmen Sie $A \cup C$ und $B^c$.
+
+		\item Überprüfen Sie das De Morgansche Gesetz $(A \cap B)^c = A^c \cup B^c$, indem Sie beide Seiten durch Aufzählen der Elemente bestimmen und vergleichen.
+
+		\item Bestimmen Sie $P(A)$, $P(B)$ und $P(A \cap B)$ im Laplace-Modell (jeder der 8 Ausgänge ist gleich wahrscheinlich). Gilt $P(A \cup B) = P(A) + P(B) - P(A \cap B)$?
+	}
+
+	\komplexaufgabe{
+		\textbf{De Morgansche Gesetze und Distributivgesetz nachweisen}
+
+		Sei $\Omega = \{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\}$ sowie
+		\[
+			A = \{2, 4, 6, 8, 10\},\quad B = \{1, 2, 3, 4, 5\},\quad D = \{4, 5, 6, 7, 8\}.
+		\]
+	}{
+		\item Bestimmen Sie $A^c$, $B^c$, $A \cup B$ und $A \cap B$ durch Aufzählen der Elemente.
+
+		\item Weisen Sie das erste De Morgansche Gesetz nach:
+		\[
+			(A \cup B)^c = A^c \cap B^c.
+		\]
+		Berechnen Sie dazu beide Seiten getrennt und vergleichen Sie.
+
+		\item Weisen Sie das zweite De Morgansche Gesetz nach:
+		\[
+			(A \cap B)^c = A^c \cup B^c.
+		\]
+
+		\item Überprüfen Sie ein Distributivgesetz:
+		\[
+			A \cap (B \cup D) = (A \cap B) \cup (A \cap D).
+		\]
+		Berechnen Sie beide Seiten durch Aufzählen und vergleichen Sie.
+	}
+
+	\komplexaufgabe{
+		\textbf{Anwendung: Ereignisse im Skatspiel}
+
+		Ein Skatspiel besteht aus 32 Karten: vier Farben (Kreuz, Pik, Herz, Karo), jeweils mit den Werten 7, 8, 9, 10, Bube, Dame, König, As. Eine Karte wird zufällig gezogen.
+
+		Betrachten Sie die Ereignisse:
+		\begin{itemize}
+			\item $H$ = „die Karte ist eine Herzkarte" \quad ($|H| = 8$)
+			\item $B$ = „die Karte ist eine Bildkarte" (Bube, Dame, König oder As) \quad ($|B| = 16$)
+			\item $J$ = „die Karte ist ein Bube" \quad ($|J| = 4$)
+		\end{itemize}
+	}{
+		\item Bestimmen Sie $H \cap B$ (Karten, die zu beiden Ereignissen gehören). Wie viele Karten enthält diese Menge und was sind das für Karten?
+
+		\item Bestimmen Sie $|H \cup B|$ mit Hilfe der Formel
+		\[
+			|H \cup B| = |H| + |B| - |H \cap B|.
+		\]
+
+		\item Bestimmen Sie $H^c$ und beschreiben Sie dieses Gegenereignis in Worten. Wie viele Elemente hat $H^c$?
+
+		\item Gilt $J \subseteq B$ (d.h.\ ist $J$ eine Teilmenge von $B$)? Begründen Sie dies mit der Definition der Teilmenge ($J \subseteq B \Leftrightarrow$ jedes Element von $J$ ist auch in $B$).
+
+		\item Berechnen Sie im Laplace-Modell die Wahrscheinlichkeiten $P(H)$, $P(B)$, $P(H \cap B)$ und $P(H \cup B)$. Überprüfen Sie: $P(H \cup B) = P(H) + P(B) - P(H \cap B)$.
+	}
+
+\end{komplexaufgaben}
+
+
+
+
+\setcounter{section}{1}
+\setcounter{subsection}{0}
+\begin{loesungssektion}{sec:kombinatorik}
+	\setcounter{exo}{0}
+
+	\begin{komplexloesungen}{sec:kombinatorik}
+	\komplexloesung{}{
+		\item $9^6 = 531\,441$
+		\item $\binom{20}{10} = 184\,756$
+		\item $\frac{8!}{(8-3)!} = 8 \cdot 7 \cdot 6 = 336$
+		\item $\frac{8!}{(8-5)!} = 8 \cdot 7 \cdot 6 \cdot 5 \cdot 4 = 6\,720$
+		\item $5! = 120$
+		\item $3^{11} = 177\,147$
+		\item $\binom{8}{5} = 56$
+		\item $\binom{34}{3} = 5\,984$
+		\item $\binom{19}{11} = 75\,582$
+		\item $5^3 = 125$
+	}
+
+	\komplexloesung{$P(\text{Fuzzi kommt durch}) = \dfrac{6}{7} \cdot \dfrac{4}{5} \cdot \dfrac{2}{3}
+		= \dfrac{48}{105} \approx 45{,}71\,\%$. Da $P < 50\,\%$, sollte man \emph{nicht} wetten.}{}
+
+	\komplexloesung{$2^{8} = 256$, \quad $2^{16} = 65\,536$, \quad $2^{32} = 4\,294\,967\,296$}{}
+
+	\komplexloesung{$\binom{9}{7} = 36$ Sieben-er-Auswahlen $\;\times\; 7! = 5\,040$ Anordnungen
+		$= 181\,440$}{}
+
+	\komplexloesung{}{
+		\item $P(\text{genau 3 rote}) = \dfrac{\binom{5}{3}\binom{15}{5}}{\binom{20}{8}}
+				\approx 23{,}84\,\%$;
+			\quad $P(\text{mind.\,4 rote}) = P(\text{4r}) + P(\text{5r})
+				\approx 5{,}42\,\% + 0{,}36\,\% = 5{,}78\,\%$
+		\item $P(\text{genau 2 defekt}) = \dfrac{\binom{10}{2}\binom{90}{3}}{\binom{100}{5}}
+				\approx 7{,}02\,\%$;
+			\quad $P(\text{mind.\,3 defekt}) \approx 0{,}64\,\%+0{,}03\,\%+0{,}0003\,\% \approx 0{,}66\,\%$
+	}
+
+	\komplexloesung{$P(\text{3 Richtige}) \approx 0{,}0264$, \;
+		$P(\text{4 Richtige}) \approx 0{,}000549$.\\
+		Mittlerer Gewinn des Veranstalters: $G \approx 1 - 0{,}0264 \cdot 10 - 0{,}000549 \cdot 1000
+		= 0{,}187\,\text{DM}$}{}
+
+	\komplexloesung{$P(\text{alle verschiedenfarbig}) =
+		\dfrac{\binom{5}{1}\binom{3}{1}\binom{6}{1}}{\binom{14}{3}} = \dfrac{90}{364} \approx 14\,\%$;
+		\quad $P(\text{alle gleichfarbig}) = \dfrac{10+1+20}{364} = \dfrac{31}{364} \approx 8{,}5\,\%$}{}
+
+	\komplexloesung{}{
+		\item $P(\text{genau 1 defekt}) = \dfrac{\binom{10}{1}\binom{70}{4}}{\binom{80}{5}}
+				\approx 0{,}3814$
+		\item $P(\text{genau 3 defekt}) = \dfrac{\binom{10}{3}\binom{70}{2}}{\binom{80}{5}}
+				\approx 0{,}0121$
+		\item $P(\text{höchstens 4 defekt}) = 1 - \dfrac{\binom{10}{5}\binom{70}{0}}{\binom{80}{5}}
+				\approx 0{,}9999895$
+		\item $P(\text{mindestens 1 defekt}) = 1 - \dfrac{\binom{10}{0}\binom{70}{5}}{\binom{80}{5}}
+				\approx 0{,}4965$
+	}
+
+	\komplexloesung{}{
+		\item $P(\text{1 HG, 4 Nieten}) = \dfrac{\binom{2}{1}\binom{70}{4}}{\binom{100}{5}}
+				\approx 0{,}0244$;\quad
+			$P(\text{kein Gewinn}) = \dfrac{\binom{70}{5}}{\binom{100}{5}} \approx 0{,}1608$
+		\item $P(\text{2 EG, 3 TP, 5 N}) = \dfrac{\binom{8}{2}\binom{20}{3}\binom{70}{5}}{\binom{100}{10}}
+				\approx 0{,}0223$;\quad
+			$P(\text{1 HG, 2 EG, 7 N}) = \dfrac{\binom{2}{1}\binom{8}{2}\binom{70}{7}}{\binom{100}{10}}
+				\approx 0{,}0039$
+	}
+
+	\komplexloesung{Person 1 stößt mit den Gästen 2,\,\ldots,\,7 an; Person 2 mit 3,\,\ldots,\,7 usw.\\
+		$6+5+4+3+2+1 = 21$ (bzw.\ $\binom{7}{2} = 21$)}{}
+
+	\end{komplexloesungen}
+
+\end{loesungssektion}
+
+\setcounter{section}{2}
+\setcounter{subsection}{0}
+\begin{loesungssektion}{sec:historischeProblem}
+	\setcounter{exo}{0}
+
+	\begin{komplexloesungen}{sec:historischeProblem}
+
+	\komplexloesung{
+		\textbf{Das Problem des Chevalier de Méré}
+	}{
+		\item \emph{(Lernendendiskussion — keine eindeutige Musterlösung)}
+
+		\item Wette~A: $\Omega = \{1,\ldots,6\}^4$, Ereignis $A$: „mindestens eine 6 fällt". \\
+		      Wette~B: $\Omega = \{1,\ldots,6\}^{24} \times \{1,\ldots,6\}^{24}$, Ereignis $A$: „mindestens eine Doppel-6 fällt". \\
+		      Annahme: alle Würfe unabhängig, faire Würfel.
+
+		\item $P(\text{keine 6 in 4 Würfen}) = \left(\dfrac{5}{6}\right)^4 \approx 0{,}482$; \quad
+		      $P(\text{mind. eine 6}) = 1 - \left(\dfrac{5}{6}\right)^4 \approx 0{,}518$
+
+		\item $P(\text{Doppel-6 bei einem Wurf}) = \dfrac{1}{36}$; \quad
+		      $P(\text{mind. eine Doppel-6 in 24 Würfen}) = 1 - \left(\dfrac{35}{36}\right)^{24} \approx 0{,}491$
+
+		\item Wette~A ist günstiger (${\approx}\,51{,}8\,\%$ gegenüber ${\approx}\,49{,}1\,\%$).
+
+		\item De Méré hat Wahrscheinlichkeiten addiert statt die Gegenwahrscheinlichkeit zu benutzen; korrekt ist $P = 1-(1-p)^n$.
+
+		\item Der Pascal-Fermat-Briefwechsel (1654) begründete die systematische Behandlung von Zufallsexperimenten und gilt als Geburtsstunde der Wahrscheinlichkeitsrechnung.
+	}
+
+	\komplexloesung{
+		\textbf{Diskrete vs. Stetige Zufallsexperimente}
+	}{
+		\item (I) diskret-endlich; \enspace (II) stetig; \enspace (III) diskret-unendlich; \enspace
+		      (IV) stetig; \enspace (V) diskret-endlich; \enspace (VI) stetig; \enspace (VII) stetig
+
+		\item (I) $\Omega = \{1,2,3,4,5,6\}$; \enspace
+		      (II) $\Omega = [0,60]$; \enspace
+		      (III) $\Omega = \{0,1,2,\ldots\}$; \enspace
+		      (IV) Einheitsquadrat $[0,1]^2$; \enspace
+		      (V) $\Omega = \{0,1,\ldots,10\}$; \enspace
+		      (VI) $\Omega = [0,\infty)$; \enspace
+		      (VII) $\Omega = \mathbb{R}$
+
+		\item Laplace sinnvoll: (I) fairer Würfel; (V) falls alle Birnen gleich hergestellt werden.
+		      Bei stetigen Modellen ist das klassische Laplace-Modell nicht anwendbar.
+
+		\item \emph{(Offene Lernendendiskussion)}
+
+		\item Mit Kombinatorik/Laplace bearbeitbar: (I), (V). \\
+		      Grenzen bei stetigen und unbeschränkten Modellen: kein Abzählen möglich.
+
+		\item Eine einheitliche Theorie ermöglicht denselben Rechenrahmen für alle Modelltypen und vermeidet redundante Einzellösungen.
+	}
+
+	\komplexloesung{
+		\textbf{Das Buffonsche Nadelproblem}
+	}{
+		\item \emph{(Experimentelles Ergebnis variiert; Erwartungswert: ca.\ 67\,\% Treffer bei $\ell=2$, $d=3$)}
+
+		\item $x$ und $\alpha$ reichen, weil Mittelpunktlage und Winkel die Nadel eindeutig beschreiben.
+
+		\item Schnitt genau dann, wenn $x \le \tfrac{\ell}{2}\sin\alpha$. \;
+		      Bei $\alpha = 0$ (Nadel parallel zu den Linien) ist $\tfrac{\ell}{2}\sin 0 = 0$, also kein Schnitt möglich.
+
+		\item $\displaystyle\int_0^{\pi/2} \tfrac{\ell}{2}\sin\alpha\,d\alpha
+		      = \tfrac{\ell}{2}\bigl[-\cos\alpha\bigr]_0^{\pi/2}
+		      = \tfrac{\ell}{2}(0-(-1)) = \tfrac{\ell}{2}$; \quad
+		      Fläche des Rechtecks: $\tfrac{d}{2}\cdot\tfrac{\pi}{2} = \tfrac{d\pi}{4}$; \quad
+		      $P = \dfrac{\ell/2}{d\pi/4} = \dfrac{2\ell}{\pi d}$ \checkmark
+
+		\item Für $\ell=d$: $P = \tfrac{2}{\pi}$. \;
+		      Schätzung: $\pi \approx \dfrac{2 \cdot \text{Anzahl Würfe}}{\text{Anzahl Treffer}}$.
+
+		\item Würfeln: diskret, Abzählen möglich. Buffon: stetig, Wahrscheinlichkeit = Flächenverhältnis.
+	}
+
+	\komplexloesung{
+		\textbf{Reflexion: Verschiedene Modelle, gemeinsame Struktur}
+	}{
+		\item Gemeinsamkeiten: $P(E) \in [0,1]$ für alle Ereignisse $E$; Gesamtwahrscheinlichkeit gleich~1; Komplementregel; Additivität bei unvereinbaren Ereignissen.
+
+		\item \emph{(Tabelle — Lernendenergebnis)}
+
+		\item \emph{(Konkrete Beispielverifikation — Lernendenergebnis)}
+
+		\item Einzeltheorien wären redundant und erlauben keinen Transfer. Ein einheitlicher abstrakter Rahmen ist effizienter und allgemein übertragbar.
+
+		\item Axiome sollten sicherstellen: Nicht-Negativität ($P \ge 0$), Normierung ($P(\Omega)=1$), Additivität bei unvereinbaren Ereignissen.
+	}
+
+	\end{komplexloesungen}
+
+	\subsection*{Lösungen zum Enrichment: Das Bertrand-Paradoxon}
+	\setcounter{subsection}{1}
+	\setcounter{exo}{0}
+
+	\begin{komplexloesungen}{sec:historischeProblem}
+
+	\komplexloesung{
+		\textbf{Das Bertrand-Paradoxon}
+	}{
+		\item Methode~1: Der zweite Endpunkt liegt günstig auf $\tfrac{1}{3}$ des Kreisbogens. $P = \tfrac{1}{3}$.
+
+		\item Methode~2: Der Mittelpunkt muss im inneren Kreis mit Radius $\tfrac{r}{2}$ liegen. \\
+		      $P = \dfrac{\pi(r/2)^2}{\pi r^2} = \dfrac{1}{4}$.
+
+		\item Methode~3: Der Abstand muss $d \le \tfrac{r}{2}$ erfüllen. $P = \tfrac{1}{2}$.
+
+		\item Alle drei Rechnungen sind korrekt — das Ergebnis hängt vom gewählten Zufallsmechanismus ab.
+
+		\item Der Begriff „zufällig" ist ohne genaue Festlegung nicht eindeutig; unterschiedliche Verteilungen führen zu unterschiedlichen Wahrscheinlichkeiten.
+
+		\item Präzise Definitionen sind in der Mathematik unerlässlich; „wähle zufällig" allein ist keine vollständige Beschreibung.
+
+		\item Unterschiedlich war die Wahrscheinlichkeitsvorschrift $P$ (die Art, wie Wahrscheinlichkeiten über die Ergebnisse verteilt werden).
+	}
+
+	\end{komplexloesungen}
+
+\end{loesungssektion}
+
+\setcounter{section}{3}
+\setcounter{subsection}{0}
+\begin{loesungssektion}{sec:mengenoperationen}
+	\setcounter{exo}{0}
+
+	\begin{komplexloesungen}{sec:mengenoperationen}
+
+	\komplexloesung{
+		\textbf{Mengenoperationen am Würfelexperiment}
+	}{
+		\item $A \cap B = \{2\}$ — „die Augenzahl ist gerade und kleiner als 4".
+
+		\item $A \cup C = \{2, 3, 4, 6\}$ — „die Augenzahl ist gerade oder durch 3 teilbar".
+
+		\item $B^c = \{4, 5, 6\}$ — „die Augenzahl ist mindestens 4".
+
+		\item $A \setminus B = \{4, 6\}$ — gerade Zahlen, die nicht kleiner als 4 sind.
+
+		\item $(A \cup B)^c$: $A \cup B = \{1,2,3,4,6\}$, also $(A \cup B)^c = \{5\}$. \\
+		$A^c \cap B^c = \{1,3,5\} \cap \{4,5,6\} = \{5\}$. Beide Seiten stimmen überein. $\checkmark$
+
+		\item $A \cap C = \{6\} \neq \emptyset$, also sind $A$ und $C$ \emph{nicht} unvereinbar.
+	}
+
+	\komplexloesung{
+		\textbf{Dreimaliger Münzwurf}
+	}{
+		\item $A = \{\mathrm{KKK}, \mathrm{KKZ}, \mathrm{KZK}, \mathrm{ZKK}\}$; \quad
+		$B = \{\mathrm{KKK}, \mathrm{KKZ}, \mathrm{KZK}, \mathrm{KZZ}\}$; \quad
+		$C = \{\mathrm{KKK}, \mathrm{ZZZ}\}$.
+
+		\item $A \cap B = \{\mathrm{KKK}, \mathrm{KKZ}, \mathrm{KZK}\}$ — „mindestens zweimal Kopf und das erste Ergebnis ist Kopf".
+
+		\item $A \cup C = \{\mathrm{KKK}, \mathrm{KKZ}, \mathrm{KZK}, \mathrm{ZKK}, \mathrm{ZZZ}\}$; \quad
+		$B^c = \{\mathrm{ZKK}, \mathrm{ZKZ}, \mathrm{ZZK}, \mathrm{ZZZ}\}$.
+
+		\item $(A \cap B)^c = \{\mathrm{KZZ}, \mathrm{ZKK}, \mathrm{ZKZ}, \mathrm{ZZK}, \mathrm{ZZZ}\}$. \\
+		$A^c = \{\mathrm{KZZ}, \mathrm{ZKZ}, \mathrm{ZZK}, \mathrm{ZZZ}\}$; $B^c = \{\mathrm{ZKK}, \mathrm{ZKZ}, \mathrm{ZZK}, \mathrm{ZZZ}\}$; \\
+		$A^c \cup B^c = \{\mathrm{KZZ}, \mathrm{ZKK}, \mathrm{ZKZ}, \mathrm{ZZK}, \mathrm{ZZZ}\}$. Beide Seiten gleich. $\checkmark$
+
+		\item $P(A) = \tfrac{4}{8} = \tfrac{1}{2}$; $P(B) = \tfrac{4}{8} = \tfrac{1}{2}$; $P(A \cap B) = \tfrac{3}{8}$. \\
+		$P(A \cup B) = \tfrac{5}{8}$; \; $P(A) + P(B) - P(A \cap B) = \tfrac{1}{2} + \tfrac{1}{2} - \tfrac{3}{8} = \tfrac{5}{8}$. $\checkmark$
+	}
+
+	\komplexloesung{
+		\textbf{De Morgansche Gesetze und Distributivgesetz}
+	}{
+		\item $A^c = \{1,3,5,7,9\}$; $B^c = \{6,7,8,9,10\}$; $A \cup B = \{1,2,3,4,5,6,8,10\}$; $A \cap B = \{2,4\}$.
+
+		\item $(A \cup B)^c = \{7,9\}$; \; $A^c \cap B^c = \{1,3,5,7,9\} \cap \{6,7,8,9,10\} = \{7,9\}$. Gleich. $\checkmark$
+
+		\item $(A \cap B)^c = \{1,3,5,6,7,8,9,10\}$; \;
+		$A^c \cup B^c = \{1,3,5,7,9\} \cup \{6,7,8,9,10\} = \{1,3,5,6,7,8,9,10\}$. Gleich. $\checkmark$
+
+		\item $B \cup D = \{1,2,3,4,5,6,7,8\}$; \; $A \cap (B \cup D) = \{2,4,6,8\}$. \\
+		$(A \cap B) = \{2,4\}$; $(A \cap D) = \{4,6,8\}$; $(A \cap B) \cup (A \cap D) = \{2,4,6,8\}$. Gleich. $\checkmark$
+	}
+
+	\komplexloesung{
+		\textbf{Skatspiel}
+	}{
+		\item $H \cap B$: die vier Herz-Bildkarten (Herz-Bube, -Dame, -König, -As). $|H \cap B| = 4$.
+
+		\item $|H \cup B| = 8 + 16 - 4 = 20$.
+
+		\item $H^c$: alle Karten, die \emph{keine} Herzkarten sind (Kreuz, Pik, Karo). $|H^c| = 24$.
+
+		\item Ja, $J \subseteq B$: jeder Bube ist eine Bildkarte, also ist jedes Element von $J$ auch in $B$.
+
+		\item $P(H) = \tfrac{8}{32} = \tfrac{1}{4}$; $P(B) = \tfrac{16}{32} = \tfrac{1}{2}$; $P(H \cap B) = \tfrac{4}{32} = \tfrac{1}{8}$; \\
+		$P(H \cup B) = \tfrac{20}{32} = \tfrac{5}{8}$; \;
+		$P(H) + P(B) - P(H \cap B) = \tfrac{1}{4} + \tfrac{1}{2} - \tfrac{1}{8} = \tfrac{5}{8}$. $\checkmark$
+	}
+
+	\end{komplexloesungen}
+
+\end{loesungssektion}
+
+\end{document}

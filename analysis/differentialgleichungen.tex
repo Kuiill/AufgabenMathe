@@ -1,0 +1,65 @@
+\documentclass[../Mathe_Aufgaben.tex]{subfiles}
+\begin{document}
+\chapter{Differentialgleichungen}
+
+\section{Einführung in Differentialgleichungen}
+\label{sec:aufg-dgl}
+
+\begin{komplexaufgaben}{sec:aufg-dgl}
+	\komplexaufgabe{Gegeben ist die Funktionsschar $f_a(x)=x^3-3ax^2$.}{
+		\item Bestimme die Ableitung $f_a'(x)$.
+		\item Löse die Funktionsgleichung nach dem Parameter $a$ auf.
+		\item Zeige, dass durch Einsetzen des Parameters in die Ableitung die Differentialgleichung
+		      $y' = x^2 + \dfrac{2y}{x}$ entsteht.
+	}
+
+	\komplexaufgabe{Betrachte die Differentialgleichung $y' = x^2 + \dfrac{2y}{x}$.}{
+		\item Erkläre, wovon die Steigung einer Lösung im Punkt $(x,y)$ abhängt.
+		\item Beschreibe qualitativ, wie sich Lösungen für große positive $x$ verhalten könnten.
+	}
+
+	\komplexaufgabe{Erstelle für die Differentialgleichung $y' = x^2 + \dfrac{2y}{x}$ ein Richtungsfeld im Bereich $1\le x\le 3$, $-5\le y\le 5$. Zeichne an mehreren Punkten kurze Linienstücke mit der jeweils passenden Steigung.}{}
+
+	\komplexaufgabe{Zeichne in dein Richtungsfeld eine Kurve ein, die sich überall an die vorgegebenen Richtungen anpasst. Begründe, warum diese Kurve eine Lösung der Differentialgleichung darstellt.}{}
+
+	\komplexaufgabe{Prüfe durch Einsetzen, ob die Funktion $y=x^3$ eine Lösung der Differentialgleichung $y' = x^2 + \dfrac{2y}{x}$ ist.}{}
+
+	\komplexaufgabe{Vermutet wird, dass alle Lösungen Polynome dritten Grades sind.}{
+		\item Prüfe, ob Funktionen der Form $y=x^3+Cx^2$ Lösungen der Differentialgleichung sind.
+		\item Bestimme die Bedingung an $C$.
+	}
+
+	\komplexaufgabe{Nutze ein CAS (z.\,B. den TI-Nspire CX-CAS), um das Anfangswertproblem
+	$y' = x^2 + \dfrac{2y}{x}$, $y(1)=0$ zu lösen. Vergleiche das Ergebnis mit den zuvor untersuchten Funktionsformen.}{}
+\end{komplexaufgaben}
+
+\begin{loesungssektion}{sec:aufg-dgl}
+	\setcounter{exo}{0}
+	\begin{komplexloesungen}{sec:aufg-dgl}
+		\komplexloesung{}{
+			\item $f_a'(x)=3x^2-6ax$
+			\item Aus $y=x^3-3ax^2$ folgt (für $x\neq0$): $a=\dfrac{x^3-y}{3x^2}$
+			\item Einsetzen: $y'=3x^2-6x\cdot\dfrac{x^3-y}{3x^2}=x^2+\dfrac{2y}{x}$ $\checkmark$
+		}
+
+		\komplexloesung{}{
+			\item Die Steigung hängt sowohl vom aktuellen $x$-Wert als auch vom aktuellen Funktionswert $y$ ab.
+			\item Für große $x$ dominiert der Term $x^2$; die Steigung wird stark positiv, die Lösungen wachsen steil an.
+		}
+
+		\komplexloesung{An jedem Punkt $(x,y)$ wird mit der Differentialgleichung der Wert $y'$ berechnet und ein kurzes Linienstück mit dieser Steigung eingezeichnet.}{}
+
+		\komplexloesung{Eine Lösung ist eine Kurve, die an jeder Stelle dieselbe Steigung besitzt wie die Linienstücke des Richtungsfeldes und überall tangential zu ihnen verläuft.}{}
+
+		\komplexloesung{$y'=3x^2$. Rechte Seite: $x^2+\dfrac{2x^3}{x}=3x^2$. Gleichung erfüllt $\Rightarrow$ $y=x^3$ ist eine Lösung.}{}
+
+		\komplexloesung{}{
+			\item $y'=3x^2+2Cx$; rechte Seite: $x^2+\dfrac{2(x^3+Cx^2)}{x}=3x^2+2Cx$ $\checkmark$
+			\item Die Gleichung gilt für alle $C\in\mathbb{R}$.
+		}
+
+		\komplexloesung{Das CAS liefert $y=x^3-x^2$, was zur Lösungsfamilie $y=x^3+Cx^2$ mit $C=-1$ gehört und $y(1)=0$ erfüllt.}{}
+	\end{komplexloesungen}
+\end{loesungssektion}
+
+\end{document}

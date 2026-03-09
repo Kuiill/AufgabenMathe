@@ -1,32 +1,11 @@
-# LaTeX build artifacts
+# LaTeX-Hilfsdateien
 *.aux
 *.log
-*.out
 *.toc
-*.lof
-*.lot
+*.out
 *.fls
 *.fdb_latexmk
 *.synctex.gz
-*.bbl
-*.blg
-*.nav
-*.snm
-*.vrb
-*.xdv
-*.thm
-*.ilg
-*.ind
-*.idx
 
-# Latexmk & tools
-*.run.xml
-
-# Editor / OS
-*~
-*.swp
-.DS_Store
-
-# Optional: PDFs (entfernen, falls PDFs versioniert werden sollen)
+# PDFs (werden nicht versioniert)
 *.pdf
-
