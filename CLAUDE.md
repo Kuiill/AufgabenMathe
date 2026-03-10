@@ -82,10 +82,12 @@ Format: `\currentCategory\arabic{chapter}.\arabic{section}.\arabic{subsection}.\
 ### Stochastik S1 – Counter-Referenz
 | Abschnitt | label | setcounter vor loesungssektion |
 |-----------|-------|-------------------------------|
-| S1.1 Kombinatorik | `sec:kombinatorik` | `\setcounter{section}{1}\setcounter{subsection}{0}` |
-| S1.2 Konkrete Probleme | `sec:historischeProblem` | `\setcounter{section}{2}\setcounter{subsection}{0}` |
-| S1.2 Enrichment Bertrand | Subsection 1 | `\setcounter{subsection}{1}\setcounter{exo}{0}` |
-| S1.3 Mengenoperationen | `sec:mengenoperationen` | `\setcounter{section}{3}\setcounter{subsection}{0}` |
+| S1.1 Kombinatorik (5 Aufg.) | `sec:kombinatorik` | `\setcounter{section}{1}\setcounter{subsection}{0}` |
+| S1.2 Klassische Wahrsch. + Baumdiagramme (21 Aufg.) | `sec:klassWahrsch` | `\setcounter{section}{2}\setcounter{subsection}{0}` |
+| S1.3 Mengenoperationen (4 Aufg.) | `sec:mengenoperationen` | `\setcounter{section}{3}\setcounter{subsection}{0}` |
+| S1.4 Stochastik als math. Theorie (7 Aufg.) | `sec:stochTheorie` | `\setcounter{section}{4}\setcounter{subsection}{0}` |
+
+Archiv (nicht eingebunden): `stochastik/archiv_von_konkreten_problemen.tex`
 
 ---
 
