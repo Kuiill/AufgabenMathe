@@ -1,0 +1,253 @@
+% Archiv: Aufgaben aus "Von konkreten Problemen zur Wahrscheinlichkeitstheorie" (ehem. S1.2)
+% Nicht in aktueller Dateistruktur eingebunden -- zur späteren Verwendung.
+
+% ===========================================================================
+% AUFGABEN
+% ===========================================================================
+
+% ---------------------------------------------------------------------------
+\subsection*{Diskrete vs. Stetige Zufallsexperimente}
+
+\begin{komplexaufgaben}{sec:historischeProblem}
+
+	\komplexaufgabe{
+		\textbf{Diskrete vs. Stetige Zufallsexperimente}
+
+		Betrachten Sie folgende Situationen:
+		\begin{enumerate}[label=(\Roman*)]
+			\item Würfeln mit einem fairen Würfel
+			\item Wartezeit an einer Ampel (0 bis 60 Sekunden)
+			\item Anzahl der Anrufe in einer Telefonzentrale pro Stunde
+			\item Punkt zufällig in einem Quadrat wählen
+			\item Anzahl defekter Glühbirnen in einer Packung mit 10 Stück
+			\item Lebensdauer einer Glühbirne (in Stunden)
+			\item Temperatur um 12 Uhr mittags (gemessen in $^\circ$C)
+		\end{enumerate}
+
+		\textbf{Arbeitsaufträge:}
+	}{
+		\item \textbf{Kategorisierung:} Ordnen Sie die Situationen (I)-(VII) ein:
+		\begin{itemize}
+			\item Diskret oder stetig?
+			\item Falls diskret: endlich oder unendlich viele Ausgänge?
+		\end{itemize}
+
+		\item \textbf{Ergebnismengen:} Geben Sie für jede Situation die Ergebnismenge $\Omega$ an.
+
+		\item \textbf{Gleichwahrscheinlichkeit:} Bei welchen Situationen ist ein Laplace-Modell sinnvoll?
+
+		\item \textbf{Gemeinsame Fragen:} Formulieren Sie für drei Situationen je eine Frage der Form „Mit welcher Wahrscheinlichkeit...?" Was haben diese Fragen gemeinsam? Was unterscheidet sie?
+
+		\item \textbf{Mathematische Herausforderung:} Welche Situationen können Sie mit Ihrem bisherigen Wissen bearbeiten? Bei welchen stoßen Sie an Grenzen?
+
+		\item \textbf{Bedarf an Verallgemeinerung:} Warum braucht man eine einheitliche mathematische Theorie?
+	}
+
+\end{komplexaufgaben}
+
+% ---------------------------------------------------------------------------
+\subsection*{Das Buffonsche Nadelproblem}
+
+\begin{komplexaufgaben}{sec:historischeProblem}
+
+	\komplexaufgabe{
+		\textbf{Das Buffonsche Nadelproblem (Experiment und Theorie)}
+
+		Auf einem Blatt Papier sind parallele Linien im Abstand $d$ gezeichnet. Eine Nadel der Länge $\ell < d$ wird zufällig auf das Blatt geworfen.
+
+		\textbf{Arbeitsaufträge:}
+	}{
+		\item \textbf{Experiment:} Führen Sie das Experiment durch (oder simulieren Sie es):
+		\begin{itemize}
+			\item Zeichnen Sie parallele Linien im Abstand $d = 3$ cm.
+			\item Verwenden Sie eine „Nadel" (z.B. Zahnstocher) der Länge $\ell = 2$ cm.
+			\item Werfen Sie die Nadel 50-mal und notieren Sie, wie oft sie eine Linie schneidet.
+		\end{itemize}
+
+		\item \textbf{Modellierung:} Beschreiben Sie die Position der Nadel durch:
+		\begin{itemize}
+			\item Den Abstand $x$ des Nadelmittelpunkts zur nächsten Linie ($0 \le x \le \frac{d}{2}$)
+			\item Den Winkel $\alpha$ der Nadel zu den Linien ($0 \le \alpha \le \frac{\pi}{2}$)
+		\end{itemize}
+
+		\item \textbf{Schnittbedingung:} Die Nadel schneidet eine Linie, wenn $x \le \frac{\ell}{2} \sin(\alpha)$. Machen Sie sich dies geometrisch klar.
+
+		\item \textbf{Theoretische Wahrscheinlichkeit:}
+		\[
+		P(\text{Schnitt}) = \frac{\int_0^{\pi/2} \frac{\ell}{2}\sin(\alpha)\,d\alpha}{\frac{d}{2} \cdot \frac{\pi}{2}}
+		\]
+		Berechnen Sie dieses Integral und zeigen Sie: $P(\text{Schnitt}) = \dfrac{2\ell}{\pi d}$
+
+		\item \textbf{Überraschung:} Für $\ell = d$ gilt $P(\text{Schnitt}) = \frac{2}{\pi}$. Wie kann man damit $\pi$ schätzen?
+
+		\item \textbf{Unterschied zu Würfeln:} Warum funktioniert hier „Abzählen" nicht? Welche neue Methode war nötig?
+	}
+
+\end{komplexaufgaben}
+
+% ---------------------------------------------------------------------------
+\subsection*{Reflexion: Verschiedene Modelle, gemeinsame Struktur}
+
+\begin{komplexaufgaben}{sec:historischeProblem}
+
+	\komplexaufgabe{
+		\textbf{Reflexion: Verschiedene Modelle, gemeinsame Struktur}
+
+		Sie haben nun verschiedene Arten von Wahrscheinlichkeitsproblemen kennengelernt:
+		\begin{itemize}
+			\item Diskret mit endlich vielen Ausgängen (Würfel, Münze)
+			\item Diskret mit unendlich vielen Ausgängen (Anzahl Anrufe)
+			\item Stetig/geometrisch (Buffon, Wartezeiten)
+		\end{itemize}
+
+		\textbf{Arbeitsaufträge:}
+	}{
+		\item \textbf{Gemeinsamkeiten:} Was haben alle diese Situationen gemeinsam? (z.B. „Wahrscheinlichkeiten liegen zwischen 0 und 1")
+
+		\item \textbf{Unterschiede:} Erstellen Sie eine Tabelle für die drei Kategorien (Beispiel, Methode, Werkzeuge).
+
+		\item \textbf{Rechenregeln:} Verifizieren Sie für je ein Beispiel aus jeder Kategorie:
+		\begin{itemize}
+			\item $P(A \cup B) = P(A) + P(B)$, falls $A$ und $B$ unvereinbar sind
+			\item $P(A^c) = 1 - P(A)$
+		\end{itemize}
+
+		\item \textbf{Bedarf an Abstraktion:} Welche Vorteile hätte ein einheitlicher, abstrakter Rahmen?
+
+		\item \textbf{Ausblick auf Axiome:} Was erwarten Sie von den Axiomen von Kolmogorov?
+	}
+
+\end{komplexaufgaben}
+
+% ---------------------------------------------------------------------------
+\subsection*{Enrichment: Das Bertrand-Paradoxon}
+
+\begin{komplexaufgaben}{sec:historischeProblem}
+
+	\komplexaufgabe{
+		\textbf{Das Bertrand-Paradoxon: Präzision ist alles!}
+
+		Gegeben ist ein Kreis mit Radius $r$. Eine Sehne wird \emph{zufällig} im Kreis gewählt.
+
+		\textbf{Frage:} Mit welcher Wahrscheinlichkeit ist die Sehne länger als die Seite des einbeschriebenen gleichseitigen Dreiecks (Länge $r\sqrt{3}$)?
+
+		\textbf{Arbeitsaufträge:}
+	}{
+		\item \textbf{Methode 1 – Zufälliger Endpunkt:} Ein Punkt ist fest, der andere zufällig auf dem Kreis. Berechnen Sie die Wahrscheinlichkeit.
+
+		\item \textbf{Methode 2 – Zufälliger Mittelpunkt:} Der Mittelpunkt der Sehne ist zufällig im Kreis. Berechnen Sie die Wahrscheinlichkeit (Kreisflächenvergleich).
+
+		\item \textbf{Methode 3 – Zufälliger Abstand:} Richtung fest, Abstand $d$ zum Mittelpunkt gleichverteilt in $[0, r]$. Berechnen Sie die Wahrscheinlichkeit.
+
+		\item \textbf{Vergleich:} Sie erhalten $\frac{1}{3}$, $\frac{1}{4}$ und $\frac{1}{2}$. Welche Antwort ist „richtig"?
+
+		\item \textbf{Das Paradoxon:} Warum führen drei scheinbar gleich natürliche Methoden zu verschiedenen Ergebnissen?
+
+		\item \textbf{Lehre:} Was lernen wir über die Notwendigkeit präziser Definitionen?
+
+		\item \textbf{Verbindung zu $(\Omega, \mathcal{F}, P)$:} Welcher der drei Teile war bei den drei Methoden unterschiedlich?
+	}
+
+\end{komplexaufgaben}
+
+
+% ===========================================================================
+% LÖSUNGEN
+% ===========================================================================
+
+\subsection*{Lösungen: Diskrete vs. Stetige Zufallsexperimente}
+
+\begin{komplexloesungen}{sec:historischeProblem}
+
+	\komplexloesung{
+		\textbf{Diskrete vs. Stetige Zufallsexperimente}
+	}{
+		\item (I) diskret-endlich; \enspace (II) stetig; \enspace (III) diskret-unendlich; \enspace
+		      (IV) stetig; \enspace (V) diskret-endlich; \enspace (VI) stetig; \enspace (VII) stetig
+
+		\item (I) $\Omega = \{1,2,3,4,5,6\}$; \enspace
+		      (II) $\Omega = [0,60]$; \enspace
+		      (III) $\Omega = \{0,1,2,\ldots\}$; \enspace
+		      (IV) Einheitsquadrat $[0,1]^2$; \enspace
+		      (V) $\Omega = \{0,1,\ldots,10\}$; \enspace
+		      (VI) $\Omega = [0,\infty)$; \enspace
+		      (VII) $\Omega = \mathbb{R}$
+
+		\item Laplace sinnvoll: (I) fairer Würfel; (V) falls alle Birnen gleich hergestellt werden.
+
+		\item \emph{(Offene Lernendendiskussion)}
+
+		\item Mit Kombinatorik/Laplace bearbeitbar: (I), (V). Grenzen bei stetigen und unbeschränkten Modellen.
+
+		\item Eine einheitliche Theorie ermöglicht denselben Rechenrahmen für alle Modelltypen.
+	}
+
+\end{komplexloesungen}
+
+\subsection*{Lösungen: Das Buffonsche Nadelproblem}
+
+\begin{komplexloesungen}{sec:historischeProblem}
+
+	\komplexloesung{
+		\textbf{Das Buffonsche Nadelproblem}
+	}{
+		\item \emph{(Experimentelles Ergebnis variiert; Erwartungswert: ca.\ 67\,\% Treffer bei $\ell=2$, $d=3$)}
+
+		\item $x$ und $\alpha$ reichen, weil Mittelpunktlage und Winkel die Nadel eindeutig beschreiben.
+
+		\item Schnitt genau dann, wenn $x \le \tfrac{\ell}{2}\sin\alpha$.
+
+		\item $\displaystyle\int_0^{\pi/2} \tfrac{\ell}{2}\sin\alpha\,d\alpha = \tfrac{\ell}{2}$; \quad
+		      Fläche des Rechtecks: $\tfrac{d\pi}{4}$; \quad
+		      $P = \dfrac{2\ell}{\pi d}$ \checkmark
+
+		\item Für $\ell=d$: $P = \tfrac{2}{\pi}$. Schätzung: $\pi \approx \dfrac{2 \cdot \text{Würfe}}{\text{Treffer}}$.
+
+		\item Würfeln: diskret, Abzählen möglich. Buffon: stetig, Wahrscheinlichkeit = Flächenverhältnis.
+	}
+
+\end{komplexloesungen}
+
+\subsection*{Lösungen: Reflexion}
+
+\begin{komplexloesungen}{sec:historischeProblem}
+
+	\komplexloesung{
+		\textbf{Reflexion: Verschiedene Modelle, gemeinsame Struktur}
+	}{
+		\item $P(E) \in [0,1]$; Gesamtwahrscheinlichkeit 1; Komplementregel; Additivität bei unvereinbaren Ereignissen.
+
+		\item \emph{(Tabelle — Lernendenergebnis)}
+
+		\item \emph{(Konkrete Beispielverifikation — Lernendenergebnis)}
+
+		\item Einzeltheorien wären redundant; einheitlicher Rahmen ist effizienter und allgemein übertragbar.
+
+		\item Axiome: Nicht-Negativität ($P \ge 0$), Normierung ($P(\Omega)=1$), Additivität bei unvereinbaren Ereignissen.
+	}
+
+\end{komplexloesungen}
+
+\subsection*{Lösungen: Das Bertrand-Paradoxon}
+
+\begin{komplexloesungen}{sec:historischeProblem}
+
+	\komplexloesung{
+		\textbf{Das Bertrand-Paradoxon}
+	}{
+		\item Methode~1: $P = \tfrac{1}{3}$.
+
+		\item Methode~2: $P = \dfrac{\pi(r/2)^2}{\pi r^2} = \dfrac{1}{4}$.
+
+		\item Methode~3: $P = \tfrac{1}{2}$.
+
+		\item Alle drei Rechnungen sind korrekt — das Ergebnis hängt vom gewählten Zufallsmechanismus ab.
+
+		\item Der Begriff „zufällig" ist ohne genaue Festlegung nicht eindeutig.
+
+		\item Präzise Definitionen sind unerlässlich; „wähle zufällig" allein ist keine vollständige Beschreibung.
+
+		\item Unterschiedlich war die Wahrscheinlichkeitsvorschrift $P$.
+	}
+
+\end{komplexloesungen}
